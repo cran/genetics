@@ -1,4 +1,4 @@
-% $Id: HWE.chisq.Rd,v 1.3 2004/09/21 21:45:45 warnes Exp $
+% $Id: HWE.chisq.Rd,v 1.4 2004/11/15 15:34:59 warnes Exp $
 
 \name{HWE.chisq}
 \alias{HWE.chisq}
@@ -28,10 +28,17 @@ HWE.chisq(x, ...)
 \details{
   This function generates a 2-way table of allele counts, then calls
   \code{\link{chisq.test}} to compute a p-value for Hardy-Weinberg
-  Equilibrium.  By default, it requests that the test statistic be
-  computed using a simulation/permutation method.  When
-  \code{simulate.p.value} is false, it computes the test statistic using
-  the Chi-Square distribution, with the approproate degrees of freedom.
+  Equilibrium.  By default, it uses an unadjusted Chi-Square test
+  statistic and computes the p-value using a simulation/permutation
+  method.  When \code{simulate.p.value=FALSE}, it computes the test
+  statistic using the Yates continuity correction and tests it against
+  the asymptotic Chi-Square distribution with the approproate degrees of
+  freedom.
+
+  Note: The Yates continuty correction is applied *only* when
+  \code{simulate.p.value=FALSE}, so that the reported test statistics
+  when \code{simulate.p.value=FALSE} and \code{simulate.p.value=TRUE}
+  will differ.
 }
 \value{
   An object of class \code{htest}.

@@ -1,130 +1,8 @@
 
-#diseq.old <- function(x)
-#{
-#  if(!("genotype") %in% class(x) )
-#    stop("x must inherit from class 'genotype'.")
-  
-#  # Estimates and tests per Wier (1996)  Genetic Data Analysis II
-
-#  allele.names  <-  allele.names(x)
-  
-#  n <- length(na.omit(x))
-
-#  require(ctest)
-
-#  # specify levels so we get zeros where we need them
-#  tab  <- table( factor(allele(x,1), levels=allele.names(x)),
-#                 factor(allele(x,2), levels=allele.names(x)) )
-
-#  allele.prob  <- table( allele(x) ) / (2 * n)
-
-#  k  <-  length(allele.names)
-#  D.hat  <-  matrix(NA, ncol=5, nrow= k * (k+1) / 2 + 1)
-#  rnames  <- rep("",nrow(D.hat))
-#  index  <- 1
-#  for(i in 1:k)
-#    for(j in i:k)
-#      {
-#        rnames[index]  <- paste( allele.names[i],
-#                                allele.names[j], sep="/")
-
-#        D.hat[index,1]  <- P  <-  tab[i,j]
-
-#        if(i==j)
-#          {
-#            D.hat[index,2] <- pp <- n*allele.prob[allele.names[i]] ^ 2
-#            D.hat[index,5] <- 1
-#          }
-#        else
-#          {
-#            D.hat[index,2] <- pp <- 2 * n * allele.prob[allele.names[i]] *
-#                                            allele.prob[allele.names[j]]
-#            D.hat[index,5] <- 2
-
-#            D.hat[index,3] <- D  <- P - pp
-#            D.hat[index,4] <- D/n / D.hat[index,5]
-#          }
-          
-#        index  <-  index+1
-#      }
-
-#  rnames[nrow(D.hat)]  <- "Overall"
-#  D.hat[nrow(D.hat),1]  <- n
-
-#  ab  <- abs(D.hat[,3]/D.hat[,5])[-nrow(D.hat)]
-##  ab  <- (D.hat[,3]/D.hat[,5])[-nrow(D.hat)]
-#  nab  <- D.hat[,5][-nrow(D.hat)]
-#  Dh  <- mean(rep(ab,nab),na.rm=TRUE)/n
-#  D.hat[nrow(D.hat),4]  <-Dh
-
-#  rownames(D.hat)  <- rnames
-#  colnames(D.hat) <- c("Observed","Expected","Obs-Exp","D-hat","")
-  
-#  retval  <- list()
-#  retval$data <-  tab
-#  retval$D.hat  <- D.hat
-#  retval$call  <- match.call()
-#  class(retval)  <-  "diseq.old"
-#  return(retval)
-#}
-
-
-#print.diseq.old  <-  function(x, show.table=TRUE, ...)
-#  {
-
-#    cat("\n")
-#    if(!is.null(x$locus))
-#      {
-#        cat("\n")
-#        print( x$locus )
-#      }
-#    cat("\n")
-#    cat("Call: \n")
-#    print(x$call)
-#    cat("\n")
-#    if(show.table)
-#      {
-#        cat("Disequlibrium (D-hat) Computation Table:\n")
-#        cat("\n") 
-#        print(x$D.hat[,-5] )
-#        cat("\n")
-#      }
-#    cat("Overall Disequlibrium:\n")
-#    cat("\n")
-#    cat("\tD-hat :  ", x$D.hat[nrow(x$D.hat),4], "\n", sep="")
-#    cat("\n")
-#    cat("\n")
-#  }
-
-#diseq.ci.old <- function(x, R=1000, conf=0.95)
-#{
-#  if (!("genotype") %in% class(x) )
-#    stop("x must inherit from class 'genotype'.")
-  
-#  bootfun <- function(x, ids) {
-#    tmp <- diseq.old(x[ids])$D.hat
-#    tmp[nrow(tmp),4]
-#  }
-  
-#  bb <- boot( x, bootfun, R=R )
-#  bb.ci <- boot.ci(bb, type=type, conf=conf, ...)
-#  bb.ci
-#}
-
-
 diseq <- function(x, ...)
 {
 	UseMethod("diseq")
 }
-
-# Pairwise Disequilibrium Measures. For each pair of markers we
-# calculated D, D' and r, the most commonly used measures of LD
-# (other measures are reviewed in refs 14,15 ). For a pair of markers
-# i and j, we defined Dij = p(11) - p(1·)p(·1), where p(ab) is the
-# estimated frequency of the haplotypes with alleles a at marker i and
-# b at marker j and · denotes any allele. Then, D'ij = |D11/Dmax|,
-# where Dmax = max(p(1·)p(·1),p(2·)p(·2)) if Dij > 0 and Dmax =
-# max(p(1·)p(·2),p(2·)p(·1)) otherwise, and r²ij = Dij²/(p(1·)p(·1)p(2·)p(·2)).
 
 diseq.genotype <- function(x, ...)
   { 
@@ -147,7 +25,7 @@ diseq.table <- function(x, ...)
 
   expected <- outer(allele.freq, allele.freq, "*")
 
-  diseq <- expected - observed
+  diseq <- observed - expected
   diag(diseq) <- NA
 
   dmax.positive <- expected
@@ -162,12 +40,19 @@ diseq.table <- function(x, ...)
   # one allele from the specified pair.
   # For two alleles:
   #    corr coefficient = diseq / sqrt( p(a) * (1-p(a) ) * p(b) * (1-p(b)) )
-  p.1.minus.p <- allele.freq * (1-allele.freq)
-  r <-  -diseq  / sqrt( outer( p.1.minus.p, p.1.minus.p, "*") )
+  #p.1.minus.p <- allele.freq * (1-allele.freq)
+  #r <-  -diseq  / sqrt( outer( p.1.minus.p, p.1.minus.p, "*") )
+  r.denom <- sqrt(    allele.freq  %*% t(  allele.freq)) *
+             sqrt( (1-allele.freq) %*% t(1-allele.freq))
+  r <- -diseq  / r.denom
 
+  print(allele.freq)
+  print(r.denom)
+  print(-diseq)
+  
   # above formula works unchanged for 2 alleles, but requires adjustment
   # for multiple alleles.  
-  r <- r * (length(allele.freq) - 1)
+  # r <- r * (length(allele.freq) - 1)
 
   offdiag.expected <- expected
   diag(offdiag.expected) <- NA
@@ -186,7 +71,7 @@ diseq.table <- function(x, ...)
       r.overall <- sum( abs(r) * expected , na.rm=TRUE ) / sum.expected
     }
   
-  diag(r) <- 1.0
+  #diag(r) <- 1.0
 
   retval <- list(
                  call = match.call(),

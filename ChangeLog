@@ -1,3 +1,24 @@
+2004-11-15 11:22  warnes
+
+	* R/summary.genotype.R: Ensure that allele.freq table has the same
+	  ordering as allele.names.
+
+2004-11-15 11:20  warnes
+
+	* R/HWE.test.R: remove triplicate comment
+
+2004-11-15 10:34  warnes
+
+	* man/HWE.chisq.Rd: Make it clear that the Yates continuty
+	  correction is applied *only* when simulate.p.value=FALSE, so that
+	  the reported test statistics for simulate.p.value=FALSE and
+	  simulate.p.value=TRUE will differ.
+
+2004-10-13 12:21  warnes
+
+	* R/diseq.R, man/diseq.Rd: Attempt to fix/clarify HWE diseq.
+	  computations & synchronize documentation.
+
 2004-09-21 17:45  warnes
 
 	* DESCRIPTION, NAMESPACE, NEWS, R/power.casectl.R,

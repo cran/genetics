@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.10 2003/08/04 13:48:40 warnesgr Exp $
+# $Id: summary.genotype.R,v 1.11 2004/11/15 16:22:14 warnes Exp $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -28,9 +28,19 @@ summary.genotype  <-  function(object,...,maxsum)
     
     retval$locus  <- attr(object,"locus")
     class(retval)  <- "summary.genotype"
+
     af  <- table(allele(object))
-    paf <- prop.table(af)
-    retval$allele.freq    <- cbind("Count"=af,"Proportion"=paf)
+    
+    # make sure af has same order as allele.names...
+    #
+    missed <- !names(af) %in% retval$allele.names 
+    af.tab <- rep(0,length(retval$allele.names))
+    names(af.tab) <- retval$allele.names
+    af.tab[names(af)] <- af
+    #
+    
+    paf <- prop.table(af.tab)
+    retval$allele.freq    <- cbind("Count"=af.tab,"Proportion"=paf)
 
     gf  <- table( object )
     pgf <- prop.table(gf)

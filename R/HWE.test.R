@@ -1,4 +1,4 @@
-# $Id: HWE.test.R,v 1.16 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: HWE.test.R,v 1.17 2004/11/15 16:20:47 warnes Exp $
 
 ### Hardy-Weinberg Equilibrium Disequlibrium Estimates, Confidence
 ### Intervals, and P-values
@@ -25,10 +25,6 @@ HWE.test.genotype <- function(x, exact=nallele(x)==2,
   
   # compute confidence intervals
   retval$ci <- diseq.ci(x, R=ci.B, conf=conf)
-
-
-  # compute p-value
-  # compute exact p-value
 
   # do chisq test
   if(exact)

@@ -1,4 +1,4 @@
-% $Id: diseq.Rd,v 1.10 2004/09/21 21:45:45 warnes Exp $
+% $Id: diseq.Rd,v 1.11 2004/10/13 16:21:11 warnes Exp $
 
 \name{diseq}
 \alias{diseq}
@@ -33,22 +33,26 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 }
 \details{
   For a single-gene marker, \code{diseq} computes the Hardy-Weinberg
-  (dis)equilibrium statistic D, D', and r (the correlation coefficient)
-  for each pair of allele values, as well as an overall value for
-  each. \code{print.diseq} displays the contents of a \code{diseq}
-  object. \code{diseq.ci} computes a bootstrap confidence interval for
-  this estimate.
+  (dis)equilibrium statistic D, D', r (the correlation coefficient), and
+  \eqn{r^2} for each pair of allele values, as well as an overall
+  summary value for each measure across all alleles.  \code{print.diseq}
+  displays the contents of a \code{diseq} object. \code{diseq.ci}
+  computes a bootstrap confidence interval for this estimate.
 
-  For each allele pair,
+  For consistency, I have applied the standard definitions for D, D',
+  and r from the Linkage Disequilibrium case, replacing all marker 
+  probabilities with the appropriate allele probabilities.
+  
+  Thus, for each allele pair,
   \itemize{
     \item{D}{ is defined as the half of the raw difference
       in frequency between
       the observed number of heterozygotes and the expected number:
       
       \deqn{%
- 	D = \frac{1}{2} ( p_{ij} - 2  p_i p_j ) %
+ 	D = \frac{1}{2} ( p_{ij} + p_{ji} ) - p_i p_j  %
       }{%
- 	D = 1/2 * ( p(ij) - 2 * p(i)*p(j) )  %
+ 	D = 1/2 * ( p(ij) + p(ji) ) - p(i)*p(j)   %
       }
       
     }
@@ -59,26 +63,26 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
       
       where, if D > 0:
       \deqn{%
-  	D_{max} = \min( p_i, p_j ) - p_{ij}  %
+  	D_{max} = \min{ p_i p_j, p_j p_i } = p_i p_j   %
       }{%
-  	Dmax = min( p(i),p(j) ) - p(ij)   %
+  	Dmax = min(p(i)p(j), p(j)p(i)) =  p(i)p(j)   %
       } 
       or if D < 0:
       \deqn{%
-  	D_{max} = p_{ij} %
+  	D_{max} = \min{ p_i (1 - p_j), p_j (1 - p_i) } %
       }{%
-  	Dmax = p(ij)  %
+  	Dmax = min( p(i) * (1 - p(j)), p(j)( 1 - (1-p(i) ) ) )
       }
     }
     
-    \item{r}{ is the correlation coefficient between the two alleles ignoring all
-      other alleles, and can be computed by
+    \item{r}{ is the correlation coefficient between two alleles,
+      %ignoring all other alleles,
+      and can be computed by
       
       \deqn{%
- 	r = \frac{-D}{\sqrt( p_i * (1-p_i) p(j) (1-p_j ) )} =
-	\frac{-D}{p_i p_j}%
+ 	r = \frac{-D}{\sqrt( p_i * (1-p_i) p(j) (1-p_j ) )} %
       }{%
- 	r = -D / sqrt( p(i)*(1-p(i)) * p(j)*(1-p(j)) ) = -D / p(i)p(j) %
+ 	r = -D / sqrt( p(i)*(1-p(i)) * p(j)*(1-p(j)) ) %
       }
     }
     
