@@ -1,4 +1,4 @@
-% $Id: locus.Rd,v 1.9 2003/05/30 16:08:18 warnesgr Exp $
+% $Id: locus.Rd,v 1.10 2004/05/25 19:40:02 warnesgr Exp $
 %
 % %Log$
 %

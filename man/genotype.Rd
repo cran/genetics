@@ -1,4 +1,4 @@
-% $Id: genotype.Rd,v 1.20 2003/05/27 18:45:52 warnesgr Exp $
+% $Id: genotype.Rd,v 1.21 2004/05/25 19:40:02 warnesgr Exp $
 %
 % %Log$
 %

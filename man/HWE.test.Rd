@@ -1,7 +1,10 @@
 #
-# $Id: HWE.test.Rd,v 1.12 2003/03/07 14:47:53 warnesgr Exp $
+# $Id: HWE.test.Rd,v 1.13 2004/05/25 19:40:02 warnesgr Exp $
 #
 # $Log: HWE.test.Rd,v $
+# Revision 1.13  2004/05/25 19:40:02  warnesgr
+# Many fixex.
+#
 # Revision 1.12  2003/03/07 14:47:53  warnesgr
 #
 # - Added links to HWE.chisq, HWE.exact, genotype to see also seciton.

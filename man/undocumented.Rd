@@ -1,4 +1,4 @@
-# $Id: undocumented.Rd,v 1.6 2003/05/28 20:26:07 warnesgr Exp $
+# $Id: undocumented.Rd,v 1.7 2004/05/25 19:40:02 warnesgr Exp $
 #
 \name{undocumented}
 \alais{ci.balance}

@@ -30,7 +30,7 @@ homozygote(x,  allele.name, ...)
 heterozygote(x, allele.name, ...)
 carrier(x, allele.name, ...)
 \method{carrier}{genotype}(x, allele.name=allele.names(x),
-        any=!missing(allele..name), na.rm=FALSE, ...)
+        any=!missing(allele.name), na.rm=FALSE, ...)
 allele.count(x, allele.name=allele.names(x),any=!missing(allele.name),
              na.rm=FALSE)
 allele(x, which=c(1,2) )

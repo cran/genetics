@@ -1,6 +1,7 @@
-# $Id: ci.balance.R,v 1.2 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: ci.balance.R,v 1.4 2004/03/25 17:15:06 warnesgr Exp $
 
-ci.balance <- function(x, est, conf=0.95, minval, maxval, na.rm=TRUE)
+ci.balance <- function(x, est, confidence=0.95, alpha=1-confidence,
+                       minval, maxval, na.rm=TRUE)
   {
     if( any(is.na(x) ) )
       {
@@ -28,7 +29,7 @@ ci.balance <- function(x, est, conf=0.95, minval, maxval, na.rm=TRUE)
     
     x <- sort(x)
     n <- length(x)
-    half.window <- n * conf / 2
+    half.window <- n * (1-alpha) / 2
     n.below <- sum( x < est ) + sum( x==est )/2
     n.above <- sum( x > est ) + sum( x==est )/2 
 

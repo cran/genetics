@@ -1,3 +1,7 @@
+Version 1.0.4
+
+- Updated to remove warnings in R CMD check for R 1.9.1.
+
 Version 1.0.2
 
 - Fixed Heterozygosity (H) and PIC calculations in summary.genotype.

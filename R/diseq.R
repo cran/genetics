@@ -326,7 +326,8 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 
           ci <- t(apply(results, 1,
                         function(x)
-                        ci.balance(x,x[1],minval=0,maxval=1)$ci ))
+                        ci.balance(x,x[1],confidence=conf,
+                                   minval=0,maxval=1)$ci ))
         }
       else
         ci <- t(apply(results, 1, function(x) quantile(x, c(0.025, 0.975) ) ) )

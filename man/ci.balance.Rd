@@ -7,12 +7,16 @@
   boundaries of the parameter space by 'sliding' the interval on the
   quantile scale.}
 \usage{
-ci.balance(x, est, conf = 0.95, minval, maxval, na.rm = TRUE)
+ci.balance(x, est, confidence=0.95, alpha=1-confidence, minval, maxval,
+           na.rm=TRUE)
 }
 \arguments{
   \item{x}{Bootstrap parameter estimates.}
   \item{est}{Observed value of the parameter.}
-  \item{conf}{Confidence level for the interval. Defaults to 0.95.}
+  \item{confidence}{Confidence level for the interval. Defaults to
+    0.95.}
+  \item{alpha}{Type I error rate (size) for the interval. Defaults to
+               1-\code{confidence}.}  
   \item{minval}{A numeric value specifying the lower bound of the
                 parameter space. Leave unspecified (the default) if
                 there is no lower bound.}

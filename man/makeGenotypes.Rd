@@ -1,6 +1,9 @@
-% $Id: makeGenotypes.Rd,v 1.4 2003/05/27 18:45:52 warnesgr Exp $
+% $Id: makeGenotypes.Rd,v 1.5 2004/05/25 19:40:02 warnesgr Exp $
 %
 % $Log: makeGenotypes.Rd,v $
+% Revision 1.5  2004/05/25 19:40:02  warnesgr
+% Many fixex.
+%
 % Revision 1.4  2003/05/27 18:45:52  warnesgr
 %
 % - Fix typos, update arguments to match changes to code
