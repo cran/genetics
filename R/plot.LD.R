@@ -1,10 +1,10 @@
-# $Id: plot.LD.R,v 1.3 2003/05/27 18:32:06 warnesgr Exp $
+# $Id: plot.LD.R,v 1.5 2003/06/04 21:22:57 warnesgr Exp $
 
 plot.LD.data.frame <- function(x,
                                digits=3,
 
-                               sig=c(0,0.01, 0.025, 0.5, 0.1, 1),
-                               celcol=heat.colors(length(sig)),
+                               colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
+                               colors=heat.colors(length(colorcut)),
                                textcol="black",
 
                                marker,
@@ -16,7 +16,8 @@ plot.LD.data.frame <- function(x,
     
     par(mfrow=c(1,2))
 
-    LDtable(x, digits=digits, sig=sig, celcol=celcol, textcol=textcol, ...)
+    LDtable(x, digits=digits, colorcut=colorcut, colors=colors,
+            textcol=textcol, ...)
     LDplot(x, marker=marker, which=which, distance=distance, ...)
     
     par(mfrow=oldpar)
@@ -25,54 +26,102 @@ plot.LD.data.frame <- function(x,
 
 
 LDtable <- function(x, 
-                     sig=c(0,0.01, 0.025, 0.5, 0.1, 1),
-                     celcol=heat.colors(length(sig)),
-                     textcol="black",
-                     digits=3,
-                     ...)
+                    colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
+                    colors=heat.colors(length(colorcut)),
+                    textcol="black",
+                    digits=3,
+                    show.all=FALSE,
+                    which=c("D", "D'", "r", "X^2", "P-value", "n"),
+                    colorize="P-value",
+                    cex,
+                    ...)
   {
-    dmat <- format( sign(x$"D") * x$"D'", digits=digits )
-    tmp <- cut(x$"P-value", sig, include.lowest=TRUE)
-    sigmat <- matrix(as.numeric(tmp),
-                     nrow=nrow(x$"P-value"),
-                     ncol=ncol(x$"P-value"))
+    if(! colorize %in% names(x))
+      stop(colorize, " not an element of ", deparse(substitute(x)) )
 
-    # remove blank row/column
-    sigmat <- sigmat[-nrow(sigmat),-1]
-    dmat <- dmat[-nrow(dmat),-1]
-    n <- paste("(",x$n[-nrow(x$n),-1],")",sep="")
-    p.value <- format.pval(x$"P-value"[-nrow(x$"P-value"),-1], digits=digits)
+    datatab <- summary(x)
     
-    nlev <- nlevels(tmp)
+    missmatch <- which[!(which %in% names(x))]
+    if(length(missmatch)>0)
+      stop(missmatch, " not an element of ", deparse(substitute(x)) )
 
-    image(x=1:ncol(sigmat), y=1:ncol(sigmat), z=sigmat[ncol(sigmat):1,],
-          col=celcol, xlab="Marker 2\n\n", ylab="Marker 1",
+    matform <- function( value, template )
+      {
+        dim(value) <- dim(template)
+        dimnames(value) <- dimnames(template)
+        value
+      }
+    
+    tmp <- cut(x[[colorize]], colorcut, include.lowest=TRUE)
+    colormat <- matform(as.numeric(tmp), x[[colorize]] )
+    n <- matform( paste("(",x$n,")",sep="" ), x$n)
+
+    if(!show.all)
+      { # remove blank row/column
+        colormat <- colormat[-nrow(colormat),-1, drop=FALSE]
+        n <- n[-nrow(n),-1, drop=FALSE]
+      }
+
+    #
+    # color coded frame boxes
+    #
+    image(x=1:ncol(colormat), y=1:ncol(colormat),
+          z=t(colormat[nrow(colormat):1,]),
+          col=colors, xlab="Marker 2\n\n", ylab="Marker 1",
           xaxt="n", yaxt="n",...)
     
-    abline(v=-0.5 + 1:(ncol(sigmat)+1))
-    abline(h=-0.5 + 1:(nrow(sigmat)+1))
+    abline(v=-0.5 + 1:(ncol(colormat)+1))
+    abline(h=-0.5 + 1:(nrow(colormat)+1))
     
-    axis(3, 1:ncol(sigmat), colnames(dmat) )
-    axis(2, 1:nrow(sigmat), rownames(dmat) )
+    axis(3, 1:ncol(colormat), colnames(colormat) )
+    axis(2, 1:nrow(colormat), rev(rownames(colormat)) )
     
+    #
+    # text in boxes
+    #
+    cex.old <- par("cex")
+
+    if(missing(cex))
+      cex <-min( c(1/10, 1/(length(which)+1 ) ) /
+                 c(strwidth("W"), strheight("W")*1.5))
     
-    row <- matrix( 1:nrow(dmat), nrow=nrow(dmat), ncol=ncol(dmat), byrow=FALSE)
-    col <- matrix( 1:nrow(dmat), nrow=nrow(dmat), ncol=ncol(dmat), byrow=TRUE)
+    par(cex=cex)
+
+    lineheight <- strheight("W")*1.5
+    center <- lineheight * length(which)/2
+    
+    for(i in 1:length(which))
+      {
+        displaymat <- x[[which[i]]]
+
+        if(!show.all)
+          displaymat <- displaymat[-nrow(displaymat),-1, drop=FALSE]
         
-    txtdat <- paste(dmat, n, p.value, sep="\n" )
-    txtdat <- gsub("NA.*","",txtdat)
+        if( which[i]=="P-value" )
+          displaymat <- format.pval(displaymat, digits=digits)
+        else if (which[i]!="n")
+          displaymat <- format(displaymat, digits=digits)
+
+        displaymat[] <- gsub("NA.*", "", as.character(displaymat))
         
-    text(x=nrow(dmat)-(row-1) ,
-         y=col,
-         txtdat,
-         col=textcol,
-         adj=c(0.5, 0.5)
-         )
+        text(x=col(colormat),
+             y=nrow(colormat) - row(colormat)+ 1 + center - lineheight*(i-1),
+             displaymat,
+             col=textcol,
+             adj=c(0.5, 1)
+             )
+      }
+
+    text(x=1, y=1, paste(which, collapse="\n"), adj=c(0.5,0.5) )
+
+    par(cex=cex.old)
     
-    text(x=1, y=1, "(-)D'\n(N)\nP-value", adj=c(0.5,0.5) )
+    #
+    # title
+    #
     title(main="Linkage Disequilibrium\n")
 
-    invisible()
+    invisible(colormat)
   }
 
 
@@ -81,9 +130,11 @@ LDplot <- function(x,
                    digits=3,
                    marker,
                    distance,
-                   which="D'",
+                   which=c("D", "D'", "r", "X^2", "P-value", "n", " "),
                    ...)
 {
+  which = match.arg(which)
+  
   if(missing(marker))
     marker <- colnames(x[[which]])
   else if (is.numeric(marker))

@@ -1,4 +1,4 @@
-# $Id: print.LD.R,v 1.4 2003/05/27 21:18:06 warnesgr Exp $
+# $Id: print.LD.R,v 1.6 2003/06/04 21:20:35 warnesgr Exp $
 
 print.LD <- function(x, digits=getOption("digits"), ...)
   {
@@ -24,8 +24,8 @@ print.LD <- function(x, digits=getOption("digits"), ...)
   }
 
 
-print.LD.data.frame <- function(x, digits=getOption("digits"),
-                                which=c("D", "D'", "r", "X^2",
+summary.LD.data.frame <- function(object, digits=getOption("digits"),
+                                which=c("D", "D'", "r", "OBJECT^2",
                                         "P-value", "n", " "),
                                 rowsep, show.all=FALSE,
                                 ...)
@@ -40,7 +40,7 @@ print.LD.data.frame <- function(x, digits=getOption("digits"),
     if(is.null(rowsep))
       blank <- NULL
     else
-      blank <- matrix(rowsep, ncol=ncol(x$"D"), nrow=nrow(x$"D"))
+      blank <- matrix(rowsep, ncol=ncol(object$"D"), nrow=nrow(object$"D"))
     
 
 
@@ -50,13 +50,13 @@ print.LD.data.frame <- function(x, digits=getOption("digits"),
     
     pdat <- list()
     for(name in which)
-      pdat[[name]] <- x[[name]]
+      pdat[[name]] <- object[[name]]
     
     tab <- interleave(
                       D = pdat$"D",
                       "D'" = pdat$"D'",
                       "Corr." = pdat$"r",
-                      "X^2"= pdat$"X^2",
+                      "OBJECT^2"= pdat$"OBJECT^2",
                       "P-value" = pdat$"P-value",
                       "n" = pdat$"n",
                       " "=blank,
@@ -64,35 +64,49 @@ print.LD.data.frame <- function(x, digits=getOption("digits"),
                       )
 
     statlist <- which[ ! (which %in% c("P-value", "n", " ") ) ]
-    statlist[statlist=="X^2"] <- "X\\^2"
+    statlist[statlist=="OBJECT^2"] <- "OBJECT\\^2"
 
-    formatlist <- sapply( statlist, function(x) grep(x, rownames(tab) ) )
+    formatlist <- sapply( statlist, function(object) grep(object, rownames(tab) ) )
     formatlist <- unique(sort(unlist(formatlist)))
     
     pvallist   <- grep( "P-value", rownames(tab) )
     
     tab[formatlist,] <- formatC(as.numeric(tab[formatlist,]), digits=digits,
                                 format="f")
-    tab[pvallist,] <- apply(x$"P-value", c(1,2),
-                            function(x)trim(format.pval(x, digits=digits)))
+    tab[pvallist,] <- apply(object$"P-value", c(1,2),
+                            function(object)trim(format.pval(object, digits=digits)))
     
     tab[trim(tab)=="NA"] <- NA
 
     if(!show.all)
       {
          # drop blank row/column
-        entrylen <- nrow(tab)/nrow(x$n)
+        entrylen <- nrow(tab)/nrow(object$n)
         tab <- tab[1:(nrow(tab) - entrylen),-1]
       }
 
-    cat("\n")
-    cat("Pairwise LD\n")
-    cat("-----------\n")
-    
-    print.matrix(tab, digits=digits, quote=FALSE, na.print="    ", right=TRUE) 
-
-    cat("\n")
     
     options(saveopt)
-    invisible(tab)
+    class(tab) <- "summary.LD.data.frame"
+    tab
   }
+
+print.summary.LD.data.frame <- function(x, digits=getOption("digits"), ...)
+{
+  cat("\n")
+  cat("Pairwise LD\n")
+  cat("-----------\n")
+
+  print.matrix(unclass(x), digits=digits, quote=FALSE,
+               na.print="    ", right=TRUE) 
+        
+  cat("\n")
+
+  invisible(x)
+
+  
+}
+
+
+print.LD.data.frame <- function(x, ...)
+  print(summary(x))

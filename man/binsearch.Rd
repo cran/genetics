@@ -95,5 +95,5 @@ binsearch( power.fun, range=c(0,100), target=0.95 )
 # equivalent to
 gregorius( freq=0.07, missprob=0.05)
 }
-\keyword{ optimize }
-\keyword{ programming }
+\keyword{optimize}
+\keyword{programming}

@@ -1,3 +1,24 @@
+Version 1.0.1
+
+- Fixed mislabeling of rows/columns in LDtable
+
+- Extended LDtable to resize text to fit box area, and to allow
+  selection of which statistics are displayed, and which statistic is
+  used for coloration.
+
+- Extended LDtable to allow all columns & rows to be shown
+
+- Added a larger example to plot.LD.data.frame documentation
+
+- Changed the name of some function parameters to be more clear and/or
+  consistent
+
+- Added summary.LD.data.frame and print.LD.data.frame
+
+- Fixed a bug in genotype() when reorder="no", such as when called by
+  haplotype().
+
+
 Version 1.0.0
 
 - New functions to estimate and test linkage disequilibrium (LD):

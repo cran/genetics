@@ -1,4 +1,4 @@
-# $Id: genotype.R,v 1.25 2003/05/29 00:35:43 warnesgr Exp $
+# $Id: genotype.R,v 1.27 2003/06/04 21:22:22 warnesgr Exp $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,
@@ -94,7 +94,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
       parts[is.na(parts[,1]) | is.na(parts[,2]),]  <- c(NA,NA)
     
     if(missing(alleles) || is.null(alleles))
-      alleles <- unique(na.omit(parts))
+      alleles <- unique(c(na.omit(parts)))
     else
       {
         which.alleles  <- !(parts %in% alleles)
@@ -158,19 +158,18 @@ is.haplotype  <- function(x)
 ###
 ### Haplotype -- differs only in that order of a1,a2 is considered siginificant
 ###
-haplotype <- function(a1, a2=NULL, alleles=NULL, sep="/",
-                      remove.spaces=TRUE,
-                      reorder="no",
-                      allow.partial.missing=FALSE,
-                      locus=NULL)
+haplotype <- function (a1, a2 = NULL, alleles = NULL, sep = "/",
+                       remove.spaces = TRUE, reorder = "no",
+                       allow.partial.missing = FALSE, locus = NULL) 
 {
-    retval <- genotype(a1=a1,a2=a2,alleles=alleles,sep=sep,
-                       remove.spaces=remove.spaces,reorder=reorder,
-                       allow.partial.missing=allow.partial.missing,
-                       locus=locus)
-    class(retval)  <- c("haplotype","genotype","factor")
+    retval <- genotype(a1 = a1, a2 = a2, alleles = alleles, sep = sep, 
+                       remove.spaces = remove.spaces, reorder = reorder,
+                       allow.partial.missing = allow.partial.missing, 
+                       locus = locus)
+    class(retval) <- c("haplotype", "genotype", "factor")
     retval
 }
+
 
 as.haplotype  <- function(x,...)
 {

@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.8 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: summary.genotype.R,v 1.9 2003/06/05 22:06:52 warnesgr Exp $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -33,6 +33,25 @@ summary.genotype  <-  function(object,...,maxsum)
 
     gf  <- table( object )
     retval$genotype.freq  <- cbind("Count"=gf,"Proportion"=prop.table(gf))
+
+
+    ### from code submitted by David Duffy <davidD@qimr.edu.au>
+    #
+    n.typed<-sum(gf)
+    correction<-n.typed/max(1,n.typed-1)
+    ehet<-(1-sum(af*af))
+    matings<- (af %*% t(af))^2
+    uninf.mating.freq <- sum(matings)-sum(diag(matings))
+    pic<- ehet - uninf.mating.freq
+
+    retval$Hu <- correction * ehet
+    retval$pic <- pic
+    retval$n.typed <- n.typed
+    retval$n.total <- length(object)
+    retval$nallele <- nallele(object)
+    #
+    ###
+
     
     if(any(is.na(object))){
         retval$allele.freq    <- rbind(retval$allele.freq,
@@ -40,6 +59,9 @@ summary.genotype  <-  function(object,...,maxsum)
         retval$genotype.freq  <- rbind(retval$genotype.freq,
                                        "NA"=c(sum(is.na(object)),NA))
     }
+
+
+
     
     return(retval)
   }
@@ -51,17 +73,26 @@ print.summary.genotype  <-  function(x,...,round=2)
         cat("\n")
         print( x$locus )
       }
-     
+
     cat("\n")
-    cat("Allele Frequency:\n")
+    cat("Number persons typed: ", x$n.typed,
+      " (", round(100*x$n.typed/x$n.total,1), "%)\n", sep="")
+
+    cat("\n")
+    cat("Allele Frequency: (", x$nallele, " alleles)\n", sep="")
     print(round(x$allele.freq,digits=round),...)
+    cat("\n")
+
 
     cat("\n")
     cat("Genotype Frequency:\n")
     print(round(x$genotype.freq,digits=round),...)
-    
     cat("\n")
-
+    
+    cat("Heterozygosity (Hu)  = ",  x$Hu, "\n", sep="")
+    cat("Poly. Inf. Content   = ",  x$pic, "\n", sep="")
+    cat("\n")
+    
     invisible(x)
   }
 

@@ -1,4 +1,4 @@
-# $Id: LD.R,v 1.5 2003/05/27 18:30:05 warnesgr Exp $
+# $Id: LD.R,v 1.6 2003/06/03 12:59:14 warnesgr Exp $
 
 # R translation of Cathy Stack's SAS macro
 # Assumes 2-alleles
@@ -56,8 +56,11 @@ LD.data.frame <- function(g1,...)
 
 LD.genotype <- function(g1,g2,...)
   {
+    if(is.haplotype(g1) || is.haplotype(g2))
+      stop("Haplotype options are not yet supported.")
+    
     if(nallele(g1)!=2 || nallele(g2)!=2)
-      stop("This function currently only supports 2-allele genotypes")
+      stop("This function currently only supports 2-allele genotypes.")
 
     prop.A <- summary(g1)$allele.freq[,2]
     prop.B <- summary(g2)$allele.freq[,2]
