@@ -46,10 +46,6 @@ diseq.table <- function(x, ...)
              sqrt( (1-allele.freq) %*% t(1-allele.freq))
   r <- -diseq  / r.denom
 
-  print(allele.freq)
-  print(r.denom)
-  print(-diseq)
-  
   # above formula works unchanged for 2 alleles, but requires adjustment
   # for multiple alleles.  
   # r <- r * (length(allele.freq) - 1)

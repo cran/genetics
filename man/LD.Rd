@@ -1,4 +1,4 @@
-% $Id: LD.Rd,v 1.4 2004/09/17 18:46:26 warnes Exp $
+% $Id: LD.Rd,v 1.5 2004/11/22 14:35:10 warnes Exp $
 
 \name{LD}
 \alias{LD}
@@ -77,11 +77,11 @@ LD(g1, ...)
   \itemize{
     \item{-}{ \eqn{p_A}{p(A)} is defined as the observed probability of
       allele 'A' for marker 1, }
-    \item{-}{ \eqn{p_a=1-p_A}{p(a) = 1-p(a)} is defined as the observed probability of
+    \item{-}{ \eqn{p_a=1-p_A}{p(a) = 1-p(A)} is defined as the observed probability of
       allele 'a' for marker 1, }
     \item{-}{\eqn{p_B}{p(B)} is defined as the observed probability of
       allele 'B' for marker 2, and }
-    \item{-}{\eqn{p_b=1-p_B}{p(b) = 1- p(b)} is defined as the observed probability of
+    \item{-}{\eqn{p_b=1-p_B}{p(b) = 1- p(B)} is defined as the observed probability of
       allele 'b' for marker 2, and }
     \item{-}{\eqn{p_{AB}}{p(AB)} is defined as the probability of
       the marker allele pair 'AB'. }

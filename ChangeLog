@@ -1,3 +1,16 @@
+2004-12-22 20:08  warnes
+
+	* R/diseq.R: Remove debugging code that printed intermediate values
+	  (sometimes a lot of them).
+
+2004-11-22 09:35  warnes
+
+	* man/LD.Rd: Fix typos.
+
+2004-11-15 11:36  warnes
+
+	* DESCRIPTION: Update version.
+
 2004-11-15 11:22  warnes
 
 	* R/summary.genotype.R: Ensure that allele.freq table has the same
@@ -108,6 +121,8 @@
 	* man/write.pop.file.Rd:
 	  Changes to fix latex'ing problem.
 
+2003-08-04 10:18  tag release_1_0_2
+
 2003-08-04 10:18  warnesgr
 
 	* DESCRIPTION, NEWS:
@@ -124,6 +139,8 @@
 
 	* R/hapmcmc.R:
 	  - Added hapmcmc code submitted by David Duffy.
+
+2003-06-06 05:27  tag release_1_0_1
 
 2003-06-06 05:27  warnesgr
 
@@ -196,6 +213,8 @@
 
 	* man/locus.Rd:
 	  - added documentation for "value" option.
+
+2003-05-30 11:52  tag release_1_0_0
 
 2003-05-30 11:52  warnesgr
 
@@ -534,6 +553,8 @@
 	* R/zzz.R: - diseq.ci now requires the combinat library instead of
 	  boot.
 
+2002-11-12 00:31  tag release_0_6_3
+
 2002-11-12 00:31  warnesgr
 
 	* DESCRIPTION: - Bump version number
@@ -692,6 +713,8 @@
 	* R/HWE.test.R: - Fixed bug that caused 'Error: subscript out of
 	  bounds' when a 2   allele genotype had 1/1 and 1/2 but not 2/2.
 
+2002-06-18 16:42  tag release_0_5_3
+
 2002-06-18 16:42  warnesgr
 
 	* DESCRIPTION: Updated version.
@@ -719,6 +742,8 @@
 	* 7, TODO:
 
 	  This was a test to learn how to add and modify files using CVS
+
+2002-04-08 20:49  tag release_0_5_2
 
 2002-04-08 20:49  warneg
 
@@ -1020,6 +1045,8 @@
 	   - Hardy-Weinburg Equilibrium testing.
 
 	  Also, a initial try at a Gene and Marker classes.
+
+2001-05-03 09:07  tag start
 
 2001-05-03 09:07  leisch
 
