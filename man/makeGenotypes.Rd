@@ -1,4 +1,4 @@
-% $Id: makeGenotypes.Rd,v 1.6 2004/09/17 18:46:26 warnes Exp $
+% $Id: makeGenotypes.Rd,v 1.7 2005/03/09 19:49:53 warnes Exp $
 
 \name{makeGenotypes}
 \alias{makeGenotypes}
@@ -18,7 +18,7 @@ makeHaplotypes(data, convert, sep = "/", tol = 0.9, ...)
   \item{sep}{Genotype separator}
   \item{tol}{See below.}
   \item{\dots}{Optional arguments to as.genotype function}
-  \item{method}{For internal use only.}
+  \item{method}{Function used to perform the conversion.}
 }
 \details{
   The functions makeGenotypes and makeHaplotypes allow the conversion of
@@ -32,20 +32,26 @@ makeHaplotypes(data, convert, sep = "/", tol = 0.9, ...)
   When the argument \code{convert} is not provided, the function will
   look for columns where at least \code{tol}*100\% of the records
   contain the separator character \code{sep} ('/' by default).  These
-  columns will then be assumed to contain both genotype/haplotype alles
-  and will be converted in-place to genotype variables.
+  columns will then be assumed to contain both of the genotype/haplotype
+  alleles and will be converted in-place to genotype variables.
   
   When the argument \code{convert} is a vector of column names, indexes
   or true/false indictators, the corresponding columns will be assumed
-  to contain both genotype/haplotype alles and will be converted
-  in-place to genotype variables.
+  to contain both of the genotype/haplotype alleles and will be
+  converted in-place to genotype variables.
 
   When the argument \code{convert} is a list containing column name or
   index pairs, the two elements of each pair will be assumed to contain the
   individual alleles of a genotype/haplotype.  The first column
   specified in each pair will be replaced with the new
-  genotype/haplotype variable and the column will be renamed to
-  name1 + sep + name2.
+  genotype/haplotype variable named \code{name1 + sep + name2}.  The
+  second column will be removed.
+
+  Note that the \code{method} argument may be used to supply a
+  non-standard conversion function, such as
+  \code{as.genotype.allele.count}, which converts from [0,1,2] to
+  ['A/A','A/B','A/C'] (or the specified allele names).  See the example
+  below.
 }
 \value{
   Dataframe containing converted genotype/haplotype variables. All other
@@ -62,7 +68,6 @@ makeHaplotypes(data, convert, sep = "/", tol = 0.9, ...)
 data <- read.csv(file="genotype_data.csv")
 data <- makeGenotypes(data)
 }
-
 
 # Create a test data set where there are several genotypes in columns
 # of the form "A/T".
@@ -105,5 +110,22 @@ test2
 
 # specifly the locations of the columns to be paired for haplotypes
 makeHaplotypes(test2, convert=list(c("G1.1","G1.2"),6:7,8:9))
+
+# Create a test data set where the data is coded as numeric allele
+# counts (0-2).
+test3 <- data.frame(Tmt=sample(c("Control","Trt1","Trt2"),20, replace=TRUE),
+                    G1=sample(c(0:2,NA),20, replace=TRUE),
+                    N1=rnorm(20),
+                    I1=sample(1:100,20,replace=TRUE),
+                    G2=sample(0:2,20, replace=TRUE),
+                    comment=sample(c("Possible Bad Data/Lab Error",""),20,
+                                   rep=TRUE)
+                   ) 
+test3
+
+# specifly the locations of the columns, and a non-standard conversion
+makeGenotypes(test3, convert=c('G1','G2'), method=as.genotype.allele.count)
+
+
 }
 \keyword{ misc }

@@ -52,7 +52,8 @@ export(
        write.marker.file,
        shortsummary.genotype,
        summary.LD.data.frame,
-       as.genotype.allele.count
+       as.genotype.allele.count,
+       expectedGenotypes
        )
 
 S3method(summary,genotype)
@@ -104,5 +105,8 @@ S3method(print,LD.data.frame)
 S3method(print,summary.LD.data.frame)
 S3method(plot,LD.data.frame)
 S3method(print,summary.genotype)
+S3method(plot,genotype)
 
+
+importFrom(stats, na.omit)
 importFrom(gdata,interleave, trim)

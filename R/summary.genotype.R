@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.11 2004/11/15 16:22:14 warnes Exp $
+# $Id: summary.genotype.R,v 1.12 2005/03/12 21:57:25 warnes Exp $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -87,7 +87,7 @@ print.summary.genotype  <-  function(x,...,round=2)
       }
 
     cat("\n")
-    cat("Number persons typed: ", x$n.typed,
+    cat("Number of samples typed: ", x$n.typed,
       " (", round(100*x$n.typed/x$n.total,1), "%)\n", sep="")
 
     cat("\n")
