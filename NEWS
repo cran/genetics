@@ -1,3 +1,13 @@
+Version 1.0.2
+
+- Fixed Heterozygosity (H) and PIC calculations in summary.genotype.
+  (Bug report from Gerard Tromp <gtromp@cmb.biosci.wayne.edu>.
+
+- Added experimental, undocumented, and untested function hapmcmc for
+  imputing haplotypes and related functions. (Code submitted by David
+  Duffy <davidD@qimr.edu.au>).
+
+
 Version 1.0.1
 
 - Fixed mislabeling of rows/columns in LDtable

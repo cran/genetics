@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.9 2003/06/05 22:06:52 warnesgr Exp $
+# $Id: summary.genotype.R,v 1.10 2003/08/04 13:48:40 warnesgr Exp $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -29,18 +29,20 @@ summary.genotype  <-  function(object,...,maxsum)
     retval$locus  <- attr(object,"locus")
     class(retval)  <- "summary.genotype"
     af  <- table(allele(object))
-    retval$allele.freq    <- cbind("Count"=af,"Proportion"=prop.table(af))
+    paf <- prop.table(af)
+    retval$allele.freq    <- cbind("Count"=af,"Proportion"=paf)
 
     gf  <- table( object )
-    retval$genotype.freq  <- cbind("Count"=gf,"Proportion"=prop.table(gf))
+    pgf <- prop.table(gf)
+    retval$genotype.freq  <- cbind("Count"=gf,"Proportion"=pgf)
 
 
     ### from code submitted by David Duffy <davidD@qimr.edu.au>
     #
     n.typed<-sum(gf)
     correction<-n.typed/max(1,n.typed-1)
-    ehet<-(1-sum(af*af))
-    matings<- (af %*% t(af))^2
+    ehet<-(1-sum(paf*paf))
+    matings<- (paf %*% t(paf))^2
     uninf.mating.freq <- sum(matings)-sum(diag(matings))
     pic<- ehet - uninf.mating.freq
 

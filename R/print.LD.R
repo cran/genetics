@@ -1,4 +1,4 @@
-# $Id: print.LD.R,v 1.6 2003/06/04 21:20:35 warnesgr Exp $
+# $Id: print.LD.R,v 1.7 2003/12/02 18:37:21 warnesgr Exp $
 
 print.LD <- function(x, digits=getOption("digits"), ...)
   {
@@ -25,7 +25,7 @@ print.LD <- function(x, digits=getOption("digits"), ...)
 
 
 summary.LD.data.frame <- function(object, digits=getOption("digits"),
-                                which=c("D", "D'", "r", "OBJECT^2",
+                                which=c("D", "D'", "r", "X^2",
                                         "P-value", "n", " "),
                                 rowsep, show.all=FALSE,
                                 ...)
@@ -50,13 +50,13 @@ summary.LD.data.frame <- function(object, digits=getOption("digits"),
     
     pdat <- list()
     for(name in which)
-      pdat[[name]] <- object[[name]]
+         pdat[[name]] <- object[[name]]
     
     tab <- interleave(
-                      D = pdat$"D",
+                      "D" = if('D' %in% names(pdat)) pdat$D else NULL,
                       "D'" = pdat$"D'",
                       "Corr." = pdat$"r",
-                      "OBJECT^2"= pdat$"OBJECT^2",
+                      "X^2"= pdat$"X^2",
                       "P-value" = pdat$"P-value",
                       "n" = pdat$"n",
                       " "=blank,
@@ -64,7 +64,7 @@ summary.LD.data.frame <- function(object, digits=getOption("digits"),
                       )
 
     statlist <- which[ ! (which %in% c("P-value", "n", " ") ) ]
-    statlist[statlist=="OBJECT^2"] <- "OBJECT\\^2"
+    statlist[statlist=="X^2"] <- "X\\^2"
 
     formatlist <- sapply( statlist, function(object) grep(object, rownames(tab) ) )
     formatlist <- unique(sort(unlist(formatlist)))

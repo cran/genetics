@@ -24,7 +24,7 @@
   }
 \usage{
 makeGenotypes(data, convert, sep = "/", tol = 0.5, ..., method=as.genotype)
-makeHaplotypes(data, convert, sep = "/", tol = 0.5, ...)
+makeHaplotypes(data, convert, sep = "/", tol = 0.9, ...)
 }
 \arguments{
   \item{data}{Dataframe containing columns to be converted}

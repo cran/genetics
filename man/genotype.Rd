@@ -19,18 +19,13 @@
 \alias{[.haplotype}
 \alias{[<-.genotype}
 \alias{[<-.haplotype}
-\alias{carrier.genotype}
 \alias{heterozygote.genotype}
 \alias{homozygote.genotype}
 \alias{print.allele.count}
 \alias{print.allele.genotype}
-\alias{print.carrier}
-\alias{print.heterozygote}
-\alias{print.homozygote}
 \alias{allele.count.genotype}
 %\alias{allele.genotype}
 %\alias{allele.names}
-\alias{carrier.genotype}
 \alias{as.genotype.allele.count}
 \alias{as.genotype.character}
 \alias{as.genotype.default}
@@ -61,17 +56,13 @@
   \code{as.haplotype} attempts to coerce its argument into an object of
   class \code{haplotype}.
 
-  \code{getlocus} extracts information (if present) about the locus,
-  gene, or marker from an object of class \code{genotype} or
-  \code{haplotype}
-
   \code{nallele} returns the number of alleles in an object of class
   \code{genotype}.
   
 }
 \usage{
   genotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
-           reorder=c("no", "default", "ascii", "freq"),
+           reorder = c("yes", "no", "default", "ascii", "freq"),
            allow.partial.missing=FALSE, locus=NULL)
 
   haplotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
@@ -88,8 +79,6 @@
   as.haplotype(x, ...)
 
   print.genotype(x, ...)
-
-  getlocus(x, ...)
 
   nallele(x)
 }

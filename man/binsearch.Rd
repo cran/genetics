@@ -6,8 +6,8 @@
   results in the the specified monotonic function obtaining a given value.
 }
 \usage{
-binsearch(fun, range, ..., target = 0, lower = min(range), upper =
-          max(range), maxiter = 100, showiter = FALSE)
+binsearch(fun, range, ..., target = 0, lower = ceiling(min(range)),
+          upper = floor(max(range)), maxiter = 100, showiter = FALSE)
 }
 \arguments{
   \item{fun}{Monotonic function over which the search will be performed.}

@@ -12,11 +12,11 @@
 
   \code{write.pedigree.file} creates a 'pedigree' data file, as used
   by the QTDT software package
-  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/)}.
+  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/}).
   
   \code{write.marker.file} creates a 'marker' data file, as used by
   the QTDT software package 
-  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/)}.
+  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/}).
 }
 \usage{
 write.pop.file(data, file = "", digits = 2, description = "Data from R")
@@ -24,7 +24,6 @@ write.pedigree.file(data, family, pid, father, mother, sex,
                     file="pedigree.txt")
 write.marker.file(data, location, file="marker.txt")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{Data frame containing genotype objects to be exported}
   \item{file}{Output filename}
@@ -39,20 +38,18 @@ write.marker.file(data, location, file="marker.txt")
     interest, in base pairs.}
 }
 \details{
-
   The format of 'Pop' files is documented at
   \url{http://wbiomed.curtin.edu.au/genepop/help_input.html}, the format
   of 'pedigree' files is documented at \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/pedigree.html} and the format of 'marker'
   files is documented at
   \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/map.html}.
-
-  
 }
 \value{
   No return value.
 }
 \author{Gregory R. Warnes \email{gregory\_r\_warnes@groton.pfizer.com}}
 \seealso{\code{\link{write.table}}}
-%\examples{
-%}
+\examples{
+  # TBA
+}
 \keyword{IO}

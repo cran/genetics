@@ -64,6 +64,7 @@
 \name{HWE.test}
 \alias{HWE.test}
 \alias{HWE.test.genotype}
+\alias{HWE.test.data.frame}
 \alias{print.HWE.test}
 
 \title{Estimate Disequilibrium and Test for Hardy-Weinberg Equilibrium}
@@ -77,7 +78,8 @@
 HWE.test(x, ...)
 \method{HWE.test}{genotype}(x, exact = nallele(x)==2, simulate.p.value=!exact,
          B=10000, conf=0.95, ci.B=1000, ... )
-\method{print}{HWE.test}{x,show.table=TRUE,...}
+\method{HWE.test}{data.frame}(x, ..., do.Allele.Freq=TRUE, do.HWE.test=TRUE)
+\method{print}{HWE.test}(x, show=c("D","D'","r"), ...)
 }
 \arguments{
   \item{x}{genotype or haplotype object.}
@@ -96,10 +98,13 @@ HWE.test(x, ...)
 %   \item{ci.type}{Method of calculating the confidence interval using the
 %     bootstrap sample.  Defaults to \code{"basic"}.  See 
 %     \code{\link[boot]{bootci}} for details.}
-  \item{show.table}{a logical value indicating whether the details of
-    computing the disequilibrium estimate should be displayed.  Defaults
-    to \code{TRUE}.}
-  \item{...}{ optional parameters passed to \code{chisq.test}}
+  \item{show}{a character vector containing the names of HWE test
+    statistics to display from the set of "D", "D'", and "r".}
+  \item{...}{ optional parameters passed to \code{HWE.test} (data.frame
+    method) or \code{chisq.test} (base method).}
+  \item{do.Allele.Freq}{logicial indication whether to summarize allele
+    frequencies.}
+  \item{do.HWE.test}{logicial indication whether to perform HWE tests}
 }
 \details{
   HWE.test calls \code{\link{diseq}} to computes the Hardy-Weinberg

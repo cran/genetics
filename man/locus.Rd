@@ -45,7 +45,7 @@
 
 }
 \usage{
-  locus(name, chromosome, arm=c("p", "q", "long", "short"),
+  locus(name, chromosome, arm=c("p", "q", "long", "short", NA),
         index.start, index.end=NULL)
 
   gene(name, chromosome, arm=c("p", "q", "long", "short"),

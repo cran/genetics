@@ -2,6 +2,7 @@
 \alias{homozygote}
 \alias{heterozygote}
 \alias{carrier}
+\alias{carrier.genotype}
 \alias{allele}
 \alias{allele.count}
 \alias{allele.names}
@@ -25,11 +26,12 @@
   \code{allele.names} extract the set of allele names.
  }
 \usage{
-homozygote(x, allele.name,...)
-heterozygote(x,allele.name,...)
-\method{carrier}{genotype}(x, allele.name=allele.names(x), any=!missing(allele),
-        na.rm=FALSE, ...)
-allele.count(x, allele.name=allele.names(x),any=!missing(allele),
+homozygote(x,  allele.name, ...)
+heterozygote(x, allele.name, ...)
+carrier(x, allele.name, ...)
+\method{carrier}{genotype}(x, allele.name=allele.names(x),
+        any=!missing(allele..name), na.rm=FALSE, ...)
+allele.count(x, allele.name=allele.names(x),any=!missing(allele.name),
              na.rm=FALSE)
 allele(x, which=c(1,2) )
 allele.names(x)

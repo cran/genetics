@@ -1,4 +1,4 @@
-# $Id: genotype.R,v 1.27 2003/06/04 21:22:22 warnesgr Exp $
+# $Id: genotype.R,v 1.28 2003/12/02 18:41:56 warnesgr Exp $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,
@@ -305,7 +305,7 @@ as.genotype.table <- function(x, alleles, ...)
 allele  <-  function(x, which=c(1,2) )
   {
     alleles.x  <- attr(x,"allele.map")
-    retval  <- alleles.x[codes(x),which]
+    retval  <- alleles.x[as.integer(x),which]
     attr(retval,"locus")  <- attr(x,"locus")
     attr(retval,"which")  <- which
     attr(retval,"allele.names")  <- allele.names(x)    
@@ -502,7 +502,7 @@ carrier <- function (x,allele.name,...)
   UseMethod("carrier")
 
 carrier.genotype  <-  function(x, allele.name=allele.names(x),
-                                   any=!missing(allele), na.rm=FALSE, ...)
+                                   any=!missing(allele.name), na.rm=FALSE, ...)
 {
   retval  <- allele.count(x,allele.name=allele.name,any=any,na.rm=na.rm) > 0
   
