@@ -1,0 +1,15 @@
+HWE.test                Estimate Disequilibrium and Test for
+                        Hardy-Weinburg Equilibrium
+ci.balance              Experimental Function to Corrrect Confidence
+                        Intervals At or Near Boundaries of the
+                        Parameter Space by 'Sliding' the Interval on
+                        the Quantile Scale.
+diseq                   Estimate or Compute Confidence Interval for the
+                        Disequilibrium Parameter
+genotype                Genotype or Haplotype Objects.
+homozygote              Extract Features of Genotype objects
+locus                   Create and Manipulate Locus, Gene, and Marker
+                        Objects
+summary.genotype        Allele and Genotype Frequency from a Genotype
+                        or Haplotype Object
+undocumented            Undocumented functions

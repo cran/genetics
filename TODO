@@ -1,0 +1,51 @@
+PENDING:
+=======
+
+- chromosome, chromosome.map
+
+- Transmission/Disequilibrium Test
+
+- interface to genehunter
+
+
+- Haplotype estimation via EM and Gibbs/MCMC
+- Disequilibrium estimation & testing 
+- Gene-map displays:  given a list of genes, and their location on the chromosome, plot the markers along the chromosome.
+  You know, something like
+
+	   m1   m2      m4          m6
+	---|----|-|------|-|--------|
+	          m3       m5
+
+- Quantitative and categorical gene-map plots.  The above with a plot above it, something like
+
+
+	Disequlibrium:
+			                   |
+			   |             | o
+			   o    | |      o |
+			   |    o o      |          |
+			        | |                 o
+			                            |
+			   m1   m2      m4          m6
+			---|----|-|------|-|--------|
+		          m3       m5
+
+* import/export scripts to the linkage .par and .pre files
+* easy grouping of genotypes, like
+
+
+DONE
+====
+
+  DONE - update documentation for HWE.test
+
+  DONE  - re-write HWE test to be more general. (It currently supports only
+two alleles)
+
+  DONE - Additional HWE test algorithms(permutation, exact)	
+
+  Accomplished by making HWE test a wrapper for chisq.test.
+
+
+

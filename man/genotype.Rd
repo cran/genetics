@@ -1,0 +1,296 @@
+% $Id: genotype.Rd,v 1.17 2002/11/12 19:58:45 warnesgr Exp $
+%
+% %Log$
+%
+
+\name{genotype}
+\alias{genotype}
+\alias{haplotype}
+\alias{is.genotype}
+\alias{is.haplotype}
+\alias{as.genotype}
+\alias{as.haplotype}
+
+%%
+\alias{print.genotype}
+\alias{==.genotype}
+\alias{==.haplotype}
+\alias{[.genotype}
+\alias{[.haplotype}
+\alias{[<-.genotype}
+\alias{[<-.haplotype}
+\alias{carrier.genotype}
+\alias{heterozygote.genotype}
+\alias{homozygote.genotype}
+\alias{print.allele.count}
+\alias{print.allele.genotype}
+\alias{print.carrier}
+\alias{print.heterozygote}
+\alias{print.homozygote}
+\alias{allele.count.genotype}
+%\alias{allele.genotype}
+%\alias{allele.names}
+\alias{carrier.genotype}
+\alias{as.genotype.allele.count}
+\alias{as.genotype.character}
+\alias{as.genotype.default}
+\alias{as.genotype.factor}
+\alias{as.genotype.genotype}
+\alias{as.genotype.haplotype}
+\alias{as.genotype.table}
+
+\title{Genotype or Haplotype Objects.}
+\description{
+  \code{genotype} creates a genotype object.
+
+  \code{haplotype} creates a haplotype object.
+
+  \code{is.genotype} returns \code{TRUE} if \code{x} is of class
+  \code{genotype}
+
+  \code{is.haplotype} returns \code{TRUE} if \code{x} is of class
+  \code{haplotype}
+
+  \code{as.genotype} attempts to coerce its argument into an object of
+  class \code{genotype}.
+
+  \code{as.genotype.allele.count} converts allele counts (0,1,2) into
+  genotype pairs ("A/A", "A/B", "B/B").
+
+  \code{as.haplotype} attempts to coerce its argument into an object of
+  class \code{haplotype}.
+
+  \code{getlocus} extracts information (if present) about the locus,
+  gene, or marker from an object of class \code{genotype} or \code{haplotype}
+}
+\usage{
+  genotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
+           reorder=c("no", "default", "ascii", "freq"),
+           allow.partial.missing=TRUE, locus=NULL)
+
+  haplotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
+           reorder="no", allow.partial.missing=TRUE, locus=NULL)
+
+  is.genotype(x)
+
+  is.haplotype(x)
+
+  as.genotype(x, ...)
+
+  as.genotype.allele.count(x, alleles=c("A","B"), ... )
+
+  as.haplotype(x, ...)
+
+  print.genotype(x, ...)
+
+  getlocus(x, ...)
+
+}
+
+\arguments{
+  \item{x}{ either an object of class \code{genotype} or
+    \code{haplotype} or an object to be converted to class \code{genotype} or
+    \code{haplotype}.}
+  \item{a1,a2}{ vector(s) or matrix containing two alleles
+    for each individual. See details, below.}
+  \item{alleles}{ names (and order if \code{reorder="yes"}) of possible
+    alleles.}
+  \item{sep}{ character separator or column number used to divide
+    alleles when \code{a1} is a vector of strings where each string
+    holds both alleles. See below for details. Default value is "/".}
+  \item{remove.spaces}{ logical indicating whether spaces and tabs will
+    be removed from a1 and a2  before processing. Default value is
+    \code{TRUE}.}
+  \item{reorder}{how should alleles within an individual be reordered.
+    If \code{reorder="no"}, use the order specified by the alleles
+    parameter.  If \code{reorder="freq"} or
+    \code{reorder="yes"}, sort alleles within each individual by
+    observed frequency.  If \code{reorder="ascii"}, reorder alleles in
+    ASCII order (alphabetical, with all upper case before
+    lower case). The default value for \code{genotype}
+    is \code{"freq"}.  The default value for \code{haplotype} is
+    \code{"no"}.
+  }
+  \item{allow.partial.missing}{logical indicating whether one allele is
+    permitted to be missing.  When set to \code{FALSE} both alleles
+    are set to \code{NA} when either is missing. Default value is
+    \code{TRUE}.}
+  \item{locus}{ object of class locus, gene, or marker, holding
+    information about the source of this genotype.}
+  \item{...}{optional arguments}
+}
+\details{
+  Genotype objects hold information on which gene or marker alleles were
+  observed for different individuals.  For each individual, two alleles
+  are recorded.
+
+  The genotype class considers the stored alleles to be unordered, ie, "C/T"
+  is equivalent to "T/C".  The haplotype class considers the order of the
+  alleles to be significant so that "C/T" is distinct from "T/C".
+
+  When calling \code{genotype} or \code{haplotype}:
+
+  \itemize{
+  \item If only a1 is provided and is a character vector, it is assumed
+    that each element encodes both alleles. In this case, if sep is a
+    character string, a1 is assumed to be coded as "Allele1<sep>Allele2".
+    If sep is a numeric value, it is assumed that character locations
+    1:sep contain allele 1 and that remaining locations contain allele
+    2. 
+
+  \item If a1 is a matrix, it is assumed that column 1 contains allele 1 and
+  column 2 contains allele 2.
+
+  \item If a1 and a2 are both provided, each is assumed to contain one allele
+  value so that the genotype for an individual is obtained by
+  paste(a1,a2,sep="/").
+
+  }
+
+  If remove.spaces is TRUE, (the default) any whitespace contained in a1
+  and a2 is removed when the genotypes are created.  If whitespace is
+  used as the separator, (eg "C C", "C T", ...), be sure to set
+  remove.spaces to FALSE.
+
+  When the alleles are explicitly specified using the
+  \code{alleles} argument, all potential alleles not present in the list
+  will be converted to \code{NA}.
+  
+  NOTE: genotype assumes that the order of the alleles is not important
+  (E.G., "A/C" == "C/A").  Use class haplotype if order is significant.
+}
+\value{
+  
+  The genotype class extends "factor" and haplotype extends
+  genotype. 
+  Both classes have the following attributes:
+  \item{levels}{ character vector of possible genotype/haplotype values
+    stored coded by \code{paste( allele1, "/", allele2, sep="")}.}
+  \item{allele.names}{ character vector of possible alleles. For a SNP,
+    these might be c("A","T").   For a variable length dinucleotyde
+    repeat this might be c("136","138","140","148"). }
+  \item{allele.map}{ matrix encoding how the factor levels correspond to
+    alleles.  See the source code to \code{allele.genotype()} for how to
+    extract allele values using this matrix.  Better yet, just use
+    \code{allele.genotype()}. }
+    
+}
+%\references{ ~put references to the literature/web site here ~ }
+\author{Gregory R. Warnes \email{Gregory\_R\_Warnes@groton.pfizer.com} and
+  Friedrich Leisch.}
+\seealso{
+%  \code{\link{genotype}},
+  \code{\link{HWE.test}},
+  \code{\link{allele}},
+  \code{\link{homozygote}},
+  \code{\link{heterozygote}}, 
+  \code{\link{carrier}},
+  \code{\link{summary.genotype}},
+  \code{\link{allele.count}}
+  \code{\link{locus}}
+  \code{\link{gene}}
+  \code{\link{marker}}
+  }
+
+\examples{
+# several examples of genotype data in different formats
+example.data   <- c("D/D","D/I","D/D","I/I","D/D",
+                    "D/D","D/D","D/D","I/I","")
+g1  <- genotype(example.data)
+g1
+
+example.data2  <- c("C-C","C-T","C-C","T-T","C-C",
+                    "C-C","C-C","C-C","T-T","")
+g2  <- genotype(example.data2,sep="-")
+g2
+
+
+example.nosep  <- c("DD", "DI", "DD", "II", "DD",
+                    "DD", "DD", "DD", "II", "")
+g3  <- genotype(example.nosep,sep="")
+g3
+
+example.a1 <- c("D",  "D",  "D",  "I",  "D",  "D",  "D",  "D",  "I",  "")
+example.a2 <- c("D",  "I",  "D",  "I",  "D",  "D",  "D",  "D",  "I",  "")
+g4  <- genotype(example.a1,example.a2)
+g4
+
+example.mat <- cbind(a1=example.a1, a1=example.a2)
+g5  <- genotype(example.mat)
+g5
+
+example.data5  <- c("D   /   D","D   /   I","D   /   D","I   /   I",
+                    "D   /   D","D   /   D","D   /   D","D   /   D",
+                    "I   /   I","")
+g5  <- genotype(example.data5,rem=TRUE)
+g5
+
+# show how genotype and haplotype differ
+data1 <- c("C/C", "C/T", "T/C")
+data2 <- c("C/C", "T/C", "T/C")
+
+test1  <- genotype( data1 )
+test2  <- genotype( data2 )
+
+test3  <-  haplotype( data1 )
+test4  <-  haplotype( data2 )
+
+test1==test2
+test3==test4
+
+test1=="C/T"
+test1=="T/C"
+
+test3=="C/T"
+test3=="T/C"
+
+## "Messy" example
+
+m3  <-  c("D D/\t   D D","D\tD/   I",  "D D/   D D","I/   I",
+          "D D/   D D","D D/   D D","D D/   D D","D D/   D D",
+          "I/   I","/   ","/I")
+
+genotype(m3)
+summary(genotype(m3))
+
+m4  <-  c("D D","D I","D D","I I",
+          "D D","D D","D D","D D",
+          "I I","   ","  I")
+
+genotype(m4,sep=1)
+genotype(m4,sep=" ",remove.spaces=FALSE)
+summary(genotype(m4,sep=" ",remove.spaces=FALSE))
+
+m5  <-  c("DD","DI","DD","II",
+          "DD","DD","DD","DD",
+          "II","   "," I")
+genotype(m5,sep=1)
+haplotype(m5,sep=1,remove.spaces=FALSE)
+
+g5  <- genotype(m5,sep="")
+h5  <- haplotype(m5,sep="")
+
+heterozygote(g5) 
+homozygote(g5)    
+carrier(g5,"D")
+
+g5[9:10]  <- haplotype(m4,sep=" ",remove=FALSE)[1:2]
+g5
+
+g5[9:10]
+allele(g5[9:10],1)
+allele(g5,1)[9:10]
+
+# drop unused alleles 
+g5[9:10,drop=TRUE]
+h5[9:10,drop=TRUE]
+
+# Convert allele.counts into genotype
+
+x <- c(0,1,2,1,1,2,NA,1,2,1,2,2,2)
+g <- as.genotype.allele.count(x, alleles=c("C","T") )
+g
+
+}
+\keyword{ misc }
+%\keyword{genetics}

@@ -1,0 +1,4 @@
+## Examples
+
+g <- gene("P53","17q 1009232cM")
+m <- marker("C-107QT",g,begin=-107,end=-107,type="SNP")
