@@ -1,4 +1,4 @@
-% $Id: genotype.Rd,v 1.17 2002/11/12 19:58:45 warnesgr Exp $
+% $Id: genotype.Rd,v 1.18 2002/11/27 15:32:20 warnesgr Exp $
 %
 % %Log$
 %
@@ -124,46 +124,45 @@
   observed for different individuals.  For each individual, two alleles
   are recorded.
 
-  The genotype class considers the stored alleles to be unordered, ie, "C/T"
+  The genotype class considers the stored alleles to be unordered, i.e., "C/T"
   is equivalent to "T/C".  The haplotype class considers the order of the
   alleles to be significant so that "C/T" is distinct from "T/C".
 
   When calling \code{genotype} or \code{haplotype}:
 
   \itemize{
-  \item If only a1 is provided and is a character vector, it is assumed
-    that each element encodes both alleles. In this case, if sep is a
-    character string, a1 is assumed to be coded as "Allele1<sep>Allele2".
-    If sep is a numeric value, it is assumed that character locations
-    1:sep contain allele 1 and that remaining locations contain allele
-    2. 
+  \item If only \code{a1} is provided and is a character vector, it is
+    assumed that each element encodes both alleles. In this case, if
+    \code{sep} is a character string, \code{a1} is assumed to be coded
+    as "Allele1<sep>Allele2".  If \code{sep} is a numeric value, it is
+    assumed that character locations \code{1:sep} contain allele 1 and
+    that remaining locations contain allele 2.
 
-  \item If a1 is a matrix, it is assumed that column 1 contains allele 1 and
-  column 2 contains allele 2.
+  \item If \code{a1} is a matrix, it is assumed that column 1 contains
+  allele 1 and column 2 contains allele 2.
 
-  \item If a1 and a2 are both provided, each is assumed to contain one allele
-  value so that the genotype for an individual is obtained by
-  paste(a1,a2,sep="/").
+  \item If \code{a1} and \code{a2} are both provided, each is assumed to
+  contain one allele value so that the genotype for an individual is
+  obtained by \code{paste(a1,a2,sep="/")}.
 
   }
 
-  If remove.spaces is TRUE, (the default) any whitespace contained in a1
-  and a2 is removed when the genotypes are created.  If whitespace is
-  used as the separator, (eg "C C", "C T", ...), be sure to set
-  remove.spaces to FALSE.
+  If \code{remove.spaces} is TRUE, (the default) any whitespace
+  contained in \code{a1} and \code{a2} is removed when the genotypes are
+  created.  If whitespace is used as the separator, (eg "C C", "C T",
+  ...), be sure to set remove.spaces to FALSE.
 
-  When the alleles are explicitly specified using the
-  \code{alleles} argument, all potential alleles not present in the list
-  will be converted to \code{NA}.
+  When the alleles are explicitly specified using the \code{alleles}
+  argument, all potential alleles not present in the list will be
+  converted to \code{NA}.
   
-  NOTE: genotype assumes that the order of the alleles is not important
-  (E.G., "A/C" == "C/A").  Use class haplotype if order is significant.
+  NOTE: \code{genotype} assumes that the order of the alleles is not important
+  (E.G., "A/C" == "C/A").  Use class \code{haplotype} if order is significant.
 }
 \value{
   
   The genotype class extends "factor" and haplotype extends
-  genotype. 
-  Both classes have the following attributes:
+  genotype. Both classes have the following attributes:
   \item{levels}{ character vector of possible genotype/haplotype values
     stored coded by \code{paste( allele1, "/", allele2, sep="")}.}
   \item{allele.names}{ character vector of possible alleles. For a SNP,

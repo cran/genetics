@@ -1,6 +1,14 @@
-% $Id: genetics_article.tex,v 1.4 2002/06/27 18:46:56 warnesgr Exp $
+% $Id: genetics_article.tex,v 1.6 2003/02/03 16:13:56 warnesgr Exp $
 %
 % $Log: genetics_article.tex,v $
+% Revision 1.6  2003/02/03 16:13:56  warnesgr
+% - Fixed typos and R CMD check warnings.
+% - Updated version number
+% - Removed 'data' directory to fix new R CMD check warning.
+%
+% Revision 1.5  2002/11/27 15:32:20  warnesgr
+% Correct spelling errors and typos.
+%
 % Revision 1.4  2002/06/27 18:46:56  warnesgr
 %
 % - More revisions.  Hopefully last set before submission to publication
@@ -39,7 +47,7 @@ is necessary to fully support Fritz's goal.
 
 \section{Current Status}
 
-As of version 0.5.0 the library includes classes and methods for
+As of version 0.6.5 the library includes classes and methods for
 creating, representing, and manipulating genotypes (unordered allele
 pairs) and haplotypes (ordered allele pairs).  Genotypes and
 haplotypes can be annotated with chromosome, locus, gene, and marker
@@ -48,7 +56,9 @@ frequencies, flag homozygotes or heterozygotes, flag allele carriers
 of certain alleles, count the number of a specific allele carried by
 an individual, extract one or both alleles, and test Hardy-Weinberg
 equilibrium.  These functions make it easy to create and use
-single-locus genetic information.
+single-locus genetic information. In addition, a function is provide
+to compute the probability of failing to observe all alleles with a
+given true frequency.
 
 Creating variables representing genotype in a statistical package
 often requires considerable string manipulation.  The code for the
@@ -331,7 +341,7 @@ G/G     9       0.45
 
 > HWE.test(data$g2)
 
-Test for Hardy-Wienburg-Equilibrium
+Test for Hardy-Weinberg-Equilibrium
 
 Call: 
 HWE.test.genotype(x = data$g2)

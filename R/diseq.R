@@ -239,8 +239,13 @@ print.diseq  <-  function(x, show=c("D","D'","r"), ...)
         print(x$r)
         cat("\n")
       }
-    cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
+    
+    if( ncol(x$r) <= 2 )
+      cat("Overall Values\n")
+    else
+      cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
     cat("\n")
+    
     if("D" %in% show)
       cat("  D :  ", x$D.overall, "\n", sep="")
     if("D'" %in% show)

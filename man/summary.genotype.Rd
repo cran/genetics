@@ -1,4 +1,4 @@
-% $Id: summary.genotype.Rd,v 1.10 2002/11/12 19:58:45 warnesgr Exp $
+% $Id: summary.genotype.Rd,v 1.11 2002/11/27 15:32:20 warnesgr Exp $
 %
 % %Log$
 %
@@ -31,16 +31,17 @@
   \item{\dots}{ optional parameters.  Ignored by \code{summary.genotype},
     passed to \code{print.matrix} by \code{print.summary,genotype}.}
   \item{maxobjectsum}{ specifying any value for the parameter
-    maxobjectsum will cause \code{summary.genotype} to fallback to
+    maxobjectsum will cause \code{summary.genotype} to fall back to
     \code{summary.factor}.}
   \item{round}{ number of digits to use when displaying proportions.}
  }
 
 \details{
- Specifying any value for the parameter maxsum will cause fallback
- to summary.factor.  This is so that summary.dataframe will give
- reasonable output when it contains a genotype column.  (Hopefully we
- can figure out something better to do in this case.)
+ Specifying any value for the parameter \code{maxsum} will cause fallback
+ to \code{summary.factor}.  This is so that the function
+ \code{summary.dataframe} will give reasonable output when it contains a
+ genotype column.  (Hopefully we can figure out something better to do
+ in this case.)
 }
 
 

@@ -1,16 +1,16 @@
 \name{ci.balance}
 \alias{ci.balance}
-\title{Experimental Function to Corrrect Confidence Intervals At or Near
+\title{Experimental Function to Correct Confidence Intervals At or Near
   Boundaries of the Parameter Space by 'Sliding' the Interval on the
   Quantile Scale.}
-\description{Experimental function to corrrect confidence intervals at or near
+\description{Experimental function to correct confidence intervals at or near
   boundaries of the parameter space by 'sliding' the interval on the
   quantile scale.}
 \usage{
 ci.balance(x, est, conf = 0.95, minval, maxval, na.rm = TRUE)
 }
 \arguments{
-  \item{x}{Bootstrap paremeter estimates.}
+  \item{x}{Bootstrap parameter estimates.}
   \item{est}{Observed value of the parameter.}
   \item{conf}{Confidence level for the interval. Defaults to 0.95.}
   \item{minval}{A numeric value specifying the lower bound of the

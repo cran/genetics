@@ -1,12 +1,18 @@
+HWE.exact               Exact Test of Hardy-Weinberg Equilibrium for
+                        2-Allele Markers
 HWE.test                Estimate Disequilibrium and Test for
-                        Hardy-Weinburg Equilibrium
-ci.balance              Experimental Function to Corrrect Confidence
+                        Hardy-Weinberg Equilibrium
+binsearch               Binary Search
+ci.balance              Experimental Function to Correct Confidence
                         Intervals At or Near Boundaries of the
                         Parameter Space by 'Sliding' the Interval on
                         the Quantile Scale.
 diseq                   Estimate or Compute Confidence Interval for the
-                        Disequilibrium Parameter
+                        Single-Marker Disequilibrium
 genotype                Genotype or Haplotype Objects.
+gregorius               Probability of Observing All Alleles with a
+                        Given Frequency in a Sample of a Specified
+                        Size.
 homozygote              Extract Features of Genotype objects
 locus                   Create and Manipulate Locus, Gene, and Marker
                         Objects

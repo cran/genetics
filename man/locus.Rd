@@ -1,4 +1,4 @@
-% $Id: locus.Rd,v 1.6 2002/11/12 19:58:45 warnesgr Exp $
+% $Id: locus.Rd,v 1.7 2002/11/27 15:32:20 warnesgr Exp $
 %
 % %Log$
 %
@@ -71,7 +71,7 @@
     gene on the chromosome.  }
   \item{index.end}{optional integer specifying location of end of locus or
     gene on the chromosome.  }
-  \item{type}{character string indicating marker type, eg "SNP"}
+  \item{type}{character string indicating marker type, e.g. "SNP"}
   \item{locus.name}{either a character string giving the name of the
     locus or gene (other details may be specified using \code{...}) or a
     \code{locus} or \code{gene} object.}

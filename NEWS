@@ -1,0 +1,11 @@
+
+Changes since version 0.6.4
+
+- Added 'HWE.exact()', an exact test for Hardy-Wienberg Equilibrium for
+  two alleles. Code contributed by David Duffy <davidD@qimr.edu.au>
+
+- Added 'gregorius()', which computes the probability of observing all
+  alleles with a given frequency in a sample of a specified size.
+
+
+

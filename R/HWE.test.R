@@ -1,7 +1,10 @@
 #
-# $Id: HWE.test.R,v 1.13 2002/11/08 17:20:05 warnesgr Exp $
+# $Id: HWE.test.R,v 1.14 2002/11/27 15:32:20 warnesgr Exp $
 #
 # $Log: HWE.test.R,v $
+# Revision 1.14  2002/11/27 15:32:20  warnesgr
+# Correct spelling errors and typos.
+#
 # Revision 1.13  2002/11/08 17:20:05  warnesgr
 # - Added test for more than two alleles to diseq.ci.  If there are more
 #   than two, generate a warning message indicating that confidence
@@ -102,7 +105,7 @@
 
 
 ####
-### Hardy-Weinburg Equilibrium Test
+### Hardy-Weinberg Equilibrium Test
 ###
 
 HWE.test <- function(x, ...)
@@ -151,7 +154,7 @@ print.HWE.test  <-  function(x, show=c("D","D'","r"), ...)
 
     cat("\n")
     cat("\t-----------------------------------\n")
-    cat("\tTest for Hardy-Wienburg-Equilibrium\n")
+    cat("\tTest for Hardy-Weinberg-Equilibrium\n")
     cat("\t-----------------------------------\n")
     cat("\n")
     if(!is.null(x$locus))
@@ -183,7 +186,11 @@ print.HWE.test  <-  function(x, show=c("D","D'","r"), ...)
         print(x$diseq$r)
         cat("\n")
       }
-    cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
+
+    if( ncol(x$diseq$r) <= 2 )
+      cat("Overall Values\n")
+    else
+      cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
     cat("\n")
 
     show.tab <- NULL
