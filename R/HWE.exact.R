@@ -1,6 +1,11 @@
-# $Id: HWE.exact.R,v 1.2 2002/12/02 16:12:00 warnesgr Exp $
+# $Id: HWE.exact.R,v 1.3 2003/03/07 14:52:27 warnesgr Exp $
 #
 # $Log: HWE.exact.R,v $
+# Revision 1.3  2003/03/07 14:52:27  warnesgr
+# - Modified HWE.exact to return an object of class 'htest'
+# - Noted this change in the man file and added HWE.chisq to list of
+#   links and to example code.
+#
 # Revision 1.2  2002/12/02 16:12:00  warnesgr
 #
 # - Now returnes only the computed P-value.
@@ -56,8 +61,19 @@ HWE.exact <- function(x)
   x22 <- (n2-x12)/2
   dist <- data.frame(n11=x11,n12=x12,n22=x22,density=dhwe2(x11,x12,x22))
   dist <- dist[order(dist$density),]
-  return(prob=cumsum(dist$density)[dist$n11==n11 &
-                                       dist$n12==n12 &
-                                       dist$n22==n22])
+
+  STATISTIC <- c("N11"=n11,"N12"=n12,"N22"=n22)
+  PARAMETER <- c("N1"=n1,"N2"=n2)
+  PVAL <- cumsum(dist$density)[dist$n11==n11 &
+                               dist$n12==n12 &
+                               dist$n22==n22] 
+  METHOD <- "Exact Test for Hardy-Weinberg Equilibrium"
+  DNAME <- deparse(substitute(x))
+  
+  retval <- list(statistic = STATISTIC, parameter = PARAMETER, 
+        p.value = PVAL, method = METHOD, data.name = DNAME, observed = x)
+  class(retval) = "htest"
+  return(retval)
+
 }
 

@@ -1,6 +1,11 @@
-# $Id: diseq.Rd,v 1.5 2002/11/27 15:32:20 warnesgr Exp $
+# $Id: diseq.Rd,v 1.6 2003/04/07 20:30:19 warnesgr Exp $
 #
 # $Log: diseq.Rd,v $
+# Revision 1.6  2003/04/07 20:30:19  warnesgr
+#
+# - Flipped sign of D, D', r.  Now D matches sign given in Weir's book,
+#   and r has the proper sign.
+#
 # Revision 1.5  2002/11/27 15:32:20  warnesgr
 # Correct spelling errors and typos.
 #
@@ -84,18 +89,18 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
       
       \deqn{D' = \frac{D}{D_{max} } }{D' = D / Dmax}
       
-      where
+      where, if D > 0:
       \deqn{%
   	D_{max} = \min( p_i, p_j ) - p_{ij}  %
       }{%
   	Dmax = min( p(i),p(j) ) - p(ij)   %
-      } if D > 0      
-      and
+      } 
+      or if  if D < 0:
       \deqn{%
   	D_{max} = p_{ij} %
       }{%
   	Dmax = p(ij)  %
-      } if D < 0.
+      }
     }
     
     \item{r}{ is the correlation coefficient between the two alleles ignoring all

@@ -1,4 +1,4 @@
-% $Id: genotype.Rd,v 1.18 2002/11/27 15:32:20 warnesgr Exp $
+% $Id: genotype.Rd,v 1.19 2003/03/07 14:33:47 warnesgr Exp $
 %
 % %Log$
 %
@@ -38,6 +38,7 @@
 \alias{as.genotype.genotype}
 \alias{as.genotype.haplotype}
 \alias{as.genotype.table}
+\alias{nallele}
 
 \title{Genotype or Haplotype Objects.}
 \description{
@@ -61,7 +62,12 @@
   class \code{haplotype}.
 
   \code{getlocus} extracts information (if present) about the locus,
-  gene, or marker from an object of class \code{genotype} or \code{haplotype}
+  gene, or marker from an object of class \code{genotype} or
+  \code{haplotype}
+
+  \code{nallele} returns the number of alleles in an object of class
+  \code{genotype}.
+  
 }
 \usage{
   genotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
@@ -85,6 +91,7 @@
 
   getlocus(x, ...)
 
+  nallele(x)
 }
 
 \arguments{

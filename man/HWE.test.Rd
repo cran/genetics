@@ -1,7 +1,20 @@
 #
-# $Id: HWE.test.Rd,v 1.10 2002/11/27 15:32:20 warnesgr Exp $
+# $Id: HWE.test.Rd,v 1.12 2003/03/07 14:47:53 warnesgr Exp $
 #
 # $Log: HWE.test.Rd,v $
+# Revision 1.12  2003/03/07 14:47:53  warnesgr
+#
+# - Added links to HWE.chisq, HWE.exact, genotype to see also seciton.
+# - Slighlty modified example code.
+#
+# Revision 1.11  2003/03/07 14:32:48  warnesgr
+#
+# - Created HWE.chisq, HWE.chisq.genotype and corresponding man page.
+# - Moved computation of Chisquare test for HWE from HWE.test.genotype
+#   to HWE.chisq.genotype.
+# - Added option (on by default) to compute the exact p-value using HWE.exact.
+#   This is on by default when nallele=2
+#
 # Revision 1.10  2002/11/27 15:32:20  warnesgr
 # Correct spelling errors and typos.
 #
@@ -62,13 +75,17 @@
 
 \usage{
 HWE.test(x, ...)
-\method{HWE.test}{genotype}(x, simulate.p.value=TRUE, B=10000, conf=0.95, ci.B=1000, ... )
+\method{HWE.test}{genotype}(x, exact = nallele(x)==2, simulate.p.value=!exact,
+         B=10000, conf=0.95, ci.B=1000, ... )
 \method{print}{HWE.test}{x,show.table=TRUE,...}
 }
 \arguments{
   \item{x}{genotype or haplotype object.}
-  \item{simulate.p.value}{a logical value indicating whether the p-value should
-    be computed using simulation instead of using the
+  \item{exact}{a logical value indicated whether the p-value should be
+    computed using the exact method, which is only available for 2
+    allele genotypes.}
+  \item{simulate.p.value}{a logical value indicating whether the p-value
+    should be computed using simulation instead of using the
     \eqn{\chi^2}{Chi-Square} approximation. Defaults to \code{TRUE}.}
   \item{B}{Number of simulation iterations to use when
     \code{simulate.p.value=TRUE}. Defaults to 10000.}
@@ -115,12 +132,11 @@ HWE.test(x, ...)
   }
 
 \seealso{
+  \code{\link{genotype}},
   \code{\link{diseq}},
   \code{\link{diseq.ci}},
-  \code{\link{allele}},
-  \code{\link{chisq.test}},
-  \code{\link[boot]{boot}},
-  \code{\link[boot]{bootci}}
+  \code{\link{HWE.chisq}},
+  \code{\link{HWE.exact}},
 }
 
 
@@ -133,9 +149,14 @@ example.data   <- c("D/D","D/I","D/D","I/I","D/D",
 g1  <- genotype(example.data)
 g1
 
+HWE.test(g1)
+
+#compare with
 diseq(g1)
 diseq.ci(g1)
-HWE.test(g1)
+HWE.chisq(g1)
+HWE.exact(g1)
+
 
 three.data   <- c(rep("A/A",8),
                   rep("C/A",20),

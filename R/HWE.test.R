@@ -1,7 +1,15 @@
 #
-# $Id: HWE.test.R,v 1.14 2002/11/27 15:32:20 warnesgr Exp $
+# $Id: HWE.test.R,v 1.15 2003/03/07 14:32:48 warnesgr Exp $
 #
 # $Log: HWE.test.R,v $
+# Revision 1.15  2003/03/07 14:32:48  warnesgr
+#
+# - Created HWE.chisq, HWE.chisq.genotype and corresponding man page.
+# - Moved computation of Chisquare test for HWE from HWE.test.genotype
+#   to HWE.chisq.genotype.
+# - Added option (on by default) to compute the exact p-value using HWE.exact.
+#   This is on by default when nallele=2
+#
 # Revision 1.14  2002/11/27 15:32:20  warnesgr
 # Correct spelling errors and typos.
 #
@@ -104,9 +112,12 @@
 #
 
 
-####
-### Hardy-Weinberg Equilibrium Test
 ###
+### Hardy-Weinberg Equilibrium Disequlibrium Estimates, Confidence
+### Intervals, and P-values
+###
+
+
 
 HWE.test <- function(x, ...)
 {
@@ -114,7 +125,8 @@ HWE.test <- function(x, ...)
 }
 
 
-HWE.test.genotype <- function(x, simulate.p.value=TRUE, B=10000,
+HWE.test.genotype <- function(x, exact=nallele(x)==2,
+                              simulate.p.value=!exact, B=10000,
                               conf=0.95, ci.B=1000, ... )
   # future options "bootstrap","exact"
 {
@@ -129,14 +141,19 @@ HWE.test.genotype <- function(x, simulate.p.value=TRUE, B=10000,
 
 
   # compute p-value
-  tab <- retval$diseq$observed.no
-  tab  <- 0.5 * (tab + t(tab))   # make symmetric for chisq.test
+  # compute exact p-value
 
-  retval$test  <- chisq.test(tab,simulate.p.value=simulate.p.value,B=B,...
-                             )
-                             # , df= k*(k-1)/2 ) # when possible
+  # do chisq test
+  if(exact)
+    retval$test  <- HWE.exact(x)
+  else
+    {
+      tab <- retval$diseq$observed.no
+      tab  <- 0.5 * (tab + t(tab))   # make symmetric for chisq.test
+      retval$test  <- HWE.chisq(x, simulate.p.value=simulate.p.value,B=B,...)
+    }
 
-
+  
   retval$simulate.p.value <- simulate.p.value
   retval$B <- B
   retval$conf <- conf

@@ -146,14 +146,14 @@ diseq.table <- function(x, ...)
 
   expected <- outer(allele.freq, allele.freq, "*")
 
-  diseq <- observed - expected
+  diseq <- expected - observed
   diag(diseq) <- NA
 
-  dmax.positive <- outer(allele.freq, allele.freq, pmin ) - expected
-  # equals: min( p(i) * (1 - p(j)), p(j)( 1 - (1-p(i) ) ) )
-  
-  dmax.negative <- expected
+  dmax.positive <- expected
   # equals: max( p(i)p(j), p(j)p(i) )
+  
+  dmax.negative <- outer(allele.freq, allele.freq, pmin ) - expected
+  # equals: min( p(i) * (1 - p(j)), p(j)( 1 - (1-p(i) ) ) )
   
   dprime <- diseq / ifelse( diseq > 0, dmax.positive, dmax.negative )
 

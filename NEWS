@@ -1,4 +1,15 @@
 
+Changes since version 0.6.7
+
+- Added HWE.chisq which performs the Chi-Square test for
+  Hardy-Wienberg Equilibrium.
+
+- Modified HWE.exact to return an object of class 'htest'.
+
+- Modified HWE.test to use HWE.exact by default for 2-allele
+  genotypes, and HWE.chisq otherwise.
+
+
 Changes since version 0.6.4
 
 - Added 'HWE.exact()', an exact test for Hardy-Wienberg Equilibrium for

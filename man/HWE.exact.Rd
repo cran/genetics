@@ -1,6 +1,11 @@
-% $Id: HWE.exact.Rd,v 1.2 2003/02/03 16:13:56 warnesgr Exp $
+% $Id: HWE.exact.Rd,v 1.3 2003/03/07 14:52:27 warnesgr Exp $
 %
 % $Log: HWE.exact.Rd,v $
+% Revision 1.3  2003/03/07 14:52:27  warnesgr
+% - Modified HWE.exact to return an object of class 'htest'
+% - Noted this change in the man file and added HWE.chisq to list of
+%   links and to example code.
+%
 % Revision 1.2  2003/02/03 16:13:56  warnesgr
 % - Fixed typos and R CMD check warnings.
 % - Updated version number
@@ -27,7 +32,7 @@ HWE.exact(x)
 %\details{
 %}
 \value{
-  P-value.
+  Object of class 'htest'.
 }
 \references{
     Emigh TH. (1980) "Comparison of tests for Hardy-Weinberg Equilibrium",
@@ -38,7 +43,11 @@ HWE.exact(x)
   R. Warnes \email{gregory\_r\_warnes@groton.pfizer.com}
   }
 \note{ This function only works for genotypes with exactly 2 alleles.}
-\seealso{ \code{\link{HWE.test}}, \code{\link{diseq}}, \code{\link{diseq.ci}}
+\seealso{
+  \code{\link{HWE.chisq}},
+  \code{\link{HWE.test}},
+  \code{\link{diseq}},
+  \code{\link{diseq.ci}}
 }
 
 \examples{
@@ -48,6 +57,8 @@ g1  <- genotype(example.data)
 g1
 
 HWE.exact(g1)
+# compare with
+HWE.chisq(g1)
 
 
 \testonly{
@@ -56,8 +67,7 @@ set.seed(465764)
 
 g2 <- genotype(sample( c("A","C"), 100, p=c(100,10), rep=TRUE),
                sample( c("A","C"), 100, p=c(100,10), rep=TRUE) )
-HWE.exact(g2) 
-
+HWE.exact(g2)
 
 }
 \keyword{ misc }

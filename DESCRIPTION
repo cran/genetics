@@ -1,7 +1,7 @@
 Package: genetics
 Title: Population Genetics
-Version: 0.6.6
-Date: 2003-02-03
+Version: 0.6.8
+Date: 2003-04-07
 Author: Gregory Warnes and Friedrich Leisch
 Maintainer: Gregory Warnes <gregory_r_warnes@groton.pfizer.com>
 Depends: combinat

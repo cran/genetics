@@ -1,6 +1,9 @@
-# $Id: genotype.R,v 1.21 2002/11/27 15:32:20 warnesgr Exp $
+# $Id: genotype.R,v 1.22 2003/03/07 14:33:47 warnesgr Exp $
 #
 # $Log: genotype.R,v $
+# Revision 1.22  2003/03/07 14:33:47  warnesgr
+# - Added nallele function to compute the number of alleles.
+#
 # Revision 1.21  2002/11/27 15:32:20  warnesgr
 # Correct spelling errors and typos.
 #
@@ -859,3 +862,6 @@ allele.names<- function(x)
       stop("Assigned value must be of class haplotype.")
     NextMethod("[<-")
   }
+
+nallele <- function(x)
+  length(allele.names(x))
