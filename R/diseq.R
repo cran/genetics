@@ -206,7 +206,7 @@ diseq.table <- function(x, ...)
 }
 
 
-print.diseq  <-  function(x, show=c("D","D'","r"), ...)
+print.diseq  <-  function(x, show=c("D","D'","r","table"), ...)
   {
 
     cat("\n")
@@ -240,20 +240,39 @@ print.diseq  <-  function(x, show=c("D","D'","r"), ...)
         print(x$r)
         cat("\n")
       }
+    if("table" %in% show)
+      {
+        cat("Observed vs Expected frequency table\n")
+        cat("\n")
+        table <- cbind(
+                       Obs=c(x$observed),
+                       Exp=c(x$expected),
+                       "Obs-Exp"= c(x$observed - x$expected)
+                       )
+        rownames(table) <- outer(rownames(x$observed),
+                                 rownames(x$observed), paste, sep="/")
+        
+        print (table)
+        cat("\n")
+      }
     
-    if( ncol(x$r) <= 2 )
-      cat("Overall Values\n")
-    else
-      cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
-    cat("\n")
+    if( any(c("D","D'","r") %in% show))
+      {
+        if( ncol(x$r) <= 2 )
+          cat("Overall Values\n")
+        else
+          cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
+        cat("\n")
+        
+        if("D" %in% show)
+          cat("  D :  ", x$D.overall, "\n", sep="")
+        if("D'" %in% show)
+          cat("  D':  ", x$Dprime.overall, "\n", sep="")
+        if("r" %in% show)
+          cat("  r :  ", x$r.overall, "\n", sep="")
+        cat("\n")
+      }
     
-    if("D" %in% show)
-      cat("  D :  ", x$D.overall, "\n", sep="")
-    if("D'" %in% show)
-      cat("  D':  ", x$Dprime.overall, "\n", sep="")
-    if("r" %in% show)
-      cat("  r :  ", x$r.overall, "\n", sep="")
-    cat("\n")
     cat("\n")
   }
 

@@ -1,3 +1,15 @@
+Version 1.1.0
+
+- Add namespace support
+
+- R/diseq.R: Restore ability to show Observed vs. Expected table by
+  adding "table" option for the 'show' parameter.
+
+- Updates to power.casectrl.  (including renaming from power.casectl)
+
+- Update to work with gregmisc now that it has been converted from a
+  package to a bundle.
+
 Version 1.0.4
 
 - Updated to remove warnings in R CMD check for R 1.9.1.

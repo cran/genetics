@@ -1,3 +1,5 @@
+% $Id: binsearch.Rd,v 1.5 2004/09/17 18:46:26 warnes Exp $
+
 \name{binsearch}
 \alias{binsearch}
 \title{Binary Search}

@@ -1,7 +1,4 @@
-% $Id: genotype.Rd,v 1.21 2004/05/25 19:40:02 warnesgr Exp $
-%
-% %Log$
-%
+% $Id: genotype.Rd,v 1.23 2004/09/21 21:45:45 warnes Exp $
 
 \name{genotype}
 \alias{genotype}
@@ -286,4 +283,4 @@ g
 
 }
 \keyword{ misc }
-%\keyword{genetics}
+%%\keyword{genetics}

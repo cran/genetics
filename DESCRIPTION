@@ -1,10 +1,10 @@
 Package: genetics
 Title: Population Genetics
-Version: 1.0.4
-Date: 2004-05-25
+Version: 1.1.0
+Date: 2004-09-21
 Author: Gregory Warnes and Friedrich Leisch
 Maintainer: Gregory Warnes <gregory_r_warnes@groton.pfizer.com>
-Depends: combinat, gregmisc, MASS
+Depends:  combinat, gdata, MASS
 Description: Classes and methods for handling genetic data. Includes
   classes to represent genotypes and haplotypes at single markers up
   to multiple markers on multiple chromosomes. Function include
@@ -13,4 +13,4 @@ Description: Classes and methods for handling genetic data. Includes
   disequilibrium, estimating and testing for linkage disequilibrium,
   ...
 License: GPL
-Packaged: Wed May 26 12:42:22 2004; warneg
+Packaged: Tue Sep 21 17:46:41 2004; warneg

@@ -1,22 +1,4 @@
-% $Id: makeGenotypes.Rd,v 1.5 2004/05/25 19:40:02 warnesgr Exp $
-%
-% $Log: makeGenotypes.Rd,v $
-% Revision 1.5  2004/05/25 19:40:02  warnesgr
-% Many fixex.
-%
-% Revision 1.4  2003/05/27 18:45:52  warnesgr
-%
-% - Fix typos, update arguments to match changes to code
-%
-% Revision 1.3  2003/05/20 16:46:09  warnesgr
-%
-% - Reduce stringency for considering a variable a genotype.
-%
-% Revision 1.2  2003/05/16 18:39:49  warnesgr
-%
-% - Updated to version 0.7.0
-% - Made changes to pass R CMD check
-%
+% $Id: makeGenotypes.Rd,v 1.6 2004/09/17 18:46:26 warnes Exp $
 
 \name{makeGenotypes}
 \alias{makeGenotypes}

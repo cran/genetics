@@ -1,5 +1,5 @@
-# $Id: undocumented.Rd,v 1.7 2004/05/25 19:40:02 warnesgr Exp $
-#
+% $Id: undocumented.Rd,v 1.9 2004/09/21 21:45:45 warnes Exp $
+
 \name{undocumented}
 \alais{ci.balance}
 \alias{as.factor}
@@ -27,5 +27,5 @@
 }
 \author{Gregory R. Warnes}
 \keyword{ misc }
-%\keyword{genetics}
+%%\keyword{genetics}
 

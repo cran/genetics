@@ -1,6 +1,4 @@
-#
-# $Id: HWE.chisq.Rd,v 1.1 2003/03/07 14:32:48 warnesgr Exp $
-#
+% $Id: HWE.chisq.Rd,v 1.3 2004/09/21 21:45:45 warnes Exp $
 
 \name{HWE.chisq}
 \alias{HWE.chisq}
@@ -80,4 +78,4 @@ HWE.chisq(g3, B=10000)
 
 }
 \keyword{ misc }
-%\keyword{genetics}
+%%\keyword{genetics}

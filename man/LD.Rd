@@ -1,3 +1,5 @@
+% $Id: LD.Rd,v 1.4 2004/09/17 18:46:26 warnes Exp $
+
 \name{LD}
 \alias{LD}
 \alias{LD.genotype}

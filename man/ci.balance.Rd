@@ -1,3 +1,5 @@
+% $Id: ci.balance.Rd,v 1.7 2004/09/21 21:45:45 warnes Exp $
+
 \name{ci.balance}
 \alias{ci.balance}
 \title{Experimental Function to Correct Confidence Intervals At or Near
@@ -81,5 +83,5 @@ ci.balance(x,1, maxval=1)
 ci.balance(x,1)
 }
 \keyword{misc}
-%\keyword{genetics}
+%%\keyword{genetics}
 

@@ -1,3 +1,5 @@
+% $Id: homozygote.Rd,v 1.11 2004/09/21 21:45:45 warnes Exp $
+
 \name{homozygote}
 \alias{homozygote}
 \alias{heterozygote}
@@ -130,4 +132,4 @@ allele(g1)
 
 }
 \keyword{ misc }
-%\keyword{genetics}%-- one or more ...
+%%\keyword{genetics}%-- one or more ...

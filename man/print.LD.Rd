@@ -1,3 +1,5 @@
+% $Id: print.LD.Rd,v 1.7 2004/09/17 18:46:26 warnes Exp $
+
 \name{print.LD}
 \alias{print.LD}
 \alias{print.LD.data.frame}

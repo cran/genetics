@@ -1,7 +1,4 @@
-% $Id: summary.genotype.Rd,v 1.12 2003/05/27 18:45:52 warnesgr Exp $
-%
-% %Log$
-%
+% $Id: summary.genotype.Rd,v 1.14 2004/09/21 21:45:45 warnes Exp $
 
 \name{summary.genotype}
 
@@ -101,4 +98,4 @@ g1
 summary(g1)
 }
 \keyword{ misc }
-%\keyword{genetics}
+%%\keyword{genetics}

@@ -1,21 +1,4 @@
-% $Id: HWE.exact.Rd,v 1.3 2003/03/07 14:52:27 warnesgr Exp $
-%
-% $Log: HWE.exact.Rd,v $
-% Revision 1.3  2003/03/07 14:52:27  warnesgr
-% - Modified HWE.exact to return an object of class 'htest'
-% - Noted this change in the man file and added HWE.chisq to list of
-%   links and to example code.
-%
-% Revision 1.2  2003/02/03 16:13:56  warnesgr
-% - Fixed typos and R CMD check warnings.
-% - Updated version number
-% - Removed 'data' directory to fix new R CMD check warning.
-%
-% Revision 1.1  2002/12/02 16:16:44  warnesgr
-%
-% - Added HWE.exact.Rd.
-%
-%
+% $Id: HWE.exact.Rd,v 1.5 2004/09/21 21:45:45 warnes Exp $
 
 \name{HWE.exact}
 \alias{HWE.exact}
@@ -71,5 +54,5 @@ HWE.exact(g2)
 
 }
 \keyword{ misc }
-%\keyword{genetics}
+%%\keyword{genetics}
 

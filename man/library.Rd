@@ -1,3 +1,5 @@
+% $Id: library.Rd,v 1.4 2004/09/17 18:46:26 warnes Exp $
+
 \name{library.pos}
 \title{Loading and Listing of Packages (backported from 1.8.0)}
 \alias{library.pos}

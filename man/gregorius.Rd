@@ -1,3 +1,5 @@
+% $Id: gregorius.Rd,v 1.7 2004/09/17 18:46:26 warnes Exp $
+
 \name{gregorius}
 \alias{gregorius}
 \title{Probability of Observing All Alleles with a Given Frequency in a

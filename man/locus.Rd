@@ -1,7 +1,4 @@
-% $Id: locus.Rd,v 1.10 2004/05/25 19:40:02 warnesgr Exp $
-%
-% %Log$
-%
+% $Id: locus.Rd,v 1.12 2004/09/21 21:45:45 warnes Exp $
 
 \name{locus}
 \alias{locus}
@@ -188,4 +185,4 @@ carrier(g1,"I")
 heterozygote(g2)
 }
 \keyword{ misc }
-%\keyword{genetics}%-- one or more ...
+%%\keyword{genetics}%-- one or more ...

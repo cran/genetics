@@ -1,3 +1,5 @@
+% $Id: write.pop.file.Rd,v 1.5 2004/09/17 18:46:26 warnes Exp $
+
 \name{write.pop.file}
 \alias{write.pop.file}
 \alias{write.pedigree.file}
