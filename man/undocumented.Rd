@@ -1,6 +1,10 @@
-# $Id: undocumented.Rd,v 1.5 2002/11/27 15:32:20 warnesgr Exp $
+# $Id: undocumented.Rd,v 1.6 2003/05/28 20:26:07 warnesgr Exp $
 #
 # $Log: undocumented.Rd,v $
+# Revision 1.6  2003/05/28 20:26:07  warnesgr
+#
+# - Add alias for to shortsummary function.
+#
 # Revision 1.5  2002/11/27 15:32:20  warnesgr
 # Correct spelling errors and typos.
 #
@@ -29,7 +33,6 @@
 # Initial checkin.
 #
 # 
-
 \name{undocumented}
 \alais{ci.balance}
 \alias{as.factor}
@@ -37,6 +40,7 @@
 \alias{as.factor.allele.genotype}
 \alias{as.factor.default}
 \alias{as.factor.genotype}
+\alias{shortsummary.genotype}
 \title{Undocumented functions}
 \description{
   These functions are undocumented.  Some are internal and not intended

@@ -1,4 +1,4 @@
-% $Id: locus.Rd,v 1.7 2002/11/27 15:32:20 warnesgr Exp $
+% $Id: locus.Rd,v 1.9 2003/05/30 16:08:18 warnesgr Exp $
 %
 % %Log$
 %
@@ -16,8 +16,13 @@
 \alias{as.character.locus}
 \alias{as.character.gene}
 \alias{as.character.marker}
-
 \alias{getlocus}
+\alias{getmarker}
+\alias{getgene}
+\alias{locus<-}
+\alias{marker<-}
+\alias{gene<-}
+
 
 %- Also NEED an `\alias' for EACH other topic documented here.
 \title{ Create and Manipulate Locus, Gene, and Marker Objects}
@@ -32,7 +37,11 @@
   \code{as.character.marker} return a character string containing a
   compact encoding the object.
   
-  \code{getlocus} extracts locus data (if present) from another object.
+  \code{getlocus}, \code{getgene}, \code{getmarker} extract locus data
+  (if present) from another object.
+
+  \code{locus<-}, \code{marker<-}, and \code{gene<-} adds locus data to
+  an object.
 
 }
 \usage{
@@ -59,8 +68,13 @@
 
   getlocus(x, ...)
 
+  locus(x) <- value
+
+  marker(x) <- value
+
+  gene(x) <- value
+
 }
-%- maybe also `usage' for other objects documented here.
 \arguments{
   \item{name}{character string giving locus, gene, or marker name}
   \item{chromosome}{integer specifying chromosome number (1:23 for humans).}
@@ -82,8 +96,10 @@
   \item{...}{parameters for \code{locus} used to fill in additional
     details on the locus or gene within which the marker is located. }
   \item{x}{an object of class \code{locus}, \code{gene}, or
-    \code{marker}, or (for getlocus) an object that may contain a locus
-    attribute or field.}
+    \code{marker}, or (for \code{getlocus}, \code{locus<-},
+    \code{marker<-}, and \code{gene<-}) an object that may contain a locus
+    attribute or field, notably a \code{genotype} object.}
+  \item{value}{\code{locus}, \code{marker}, or \code{gene} object}
 }
 %\details{
 %  ~~ If necessary, more details than the __description__  above ~~
@@ -114,16 +130,6 @@
 
 \seealso{
   \code{\link{genotype}},
-  \code{\link{HWE.test}},
-  \code{\link{allele}},
-  \code{\link{homozygote}},
-  \code{\link{heterozygote}}, 
-  \code{\link{carrier}},
-  \code{\link{summary.genotype}},
-  \code{\link{allele.count}}
- % \code{\link{locus}}
- % \code{\link{gene}}
- % \code{\link{marker}}
 }
 
 \examples{

@@ -1,4 +1,4 @@
-% $Id: genotype.Rd,v 1.19 2003/03/07 14:33:47 warnesgr Exp $
+% $Id: genotype.Rd,v 1.20 2003/05/27 18:45:52 warnesgr Exp $
 %
 % %Log$
 %
@@ -72,10 +72,10 @@
 \usage{
   genotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
            reorder=c("no", "default", "ascii", "freq"),
-           allow.partial.missing=TRUE, locus=NULL)
+           allow.partial.missing=FALSE, locus=NULL)
 
   haplotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
-           reorder="no", allow.partial.missing=TRUE, locus=NULL)
+           reorder="no", allow.partial.missing=FALSE, locus=NULL)
 
   is.genotype(x)
 
@@ -104,10 +104,9 @@
     alleles.}
   \item{sep}{ character separator or column number used to divide
     alleles when \code{a1} is a vector of strings where each string
-    holds both alleles. See below for details. Default value is "/".}
+    holds both alleles. See below for details.}
   \item{remove.spaces}{ logical indicating whether spaces and tabs will
-    be removed from a1 and a2  before processing. Default value is
-    \code{TRUE}.}
+    be removed from a1 and a2  before processing.}
   \item{reorder}{how should alleles within an individual be reordered.
     If \code{reorder="no"}, use the order specified by the alleles
     parameter.  If \code{reorder="freq"} or
@@ -120,8 +119,7 @@
   }
   \item{allow.partial.missing}{logical indicating whether one allele is
     permitted to be missing.  When set to \code{FALSE} both alleles
-    are set to \code{NA} when either is missing. Default value is
-    \code{TRUE}.}
+    are set to \code{NA} when either is missing.}
   \item{locus}{ object of class locus, gene, or marker, holding
     information about the source of this genotype.}
   \item{...}{optional arguments}

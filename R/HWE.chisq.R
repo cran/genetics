@@ -1,16 +1,5 @@
-#
-# $Id: HWE.chisq.R,v 1.1 2003/03/07 14:32:48 warnesgr Exp $
-#
-# $Log: HWE.chisq.R,v $
-# Revision 1.1  2003/03/07 14:32:48  warnesgr
-#
-# - Created HWE.chisq, HWE.chisq.genotype and corresponding man page.
-# - Moved computation of Chisquare test for HWE from HWE.test.genotype
-#   to HWE.chisq.genotype.
-# - Added option (on by default) to compute the exact p-value using HWE.exact.
-#   This is on by default when nallele=2
-#
-#
+# $Id: HWE.chisq.R,v 1.2 2003/05/22 17:25:23 warnesgr Exp $
+
 
 ###
 ### Hardy-Weinberg Equilibrium Significance Test

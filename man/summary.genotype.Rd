@@ -1,4 +1,4 @@
-% $Id: summary.genotype.Rd,v 1.11 2002/11/27 15:32:20 warnesgr Exp $
+% $Id: summary.genotype.Rd,v 1.12 2003/05/27 18:45:52 warnesgr Exp $
 %
 % %Log$
 %
@@ -19,7 +19,7 @@
 }
 
 \usage{
-  summary.genotype(object, ..., maxobjectsum)
+  summary.genotype(object, ..., maxsum)
   print.summary.genotype(x,...,round=2)
 }
 
@@ -30,8 +30,8 @@
     \code{summary.genotype} (for \code{print.summary.genotype}) }
   \item{\dots}{ optional parameters.  Ignored by \code{summary.genotype},
     passed to \code{print.matrix} by \code{print.summary,genotype}.}
-  \item{maxobjectsum}{ specifying any value for the parameter
-    maxobjectsum will cause \code{summary.genotype} to fall back to
+  \item{maxsum}{ specifying any value for the parameter
+    maxsum will cause \code{summary.genotype} to fall back to
     \code{summary.factor}.}
   \item{round}{ number of digits to use when displaying proportions.}
  }

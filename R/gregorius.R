@@ -1,19 +1,4 @@
-# $Id: gregorius.R,v 1.2 2002/12/11 21:07:37 warnesgr Exp $
-#
-# $Log: gregorius.R,v $
-# Revision 1.2  2002/12/11 21:07:37  warnesgr
-#
-# - Moved binsearch() into a separate file and added documentation.
-# - Simplified and documented binsearch() code.
-# - binsearch() now detects whether the function is increasing or
-#   decreasing and acts accordingly.
-# - Updated gregorius() to use the modified binsearch.
-#
-# Revision 1.1  2002/12/10 20:33:17  warnesgr
-#
-# - Implemented gregorius() function, replacing data frame gregorius.
-# - Re-created corresponding help page.
-#
+# $Id: gregorius.R,v 1.3 2003/05/22 17:25:23 warnesgr Exp $
 #
 # Code contributed by David Duffy <davidD@qumr.edu.au>.
 #

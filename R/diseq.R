@@ -135,6 +135,7 @@ diseq.genotype <- function(x, ...)
 
     retval <- diseq.table(observed)
     retval$observed.no <- observed.no
+    retval$call <- match.call()
     retval
   }
   
@@ -172,7 +173,7 @@ diseq.table <- function(x, ...)
   diag(offdiag.expected) <- NA
   sum.expected <- sum(offdiag.expected, na.rm=TRUE)
 
-  if(dim(x)==c(2,2)) # 2 allele case
+  if(all(dim(x)==2)) # 2 allele case
     {
       diseq.overall <- diseq[1,2]
       dprime.overall <- dprime[1,2]

@@ -1,5 +1,15 @@
+Version 1.0.0
 
-Changes since version 0.6.7
+- New functions to estimate and test linkage disequilibrium (LD):
+	LD, LD.genotype, LD.data.frame
+
+- New functions to display LD results
+	print.LD, print.LD.data.frame, plot.LD.data.frame, LDtable, LDplot
+
+- Various bug-fixes and corrections
+
+
+Version 0.6.8
 
 - Added HWE.chisq which performs the Chi-Square test for
   Hardy-Wienberg Equilibrium.
@@ -10,7 +20,7 @@ Changes since version 0.6.7
   genotypes, and HWE.chisq otherwise.
 
 
-Changes since version 0.6.4
+Version 0.6.7
 
 - Added 'HWE.exact()', an exact test for Hardy-Wienberg Equilibrium for
   two alleles. Code contributed by David Duffy <davidD@qimr.edu.au>

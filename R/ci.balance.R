@@ -1,14 +1,4 @@
-# $Id: ci.balance.R,v 1.1 2002/11/08 19:53:57 warnesgr Exp $
-#
-# $Log: ci.balance.R,v $
-# Revision 1.1  2002/11/08 19:53:57  warnesgr
-#
-# - Moved ci.balance() to a separate file and created a documenation file for it.
-# - Modified ci.balance to better annotate when it uses boundary values.
-# - Modified diseq.ci to better provide warning message when the number of
-#   alleles is greater than 3.
-#
-#
+# $Id: ci.balance.R,v 1.2 2003/05/22 17:25:23 warnesgr Exp $
 
 ci.balance <- function(x, est, conf=0.95, minval, maxval, na.rm=TRUE)
   {

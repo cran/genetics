@@ -1,19 +1,4 @@
-# $Id: binsearch.R,v 1.2 2002/12/11 21:29:55 warnesgr Exp $
-#
-# $Log: binsearch.R,v $
-# Revision 1.2  2002/12/11 21:29:55  warnesgr
-# - fixed typo
-#
-# Revision 1.1  2002/12/11 21:07:37  warnesgr
-#
-# - Moved binsearch() into a separate file and added documentation.
-# - Simplified and documented binsearch() code.
-# - binsearch() now detects whether the function is increasing or
-#   decreasing and acts accordingly.
-# - Updated gregorius() to use the modified binsearch.
-#
-#
-
+# $Id: binsearch.R,v 1.3 2003/05/22 17:25:23 warnesgr Exp $
 
 binsearch <- function(fun, range, ..., target=0,
                       lower=ceiling(min(range)),upper=floor(max(range)),

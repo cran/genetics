@@ -4,6 +4,8 @@ HWE.exact               Exact Test of Hardy-Weinberg Equilibrium for
                         2-Allele Markers
 HWE.test                Estimate Disequilibrium and Test for
                         Hardy-Weinberg Equilibrium
+LD                      Pairwise linkage disequilibrium between
+                        genetic markers.
 binsearch               Binary Search
 ci.balance              Experimental Function to Correct Confidence
                         Intervals At or Near Boundaries of the
@@ -16,8 +18,15 @@ gregorius               Probability of Observing All Alleles with a
                         Given Frequency in a Sample of a Specified
                         Size.
 homozygote              Extract Features of Genotype objects
+library.pos             Loading and Listing of Packages (backported
+                        from 1.8.0)
 locus                   Create and Manipulate Locus, Gene, and Marker
                         Objects
+makeGenotypes           Convert columns in a dataframe to genotypes or
+                        haplotypes
+print.LD                Textual and graphical display of linkage
+                        disequilibrium (LD) objects
 summary.genotype        Allele and Genotype Frequency from a Genotype
                         or Haplotype Object
 undocumented            Undocumented functions
+write.pop.file          Create genetics data files

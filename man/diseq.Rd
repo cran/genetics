@@ -1,6 +1,10 @@
-# $Id: diseq.Rd,v 1.6 2003/04/07 20:30:19 warnesgr Exp $
+# $Id: diseq.Rd,v 1.7 2003/05/27 18:45:52 warnesgr Exp $
 #
 # $Log: diseq.Rd,v $
+# Revision 1.7  2003/05/27 18:45:52  warnesgr
+#
+# - Fix typos, update arguments to match changes to code
+#
 # Revision 1.6  2003/04/07 20:30:19  warnesgr
 #
 # - Flipped sign of D, D', r.  Now D matches sign given in Weir's book,
@@ -95,7 +99,7 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
       }{%
   	Dmax = min( p(i),p(j) ) - p(ij)   %
       } 
-      or if  if D < 0:
+      or if D < 0:
       \deqn{%
   	D_{max} = p_{ij} %
       }{%
@@ -107,9 +111,10 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
       other alleles, and can be computed by
       
       \deqn{%
- 	r = \frac{-D}{\sqrt( p_i * (1-p_i) p(j) (1-p_j ) )} %
+ 	r = \frac{-D}{\sqrt( p_i * (1-p_i) p(j) (1-p_j ) )} =
+	\frac{-D}{p_i p_j}%
       }{%
- 	r = -D / sqrt( p(i) * (1-p(i)) * p(j) * (1-p(j) ) ) %
+ 	r = -D / sqrt( p(i)*(1-p(i)) * p(j)*(1-p(j)) ) = -D / p(i)p(j) %
       }
     }
     
@@ -117,11 +122,11 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
   
   where
   \itemize{
-    \item{-}{ \eqn{P_i}{p(i)} defined as the observed probability of
+    \item{-}{ \eqn{p_i}{p(i)} defined as the observed probability of
       allele 'i', }
-    \item{-}{\eqn{P_j}{p(j)} defined as the observed probability of
+    \item{-}{\eqn{p_j}{p(j)} defined as the observed probability of
       allele 'j', and }
-    \item{-}{\eqn{P_{ij}}{p(ij)} defined as the observed probability of
+    \item{-}{\eqn{p_{ij}}{p(ij)} defined as the observed probability of
       the allele pair 'ij'. }
   }
   
@@ -133,7 +138,7 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
    \deqn{%
      D_{overall} = \sum_{i \ne j}  |D_{ij}| * p_{ij} % 
    }{%
-     D.overall = sum |D(ij)| * P(ij) %
+     D.overall = sum |D(ij)| * p(ij) %
    }
 
   Bootstrapping is used to generate confidence interval in order to

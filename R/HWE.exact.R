@@ -1,20 +1,4 @@
-# $Id: HWE.exact.R,v 1.3 2003/03/07 14:52:27 warnesgr Exp $
-#
-# $Log: HWE.exact.R,v $
-# Revision 1.3  2003/03/07 14:52:27  warnesgr
-# - Modified HWE.exact to return an object of class 'htest'
-# - Noted this change in the man file and added HWE.chisq to list of
-#   links and to example code.
-#
-# Revision 1.2  2002/12/02 16:12:00  warnesgr
-#
-# - Now returnes only the computed P-value.
-#
-# Revision 1.1  2002/12/02 15:40:40  warnesgr
-#
-# - Added code for HWE.exact, based on contributed function by David
-#   Duffy <davidD@qimr.edu.au>
-#
+# $Id: HWE.exact.R,v 1.4 2003/05/22 17:25:23 warnesgr Exp $
 #
 # Based on code submitted by David Duffy <davidD@qimr.edu.au>
 #
