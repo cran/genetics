@@ -22,7 +22,7 @@ export(
        allele,
        allele.count,
        allele.names,
-       library.pos,
+       #library.pos,
        locus,
        gene,
        marker,
@@ -109,4 +109,6 @@ S3method(plot,genotype)
 
 
 importFrom(stats, na.omit)
-importFrom(gdata,interleave, trim)
+importFrom(gdata, interleave, trim)
+importFrom(mvtnorm, rmvnorm)
+##importFrom(combinat, rmultz2) # combinat doesn't have a namesspace.

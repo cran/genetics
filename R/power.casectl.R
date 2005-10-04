@@ -140,7 +140,6 @@ power.casectrl.old <- function (N, gamma = 4.5, p = 0.15, kp=.1, alpha=.05) # mo
 }
 
 ### simple simulation for two group design
-require(mvtnorm)
 pw <- function(n1, n2=n1*(1-fc)/fc, fc=.5, pi=0, me1=50, me2=45, sd1=10, sd2=10, TEST=F){
   covm <- matrix(c(1,    pi,    pi,    1   ), nr=2)*
           matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nr=2)

@@ -5,7 +5,13 @@ diseq <- function(x, ...)
 }
 
 diseq.genotype <- function(x, ...)
-  { 
+  {
+    if (nallele(x) < 2)
+      {
+        warning("Only 1 Marker allele. Returning NA")
+        return(NA)
+      }
+    
     observed.no <- table( factor(allele(x,1), levels=allele.names(x)),
                           factor(allele(x,2), levels=allele.names(x)) )
     observed <- prop.table(observed.no)
@@ -170,9 +176,6 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
         stop("Missing values and NaN's not allowed if `na.rm' is FALSE.")
     }
 
-  if( !require(combinat) )
-    stop("Depends on availability of 'combinat' library")
-  
   # step 1 - generate summary table
   observed.no <- table( factor(allele(x,1), levels=allele.names(x)),
                         factor(allele(x,2), levels=allele.names(x)) )

@@ -13,8 +13,10 @@ expectedGenotypes <- function (x, alleles=allele.names(x), ploidy=2) {
         if (!is.genotype(x)) stop("x must be of class 'genotype'")
     }
     # Find possible genotypes according to allele variants
-    comb <- combinations(n=length(alleles), r=ploidy, v=alleles, 
-                              repeats.allowed=T)
+    comb <- combinations(n=length(alleles),
+                         r=ploidy,
+                         v=alleles,
+                         repeats.allowed=T)
     # Create a nice character vector of expected genotypes
     genotypes <- vector(mode="character", length=dim(comb)[1])
     for (i in 1:dim(comb)[1]) {

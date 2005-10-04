@@ -1,4 +1,4 @@
-# $Id: print.LD.R,v 1.8 2004/05/25 19:40:02 warnesgr Exp $
+# $Id: print.LD.R,v 1.9 2005/10/04 23:43:31 warnes Exp $
 
 print.LD <- function(x, digits=getOption("digits"), ...)
   {
@@ -97,8 +97,8 @@ print.summary.LD.data.frame <- function(x, digits=getOption("digits"), ...)
   cat("Pairwise LD\n")
   cat("-----------\n")
 
-  print.matrix(unclass(x), digits=digits, quote=FALSE,
-               na.print="    ", right=TRUE) 
+  print(as.matrix(unclass(x)), digits=digits, quote=FALSE, 
+        na.print="    ", right=TRUE) 
         
   cat("\n")
 

@@ -1,28 +1,33 @@
-# plot.genotype.R
-#--------------------------------------------------------------------------
-# What: Plot genotype object
-# Time-stamp: <2005-03-08 11:43:18 ggorjan>
-#--------------------------------------------------------------------------
+## plot.genotype.R
+###------------------------------------------------------------------------
+## What: Plot genotype object
+## $Id: plot.genotype.R,v 1.4 2005/10/04 16:30:27 warnes Exp $
+## Time-stamp: <2005-09-13 22:11:19 ggorjan>
+###------------------------------------------------------------------------
 
-plot.genotype <- function(x, type=c("genotype","allele"),
-                          what=c("percentage","number"),  ...)
+plot.genotype <- function(x,
+                          type=c("genotype", "allele"),
+                          what=c("percentage","number"),
+                          ...)
 {
-
-  type <- match.arg(type)
   what <- match.arg(what)
-  
+  type <- match.arg(type)
+
+  ## get details
   tmp <- summary(x)
-  # Percentages or numbers
+  
+  ## Percentages or numbers
   if (what == "percentage")
     whati <- 2
-  else 
+  else
     whati <- 1
-  # Plot
+  
+  ## Plot
   if (type == "allele")
-      barplot(tmp$allele.freq[, whati], ...)
+    barplot(tmp$allele.freq[, whati], ...)
   else # genotype
-      barplot(tmp$genotype.freq[, whati], ...)    
+    barplot(tmp$genotype.freq[, whati], ...)
 }
 
-#--------------------------------------------------------------------------
-# plot.genotype.R ends here
+###------------------------------------------------------------------------
+## plot.genotype.R ends here
