@@ -1,4 +1,4 @@
-# $Id: ci.balance.R,v 1.4 2004/03/25 17:15:06 warnesgr Exp $
+# $Id: ci.balance.R,v 1.5 2005/11/09 17:04:02 warnes Exp $
 
 ci.balance <- function(x, est, confidence=0.95, alpha=1-confidence,
                        minval, maxval, na.rm=TRUE)
@@ -57,12 +57,14 @@ ci.balance <- function(x, est, confidence=0.95, alpha=1-confidence,
     
 
     return(
-           ci=ci,
-           overflow.upper=overflow.upper,
-           overflow.lower=overflow.lower,
-           n.above=n.above,
-           n.below=n.below,
-           lower.n=lower.n,
-           upper.n=upper.n
+           list(
+                ci=ci,
+                overflow.upper=overflow.upper,
+                overflow.lower=overflow.lower,
+                n.above=n.above,
+                n.below=n.below,
+                lower.n=lower.n,
+                upper.n=upper.n
+                )
            )
   }

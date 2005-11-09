@@ -1,4 +1,4 @@
-# $Id: HWE.test.R,v 1.17 2004/11/15 16:20:47 warnes Exp $
+# $Id: HWE.test.R,v 1.18 2005/11/09 17:04:02 warnes Exp $
 
 ### Hardy-Weinberg Equilibrium Disequlibrium Estimates, Confidence
 ### Intervals, and P-values
@@ -117,7 +117,7 @@ print.HWE.test  <-  function(x, show=c("D","D'","r"), ...)
       cat(strwrap(paste("WARNING:", x$ci$warning.text), prefix="    * "),"\n",
           sep="\n")
     
-    show.tab <- matrix(ncol=4, nrow=3)
+    show.tab <- matrix(ncol=4, nrow=4)
     tmp <- format(x$ci$ci[,1:3], digits=getOption("digits"))
     show.tab[,1] <- tmp[,1]  # Observed
     show.tab[,2] <- paste("(", tmp[,2], ", ", tmp[,3], ")", sep="" )

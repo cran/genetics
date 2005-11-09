@@ -1,7 +1,7 @@
 Package: genetics
 Title: Population Genetics
-Version: 1.1.4
-Date: 2005-10-04
+Version: 1.2.0
+Date: 2005-11-09
 Author: Gregory Warnes and Friedrich Leisch
 Maintainer: Gregory Warnes <gregory.r.warnes@pfizer.com>
 Depends:  combinat, gdata, MASS, mvtnorm
@@ -13,4 +13,4 @@ Description: Classes and methods for handling genetic data. Includes
   disequilibrium, estimating and testing for linkage disequilibrium,
   ...
 License: GPL
-Packaged: Tue Oct  4 19:57:38 2005; warneg
+Packaged: Wed Nov  9 12:51:46 2005; warneg

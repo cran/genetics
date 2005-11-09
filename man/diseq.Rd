@@ -1,4 +1,4 @@
-% $Id: diseq.Rd,v 1.11 2004/10/13 16:21:11 warnes Exp $
+% $Id: diseq.Rd,v 1.12 2005/11/09 17:04:02 warnes Exp $
 
 \name{diseq}
 \alias{diseq}
@@ -12,7 +12,7 @@
 }
 \usage{
 diseq(x, ...)
-\method{print}{diseq}(x, show=c("D","D'","r","table"), ...)
+\method{print}{diseq}(x, show=c("D","D'","r","R^2","table"), ...)
 diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 }
 \arguments{

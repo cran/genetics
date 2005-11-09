@@ -1,4 +1,4 @@
-# $Id: LD.R,v 1.6 2003/06/03 12:59:14 warnesgr Exp $
+# $Id: LD.R,v 1.7 2005/11/09 17:04:02 warnes Exp $
 
 # R translation of Cathy Stack's SAS macro
 # Assumes 2-alleles
@@ -24,7 +24,7 @@ LD.data.frame <- function(g1,...)
     rownames(P) <- colnames(g1)
     colnames(P) <- colnames(g1)
 
-    P <- D <- Dprime <- nobs <- chisq <- p.value <- corr <- P
+    P <- D <- Dprime <- nobs <- chisq <- p.value <- corr <- R.2 <- P
 
     for(i in 1:(ncol(g1)-1) )
       for(j in (i+1):ncol(g1) )
@@ -33,7 +33,8 @@ LD.data.frame <- function(g1,...)
           
           D      [i,j] <- ld$D
           Dprime [i,j] <- ld$"D'"
-          corr    [i,j] <- ld$"r"
+          corr   [i,j] <- ld$"r"
+          R.2    [i,j] <- ld$"R^2"          
           nobs   [i,j] <- ld$"n"
           chisq  [i,j] <- ld$"X^2"
           p.value[i,j] <- ld$"P-value"
@@ -44,6 +45,7 @@ LD.data.frame <- function(g1,...)
                    "D"=D,
                    "D'"=Dprime,
                    "r" = corr,
+                   "R^2" = R.2,
                    "n"=nobs,
                    "X^2"=chisq,
                    "P-value"=p.value
@@ -135,6 +137,7 @@ LD.genotype <- function(g1,g2,...)
                    "D"=estD,
                    "D'"=estDp,
                    "r" = corr,
+                   "R^2" = corr^2,
                    "n"=n,
                    "X^2"=dchi,
                    "P-value"=dpval

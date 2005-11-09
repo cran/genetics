@@ -65,14 +65,16 @@ diseq.table <- function(x, ...)
       diseq.overall <- diseq[1,2]
       dprime.overall <- dprime[1,2]
       r.overall <- r[1,2]
+      R2.overall <- r.overall^2
     }
   else
     {
       diseq.overall <- sum( abs(diseq) * expected , na.rm=TRUE ) / sum.expected
       dprime.overall <- sum( abs(dprime) * expected , na.rm=TRUE ) / sum.expected
       r.overall <- sum( abs(r) * expected , na.rm=TRUE ) / sum.expected
+      R2.overall <- r.overall^2
     }
-  
+
   #diag(r) <- 1.0
 
   retval <- list(
@@ -83,9 +85,11 @@ diseq.table <- function(x, ...)
                  D=diseq,
                  Dprime=dprime,
                  r=r,
+                 R2=r^2,
                  D.overall=diseq.overall,
                  Dprime.overall=dprime.overall,
-                 r.overall = r.overall
+                 r.overall = r.overall,
+                 R2.overall = R2.overall
                  )
 
   class(retval) <- "diseq"
@@ -93,7 +97,7 @@ diseq.table <- function(x, ...)
 }
 
 
-print.diseq  <-  function(x, show=c("D","D'","r","table"), ...)
+print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
   {
 
     cat("\n")
@@ -127,6 +131,13 @@ print.diseq  <-  function(x, show=c("D","D'","r","table"), ...)
         print(x$r)
         cat("\n")
       }
+    if("R^2" %in% show)
+      {
+        cat("R^2 for each allele pair\n")
+        cat("\n") 
+        print(x$R2)
+        cat("\n")
+      }
     if("table" %in% show)
       {
         cat("Observed vs Expected frequency table\n")
@@ -152,11 +163,13 @@ print.diseq  <-  function(x, show=c("D","D'","r","table"), ...)
         cat("\n")
         
         if("D" %in% show)
-          cat("  D :  ", x$D.overall, "\n", sep="")
+          cat("  D  :  ", x$D.overall, "\n", sep="")
         if("D'" %in% show)
-          cat("  D':  ", x$Dprime.overall, "\n", sep="")
+          cat("  D' :  ", x$Dprime.overall, "\n", sep="")
         if("r" %in% show)
-          cat("  r :  ", x$r.overall, "\n", sep="")
+          cat("  r  :  ", x$r.overall, "\n", sep="")
+        if("R^2" %in% show)
+          cat("  R^2:  ", x$R2.overall, "\n", sep="")
         cat("\n")
       }
     
@@ -195,9 +208,10 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
     observed[,] <- x/n
     observed <- 1/2 * (observed + t(observed) )
     d <-  diseq(observed)
-    c( "Overall D "=d$D.overall,
-       "Overall D'"=d$Dprime.overall,
-       "Overall r "=d$r.overall)
+    c( "Overall D  "=d$D.overall,
+       "Overall D' "=d$Dprime.overall,
+       "Overall r  "=d$r.overall,
+       "Overall R^2"=d$R2.overall)
   }
 
   results <- apply( resample.data, 2, bootfun )
@@ -211,7 +225,24 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
     {
       ci <- t(apply(results, 1, function(x) quantile(x, c(0.025, 0.975),
                                                      na.rm=na.rm ) ) )
-      warning.text <- NULL
+
+      warning.text <- paste("The R^2 disequlibrium statistics is bounded",
+                            "between [0,1].  The confidence ",
+                            "intervals for R^2 values near 0 and 1 are",
+                            "ill-behaved.", sep=" ")
+      
+      if(correct)
+        {
+          warning.text <- paste(warning.text, "A rough correction has",
+                                "been applied, but the intervals still",
+                                "may not be correct for R^2 values near",
+                                "0 or 1.",
+                                sep=" ")
+
+          X <- results["Overall R^2",]
+          ci["Overall R^2",] <- ci.balance(X,X[1],confidence=conf,
+                                           minval=0,maxval=1)$ci
+        }
     }
   else
     {
@@ -262,5 +293,7 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
          ci=ci,
          warning.text=warning.text
          )
+
+  retval
 }
 

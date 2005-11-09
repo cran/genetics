@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.12 2005/03/12 21:57:25 warnes Exp $
+# $Id: summary.genotype.R,v 1.13 2005/11/08 20:54:14 warnes Exp $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -50,7 +50,7 @@ summary.genotype  <-  function(object,...,maxsum)
     ### from code submitted by David Duffy <davidD@qimr.edu.au>
     #
     n.typed<-sum(gf)
-    correction<-n.typed/max(1,n.typed-1)
+    correction<-2*n.typed/max(1,2*n.typed-1)
     ehet<-(1-sum(paf*paf))
     matings<- (paf %*% t(paf))^2
     uninf.mating.freq <- sum(matings)-sum(diag(matings))
