@@ -1,4 +1,4 @@
-# $Id: ci.balance.R,v 1.5 2005/11/09 17:04:02 warnes Exp $
+# $Id: ci.balance.R 453 2005-11-09 17:04:02Z warnes $
 
 ci.balance <- function(x, est, confidence=0.95, alpha=1-confidence,
                        minval, maxval, na.rm=TRUE)

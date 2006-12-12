@@ -1,5 +1,33 @@
-Version 1.1.2
+genetics 1.2.1
+--------------
+
+- Update Greg's email address 
+
+- Fixed a bug in function allele.number, as pointed out by Chris
+  Wallace
+
+genetics 1.2.0
 -------------
+
+- Add R^2 to HWE and LD estimates
+
+- Correct bug in denominator of Heterozygosity calculation, as
+  identified by Christopher Calrson
+
+- Fix handling of the 'type' and 'what' arguments for plot.genotype()
+
+- Misc bug fixes in package imports/dependencies/etc.
+
+- Add expectedGenotypes() and plot.genotypes() contributed by Gregor GORJANC
+
+- Fix bug in heterozygote when more than one allele.name is provided
+
+- Return NA and issue a warning if diseq() called on a marker with
+  only one observed allele.
+
+
+genetics 1.1.2
+--------------
 
 - Remove debugging code that printed intermediate values (sometimes
   a lot of them).
@@ -7,8 +35,8 @@ Version 1.1.2
 - Ensure that allele.freq table reported by summary.genotype has the
   same ordering as allele.names table.
 
-Version 1.1.1
--------------
+genetics 1.1.1
+--------------
 
 - Make it clear that the Yates continuty correction is applied
   *only* when simulate.p.value=FALSE, so that the reported test
@@ -21,8 +49,8 @@ Version 1.1.1
 - Updated to use a namespace and to work with the lastest gregmisc
   bundle, which was previously a package.
 
-Version 1.1.0
--------------
+genetics 1.1.0
+--------------
 
 - Add namespace support
 
@@ -34,13 +62,13 @@ Version 1.1.0
 - Update to work with gregmisc now that it has been converted from a
   package to a bundle.
 
-Version 1.0.4
--------------
+genetics 1.0.4
+--------------
 
 - Updated to remove warnings in R CMD check for R 1.9.1.
 
-Version 1.0.2
--------------
+genetics 1.0.2
+--------------
 
 - Fixed Heterozygosity (H) and PIC calculations in summary.genotype.
   (Bug report from Gerard Tromp <gtromp@cmb.biosci.wayne.edu>.
@@ -50,8 +78,8 @@ Version 1.0.2
   Duffy <davidD@qimr.edu.au>).
 
 
-Version 1.0.1
--------------
+genetics 1.0.1
+--------------
 
 - Fixed mislabeling of rows/columns in LDtable
 
@@ -72,8 +100,8 @@ Version 1.0.1
   haplotype().
 
 
-Version 1.0.0
--------------
+genetics 1.0.0
+--------------
 
 - New functions to estimate and test linkage disequilibrium (LD):
 	LD, LD.genotype, LD.data.frame
@@ -84,8 +112,8 @@ Version 1.0.0
 - Various bug-fixes and corrections
 
 
-Version 0.6.8
--------------
+genetics 0.6.8
+--------------
 
 - Added HWE.chisq which performs the Chi-Square test for
   Hardy-Wienberg Equilibrium.
@@ -96,8 +124,8 @@ Version 0.6.8
   genotypes, and HWE.chisq otherwise.
 
 
-Version 0.6.7
--------------
+genetics 0.6.7
+--------------
 
 - Added 'HWE.exact()', an exact test for Hardy-Wienberg Equilibrium for
   two alleles. Code contributed by David Duffy <davidD@qimr.edu.au>

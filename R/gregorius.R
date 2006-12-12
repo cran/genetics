@@ -1,4 +1,4 @@
-# $Id: gregorius.R,v 1.3 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: gregorius.R 114 2003-05-22 17:25:23Z warnesgr $
 #
 # Code contributed by David Duffy <davidD@qumr.edu.au>.
 #

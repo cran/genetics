@@ -1,8 +1,7 @@
-# $Id: gregorius.R,v 1.1 2002/12/02 17:13:29 warnesgr Exp $
+# $Id: gregorius.R 91 2002-12-02 17:13:29Z warnesgr $
 #
-# $Log: gregorius.R,v $
+# $Log$
 # Revision 1.1  2002/12/02 17:13:29  warnesgr
-#
 # - Added data set (and documentation) 'gregorius' which contains
 #   necessary samples sizes to detect alleles.
 #

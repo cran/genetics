@@ -1,4 +1,4 @@
-% $Id: summary.genotype.Rd,v 1.14 2004/09/21 21:45:45 warnes Exp $
+% $Id: summary.genotype.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{summary.genotype}
 
@@ -72,7 +72,7 @@
   \code{print.summary.genotype} silently returns the object \code{x}.
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{ Gregory R. Warnes \email{Gregory\_R\_Warnes@groton.pfizer.com} }
+\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu} }
 %\note{ ~~further notes~~ }
 \seealso{
   \code{\link{genotype}},

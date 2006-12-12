@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R,v 1.13 2005/11/08 20:54:14 warnes Exp $
+# $Id: summary.genotype.R 448 2005-11-08 20:54:14Z warnes $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes

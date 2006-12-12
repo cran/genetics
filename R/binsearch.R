@@ -1,4 +1,4 @@
-# $Id: binsearch.R,v 1.3 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: binsearch.R 114 2003-05-22 17:25:23Z warnesgr $
 
 binsearch <- function(fun, range, ..., target=0,
                       lower=ceiling(min(range)),upper=floor(max(range)),

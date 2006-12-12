@@ -1,4 +1,4 @@
-% $Id: print.LD.Rd,v 1.7 2004/09/17 18:46:26 warnes Exp $
+% $Id: print.LD.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{print.LD}
 \alias{print.LD}
@@ -62,7 +62,7 @@ LDplot(x, digits=3, marker, distance, which=c("D", "D'", "r", "X^2",
   None.
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{ Gregory R. Warnes \email{gregory\_r\_warnes@groton.pfizer.com} }
+\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu} }
 \seealso{ \code{LD}, \code{genotype}, \code{HWE.test} }
 \examples{
 

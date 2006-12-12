@@ -1,4 +1,4 @@
-% $Id: HWE.chisq.Rd,v 1.4 2004/11/15 15:34:59 warnes Exp $
+% $Id: HWE.chisq.Rd 181 2004-11-15 15:34:59Z warnes $
 
 \name{HWE.chisq}
 \alias{HWE.chisq}

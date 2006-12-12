@@ -1,4 +1,4 @@
-# $Id: write.pedigree.file.R,v 1.2 2003/05/28 15:01:46 warnesgr Exp $
+# $Id: write.pedigree.file.R 666 2006-03-10 18:19:34Z nj7w $
 
 write.pedigree.file <- function(data,
                                 family, pid, father, mother, sex,
@@ -45,14 +45,20 @@ write.pedigree.file <- function(data,
 
     data <- data[,which]
 
+    allele.number <- function(g, ind) {
+      as.numeric(factor(allele(g, ind),
+                        levels = allele.names(g)))
+    }
+
     for( col in names(data) )
       {
         name.1 <- paste(col,".1")
         name.2 <- paste(col,".2")
 
+        
 
-        allele.number <- function(g, ind)
-          as.numeric(as.factor(allele(g,ind), levels=allele.names(g, ind) ))
+       ## allele.number <- function(g, ind)
+       ##   as.numeric(as.factor(allele(g,ind), levels=allele.names(g, ind) ))
         
         pedigree[[name.1]] <- allele.number( data[[col]], 1)
         pedigree[[name.2]] <- allele.number( data[[col]], 2)

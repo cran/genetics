@@ -1,4 +1,4 @@
-% $Id: genotype.Rd,v 1.23 2004/09/21 21:45:45 warnes Exp $
+% $Id: genotype.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{genotype}
 \alias{genotype}
@@ -166,7 +166,7 @@
     
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{Gregory R. Warnes \email{Gregory\_R\_Warnes@groton.pfizer.com} and
+\author{Gregory R. Warnes \email{warnes@bst.rochester.edu} and
   Friedrich Leisch.}
 \seealso{
 %  \code{\link{genotype}},

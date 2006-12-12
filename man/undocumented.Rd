@@ -1,7 +1,6 @@
-% $Id: undocumented.Rd,v 1.9 2004/09/21 21:45:45 warnes Exp $
+% $Id: undocumented.Rd 1115 2006-12-05 18:22:28Z warnes $
 
 \name{undocumented}
-\alais{ci.balance}
 \alias{as.factor}
 \alias{allele.count.2.genotype}
 \alias{as.factor.allele.genotype}

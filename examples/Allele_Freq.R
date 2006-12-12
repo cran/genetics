@@ -1,8 +1,7 @@
-# $Id: Allele_Freq.R,v 1.1 2001/05/07 13:22:39 warnes Exp $
+# $Id: Allele_Freq.R 7 2001-05-07 13:22:40Z warnes $
 #
-# $Log: Allele_Freq.R,v $
+# $Log$
 # Revision 1.1  2001/05/07 13:22:39  warnes
-#
 # Added example files, code, and output.
 #
 # Revision 1.6  2001/05/01 14:33:17  warneg

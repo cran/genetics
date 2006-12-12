@@ -1,4 +1,4 @@
-## $Id: zzz.R,v 1.9 2005/10/04 23:43:31 warnes Exp $
+## $Id: zzz.R 395 2005-10-04 23:43:31Z warnes $
 
 # Obsoleted by Proper use the DESCRIPTION and NAMESPACE files
 #.First.lib <- function(libname, pkgname)

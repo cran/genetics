@@ -1,4 +1,4 @@
-# $Id: HWE.chisq.R,v 1.2 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: HWE.chisq.R 114 2003-05-22 17:25:23Z warnesgr $
 
 
 ###

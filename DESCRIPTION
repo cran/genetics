@@ -1,10 +1,9 @@
 Package: genetics
 Title: Population Genetics
-Version: 1.2.0
-Date: 2005-11-09
+Version: 1.2.1
 Author: Gregory Warnes and Friedrich Leisch
-Maintainer: Gregory Warnes <gregory.r.warnes@pfizer.com>
-Depends:  combinat, gdata, MASS, mvtnorm
+Maintainer: Gregory Warnes <warnes@bst.rochester.edu>
+Depends:  combinat, gdata, MASS, mvtnorm, gtools
 Description: Classes and methods for handling genetic data. Includes
   classes to represent genotypes and haplotypes at single markers up
   to multiple markers on multiple chromosomes. Function include
@@ -12,5 +11,7 @@ Description: Classes and methods for handling genetic data. Includes
   of certain alleles, estimating and testing for Hardy-Weinberg
   disequilibrium, estimating and testing for linkage disequilibrium,
   ...
+biocViews: Genetics
 License: GPL
-Packaged: Wed Nov  9 12:51:46 2005; warneg
+BioCViews: Genetics
+Packaged: Tue Dec 12 13:21:33 2006; warnes

@@ -1,4 +1,4 @@
-# $Id: plot.LD.R,v 1.5 2003/06/04 21:22:57 warnesgr Exp $
+# $Id: plot.LD.R 150 2003-06-04 21:22:57Z warnesgr $
 
 plot.LD.data.frame <- function(x,
                                digits=3,

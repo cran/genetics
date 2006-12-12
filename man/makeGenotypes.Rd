@@ -1,4 +1,4 @@
-% $Id: makeGenotypes.Rd,v 1.7 2005/03/09 19:49:53 warnes Exp $
+% $Id: makeGenotypes.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{makeGenotypes}
 \alias{makeGenotypes}
@@ -57,7 +57,7 @@ makeHaplotypes(data, convert, sep = "/", tol = 0.9, ...)
   Dataframe containing converted genotype/haplotype variables. All other
   variables will be unchanged.
 }
-\author{ Gregory R. Warnes \email{Gregory\_R\_Warnes@groton.pfizer.com }
+\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu }
   }
 \seealso{
   \code{\link{genotype}}

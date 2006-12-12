@@ -1,4 +1,4 @@
-# $Id: hapmcmc.R,v 1.1 2003/07/30 20:39:57 warnesgr Exp $
+# $Id: hapmcmc.R 154 2003-07-30 20:39:57Z warnesgr $
 #
 # Code contributed by David Duffy <davidD@qumr.edu.au>:
 #

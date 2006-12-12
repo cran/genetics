@@ -1,4 +1,4 @@
-# $Id: LD.R,v 1.7 2005/11/09 17:04:02 warnes Exp $
+# $Id: LD.R 453 2005-11-09 17:04:02Z warnes $
 
 # R translation of Cathy Stack's SAS macro
 # Assumes 2-alleles

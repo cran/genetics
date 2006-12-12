@@ -1,4 +1,4 @@
-# $Id: makeGenotypes.R,v 1.5 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: makeGenotypes.R 114 2003-05-22 17:25:23Z warnesgr $
 
 #
 # convert all genotype-compatible variables in a dataframe to genotypes

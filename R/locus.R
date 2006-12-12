@@ -1,4 +1,4 @@
-# $Id: locus.R,v 1.7 2003/05/29 00:36:10 warnesgr Exp $
+# $Id: locus.R 134 2003-05-29 00:36:10Z warnesgr $
 
 getlocus  <- function(x,...)
 {

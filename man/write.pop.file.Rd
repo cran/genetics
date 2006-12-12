@@ -1,4 +1,4 @@
-% $Id: write.pop.file.Rd,v 1.5 2004/09/17 18:46:26 warnes Exp $
+% $Id: write.pop.file.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{write.pop.file}
 \alias{write.pop.file}
@@ -49,7 +49,7 @@ write.marker.file(data, location, file="marker.txt")
 \value{
   No return value.
 }
-\author{Gregory R. Warnes \email{gregory\_r\_warnes@groton.pfizer.com}}
+\author{Gregory R. Warnes \email{warnes@bst.rochester.edu}}
 \seealso{\code{\link{write.table}}}
 \examples{
   # TBA

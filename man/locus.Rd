@@ -1,4 +1,4 @@
-% $Id: locus.Rd,v 1.12 2004/09/21 21:45:45 warnes Exp $
+% $Id: locus.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{locus}
 \alias{locus}
@@ -123,7 +123,7 @@
     
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{Gregory R. Warnes \email{Gregory\_R\_Warnes@groton.pfizer.com} }
+\author{Gregory R. Warnes \email{warnes@bst.rochester.edu} }
 
 \seealso{
   \code{\link{genotype}},

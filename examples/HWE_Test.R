@@ -1,6 +1,6 @@
-# $Id: HWE_Test.R,v 1.2 2002/06/27 18:46:05 warnesgr Exp $
+# $Id: HWE_Test.R 61 2002-06-27 18:46:05Z warnesgr $
 #
-# $Log: HWE_Test.R,v $
+# $Log$
 # Revision 1.2  2002/06/27 18:46:05  warnesgr
 # - Allow user to specify parameters for the chisquare test.
 #

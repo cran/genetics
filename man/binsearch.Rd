@@ -1,4 +1,4 @@
-% $Id: binsearch.Rd,v 1.5 2004/09/17 18:46:26 warnes Exp $
+% $Id: binsearch.Rd 1087 2006-11-11 04:09:59Z warnes $
 
 \name{binsearch}
 \alias{binsearch}
@@ -60,7 +60,7 @@ binsearch(fun, range, ..., target = 0, lower = ceiling(min(range)),
     \code{where}.}
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{Gregory R. Warnes \email{gregory\_r\_warnes@groton.pfizer.com} }
+\author{Gregory R. Warnes \email{warnes@bst.rochester.edu} }
 \note{This function often returns two values for \code{where} and
   \code{value}.  Be sure to check the \code{flag} parameter to see what
   these values mean.}

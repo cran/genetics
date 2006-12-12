@@ -1,4 +1,4 @@
-# $Id: HWE.test.R,v 1.18 2005/11/09 17:04:02 warnes Exp $
+# $Id: HWE.test.R 453 2005-11-09 17:04:02Z warnes $
 
 ### Hardy-Weinberg Equilibrium Disequlibrium Estimates, Confidence
 ### Intervals, and P-values

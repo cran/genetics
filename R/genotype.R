@@ -1,4 +1,4 @@
-# $Id: genotype.R,v 1.30 2005/08/18 19:39:32 nj7w Exp $
+# $Id: genotype.R 299 2005-08-18 19:39:32Z nj7w $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,

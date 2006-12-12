@@ -1,4 +1,4 @@
-% $Id: power.casectl.Rd,v 1.3 2004/09/21 21:45:45 warnes Exp $
+% $Id: power.casectl.Rd 173 2004-09-21 21:45:45Z warnes $
 
 \name{power.casectrl}
 \alias{power.casectrl}

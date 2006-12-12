@@ -1,4 +1,4 @@
-# $Id: HWE.exact.R,v 1.4 2003/05/22 17:25:23 warnesgr Exp $
+# $Id: HWE.exact.R 114 2003-05-22 17:25:23Z warnesgr $
 #
 # Based on code submitted by David Duffy <davidD@qimr.edu.au>
 #

@@ -1,4 +1,4 @@
-# $Id: print.LD.R,v 1.9 2005/10/04 23:43:31 warnes Exp $
+# $Id: print.LD.R 395 2005-10-04 23:43:31Z warnes $
 
 print.LD <- function(x, digits=getOption("digits"), ...)
   {
