@@ -1,4 +1,4 @@
-% $Id: diseq.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: diseq.Rd 1277 2007-07-18 14:22:26Z ggorjan $
 
 \name{diseq}
 \alias{diseq}
@@ -121,11 +121,12 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 \value{
   \code{diseq} returns an object of class \code{diseq} with components
   \itemize{
+    \item{call}{function call used to create this object}
     \item{data}{2-way table of allele pair counts}
     \item{D.hat}{matrix giving the observed count, expected count,
       observed - expected difference, and estimate of disequilibrium for
       each pair of alleles as well as an overall disequilibrium value.}
-    \item{call}{function call used to create this object}
+    \item{TODO}{more slots to be documented}
   }
 
   \code{diseq.ci} returns an object of class \code{\link[boot]{bootci}}

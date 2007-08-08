@@ -1,4 +1,4 @@
-% $Id: genotype.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: genotype.Rd 1280 2007-07-25 07:32:38Z ggorjan $
 
 \name{genotype}
 \alias{genotype}
@@ -12,6 +12,10 @@
 \alias{print.genotype}
 \alias{==.genotype}
 \alias{==.haplotype}
+\alias{\%in\%}
+\alias{\%in\%.default}
+\alias{\%in\%.genotype}
+\alias{\%in\%.haplotype}
 \alias{[.genotype}
 \alias{[.haplotype}
 \alias{[<-.genotype}
@@ -55,15 +59,17 @@
 
   \code{nallele} returns the number of alleles in an object of class
   \code{genotype}.
-  
+
 }
 \usage{
   genotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
            reorder = c("yes", "no", "default", "ascii", "freq"),
-           allow.partial.missing=FALSE, locus=NULL)
+           allow.partial.missing=FALSE, locus=NULL,
+           genotypeOrder=NULL)
 
   haplotype(a1, a2=NULL, alleles=NULL, sep="/", remove.spaces=TRUE,
-           reorder="no", allow.partial.missing=FALSE, locus=NULL)
+            reorder="no", allow.partial.missing=FALSE, locus=NULL,
+            genotypeOrder=NULL)
 
   is.genotype(x)
 
@@ -75,7 +81,7 @@
 
   as.haplotype(x, ...)
 
-  print.genotype(x, ...)
+  \method{print}{genotype}(x, ...)
 
   nallele(x)
 }
@@ -108,9 +114,14 @@
     are set to \code{NA} when either is missing.}
   \item{locus}{ object of class locus, gene, or marker, holding
     information about the source of this genotype.}
+  \item{genotypeOrder}{character, vector of genotype/haplotype names so
+    that further functions can sort genotypes/haplotypes in wanted
+    order}
   \item{...}{optional arguments}
 }
+
 \details{
+
   Genotype objects hold information on which gene or marker alleles were
   observed for different individuals.  For each individual, two alleles
   are recorded.
@@ -146,12 +157,25 @@
   When the alleles are explicitly specified using the \code{alleles}
   argument, all potential alleles not present in the list will be
   converted to \code{NA}.
-  
+
   NOTE: \code{genotype} assumes that the order of the alleles is not important
   (E.G., "A/C" == "C/A").  Use class \code{haplotype} if order is significant.
+
+  If \code{genotypeOrder=NULL} (the default setting), then
+  \code{\link{expectedGenotypes}} is used to get standard sorting order.
+  Only unique values in \code{genotypeOrder} are used, which in turns
+  means that the first occurrence prevails. When \code{genotypeOrder} is
+  given some genotype names, but not all that appear in the data, the
+  rest (those in the data and possible combinations based on allele
+  variants) is automatically added at the end of
+  \code{genotypeOrder}. This puts "missing" genotype names at the end of
+  sort order. This feature is especially useful when there are a lot of
+  allele variants and especially in haplotypes. See examples.
+
 }
+
 \value{
-  
+
   The genotype class extends "factor" and haplotype extends
   genotype. Both classes have the following attributes:
   \item{levels}{ character vector of possible genotype/haplotype values
@@ -162,24 +186,30 @@
   \item{allele.map}{ matrix encoding how the factor levels correspond to
     alleles.  See the source code to \code{allele.genotype()} for how to
     extract allele values using this matrix.  Better yet, just use
-    \code{allele.genotype()}. }
-    
+    \code{allele.genotype()}.}
+  \item{genotypeOrder}{character, genotype/haplotype names in
+    defined order that can used for sorting in various functions. Note
+    that this slot stores both ordered and unordered genotypes
+    i.e. "A/B" and "B/A".}
 }
+
 %\references{ ~put references to the literature/web site here ~ }
 \author{Gregory R. Warnes \email{warnes@bst.rochester.edu} and
   Friedrich Leisch.}
 \seealso{
-%  \code{\link{genotype}},
   \code{\link{HWE.test}},
   \code{\link{allele}},
   \code{\link{homozygote}},
-  \code{\link{heterozygote}}, 
+  \code{\link{heterozygote}},
   \code{\link{carrier}},
   \code{\link{summary.genotype}},
-  \code{\link{allele.count}}
-  \code{\link{locus}}
-  \code{\link{gene}}
-  \code{\link{marker}}
+  \code{\link{allele.count}},
+  \code{\link{sort.genotype}},
+  \code{\link{genotypeOrder}},
+  \code{\link{locus}},
+  \code{\link{gene}},
+  \code{\link{marker}}, and
+  \code{\link{\%in\%}} for default \%in\% method
   }
 
 \examples{
@@ -234,6 +264,17 @@ test1=="T/C"
 test3=="C/T"
 test3=="T/C"
 
+## also
+test1 %in% test2
+test1 %in% data2
+test3 %in% test4
+
+test1 %in% "C/T"
+test1 %in% "T/C"
+
+test3 %in% "C/T"
+test3 %in% "T/C"
+
 ## "Messy" example
 
 m3  <-  c("D D/\t   D D","D\tD/   I",  "D D/   D D","I/   I",
@@ -260,8 +301,8 @@ haplotype(m5,sep=1,remove.spaces=FALSE)
 g5  <- genotype(m5,sep="")
 h5  <- haplotype(m5,sep="")
 
-heterozygote(g5) 
-homozygote(g5)    
+heterozygote(g5)
+homozygote(g5)
 carrier(g5,"D")
 
 g5[9:10]  <- haplotype(m4,sep=" ",remove=FALSE)[1:2]
@@ -271,7 +312,7 @@ g5[9:10]
 allele(g5[9:10],1)
 allele(g5,1)[9:10]
 
-# drop unused alleles 
+# drop unused alleles
 g5[9:10,drop=TRUE]
 h5[9:10,drop=TRUE]
 
@@ -280,6 +321,14 @@ h5[9:10,drop=TRUE]
 x <- c(0,1,2,1,1,2,NA,1,2,1,2,2,2)
 g <- as.genotype.allele.count(x, alleles=c("C","T") )
 g
+
+# Use of genotypeOrder
+example.data   <- c("D/D","D/I","I/D","I/I","D/D",
+                    "D/D","D/I","I/D","I/I","")
+summary(genotype(example.data))
+summary(genotype(example.data, genotypeOrder=c("D/D", "I/I", "D/I")))
+summary(genotype(example.data, genotypeOrder=c(              "D/I")))
+summary(haplotype(example.data, genotypeOrder=c(             "I/D", "D/I")))
 
 }
 \keyword{ misc }

@@ -10,8 +10,8 @@
 }
 
 \usage{
-plot.genotype(x, type=c("genotype", "allele"),
-              what=c("percentage", "number"), ...)
+\method{plot}{genotype}(x, type=c("genotype", "allele"),
+  what=c("percentage", "number"), ...)
 }
 
 \arguments{
@@ -25,16 +25,16 @@ plot.genotype(x, type=c("genotype", "allele"),
   The same as in \code{barplot}.
 }
 
-\author{ Gregor GORJANC }
+\author{ Gregor Gorjanc }
 
 \seealso{ \code{\link{genotype}}, \code{\link{barplot}} }
 
 \examples{
-  set <- c("A/A", "A/B", "A/B", "B/B", "B/B", "B/B", 
+  set <- c("A/A", "A/B", "A/B", "B/B", "B/B", "B/B",
            "B/B", "B/C", "C/C", "C/C")
   set <- genotype(set, alleles=c("A", "B", "C"), reorder="yes")
   plot(set)
-  plot(set, type="allele", what="number")  
+  plot(set, type="allele", what="number")
 }
 
 \keyword{hplot}

@@ -1,4 +1,4 @@
-# $Id: HWE.test.R 453 2005-11-09 17:04:02Z warnes $
+# $Id: HWE.test.R 1225 2007-05-29 19:29:10Z warnes $
 
 ### Hardy-Weinberg Equilibrium Disequlibrium Estimates, Confidence
 ### Intervals, and P-values
@@ -49,7 +49,7 @@ HWE.test.genotype <- function(x, exact=nallele(x)==2,
 
 
 
-print.HWE.test  <-  function(x, show=c("D","D'","r"), ...)
+print.HWE.test  <-  function(x, show=c("D","D'","r","table"), ...)
   {
 
     cat("\n")
@@ -86,7 +86,14 @@ print.HWE.test  <-  function(x, show=c("D","D'","r"), ...)
         print(x$diseq$r)
         cat("\n")
       }
-
+    if("table" %in% show)
+      {
+        cat("Observed vs Expected Allele Frequencies \n")
+        cat("\n")
+        print(x$diseq$table)
+        cat("\n")
+      }
+    
     if( ncol(x$diseq$r) <= 2 )
       cat("Overall Values\n")
     else

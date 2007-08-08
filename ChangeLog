@@ -1,3 +1,175 @@
+2007-08-08 14:59  warnes
+
+	* DESCRIPTION: Bump minor version number since Gregor added new
+	  functions
+
+2007-08-08 14:58  warnes
+
+	* NEWS: Update NEWS file for new release
+
+2007-08-08 14:56  warnes
+
+	* DESCRIPTION: Update description for release, add credit to other
+	  contributors
+
+2007-08-08 14:51  warnes
+
+	* R/zzz.R: Add note referring users to the R-Genetics project
+	  homepage
+
+2007-08-08 13:45  warnes
+
+	* NAMESPACE, R/binsearch.R, man/binsearch.Rd: Move binsearch() to
+	  the gtools package
+
+2007-08-08 13:38  warnes
+
+	* R/binsearch.R: Correct bug in binsearch. Elipses were omitted
+	  from one cal to fun(). Bug reported by Matthew Walker
+	  <m.g.walker@massey.ac.nz>
+
+2007-07-25 07:32  ggorjan
+
+	* NAMESPACE, NEWS, R/expectedGenotypes.R, R/genotype.R,
+	  R/groupGenotype.R, R/order.genotype.R, R/summary.genotype.R,
+	  man/expectedGenotypes.Rd, man/genotype.Rd, man/groupGenotype.Rd,
+	  man/order.genotype.Rd: groupGenotype(), some utility funcs, ...
+
+2007-07-18 16:57  ggorjan
+
+	* NEWS, R/genotype.R: Fixed genotype() with
+	  allow.partial.missing=FALSE when 'alleles'
+	  argument is passed
+	  
+	  Example:
+	  
+	  ## Old
+	  
+	  > x <- c("C/C", "A/C", "A/A", NA, "C/B", "B/A", "B/B")
+	  > alleles <- c("A", "B")
+	  > genotype(x, alleles=alleles, allow.partial.missing=FALSE)
+	  [1] NA "A/NA" "A/A" NA "B/NA" "B/A" "B/B"
+	  Alleles: B A
+	  Warning message: Found data values not matching specified
+	  alleles. Converting to NA. in: genotype(x, alleles = alleles,
+	  allow.partial.missing = FALSE)
+	  
+	  ## New
+	  
+	  > genotype(x, alleles=alleles, allow.partial.missing=FALSE)
+	  [1] NA NA "A/A" NA NA "B/A" "B/B"
+	  Alleles: B A
+	  Warning message: Found data values not matching specified
+	  alleles. Converting to NA. in: genotype(x, alleles = alleles,
+	  allow.partial.missing = FALSE)
+	  
+	  > genotype(x, alleles=alleles, allow.partial.missing=TRUE)
+	  [1] NA "A/NA" "A/A" NA "B/NA" "B/A" "B/B"
+	  Alleles: B A
+	  Warning message: Found data values not matching specified
+	  alleles. Converting to NA. in: genotype(x, alleles = alleles,
+	  allow.partial.missing = TRUE)
+
+2007-07-18 16:32  ggorjan
+
+	* NEWS, R/genotype.R: There is no more warning in genotype() if
+	  'a1' or 'a2' have NA value(s)
+	  and 'alleles'' argument is specified, since NA is NA anyway
+	  
+	  Here is the example:
+	  
+	  ## Old
+	  
+	  > x <- c("C/C", "A/C", "A/A", NA, "C/B", "B/A", "B/B")
+	  > alleles <- c("A", "B", "C")
+	  > x <- genotype(x, alleles=alleles, reorder="yes")
+	  Warning message:
+	  Found data values not matching specified alleles. Converting to
+	  NA. in: genotype(x, alleles = alleles, reorder = "yes")
+	  > x
+	  [1] "C/C" "A/C" "A/A" NA "B/C" "A/B" "B/B"
+	  Alleles: A B C
+	  
+	  ## New
+	  
+	  > x <- c("C/C", "A/C", "A/A", NA, "C/B", "B/A", "B/B")
+	  > alleles <- c("A", "B", "C")
+	  > x <- genotype(x, alleles=alleles, reorder="yes")
+	  > x
+	  [1] "C/C" "A/C" "A/A" NA "B/C" "A/B" "B/B"
+	  Alleles: A B C
+
+2007-07-18 14:22  ggorjan
+
+	* NEWS, R/diseq.R, man/diseq.Rd: really fixed printing of Obs vs
+	  Exp freqs
+
+2007-07-18 12:51  ggorjan
+
+	* R/expectedGenotypes.R, man/expectedGenotypes.Rd: sort produced
+	  genotypes
+
+2007-07-18 12:19  ggorjan
+
+	* R/expectedGenotypes.R: rollback one part
+
+2007-07-18 12:09  ggorjan
+
+	* R/plot.genotype.R, man/plot.genotype.Rd: fixing S3 type of
+	  documentation + minor fix
+
+2007-07-18 12:08  ggorjan
+
+	* man/genotype.Rd, man/locus.Rd, man/print.LD.Rd,
+	  man/summary.genotype.Rd: fixing S3 type of documentation
+
+2007-07-18 11:57  ggorjan
+
+	* NEWS, man/power.casectl.Rd: Fixed documentation of
+	  power.casectrl() to match its code
+
+2007-07-18 11:49  ggorjan
+
+	* DESCRIPTION, NEWS, R/expectedGenotypes.R: added gtools to Depends
+	  as needed by expectedGenotypes() + some minor fixes
+
+2007-06-17 01:27  warnes
+
+	* man/power.casectl.Rd: Update with Michael's latest changes
+
+2007-06-17 01:25  warnes
+
+	* R/power.casectl.plot.R: Move old code from power.casectl.R to
+	  power.casectl.plot.R
+
+2007-06-17 01:24  warnes
+
+	* R/power.casectl.R: Update with Michael's latest changes
+
+2007-05-29 19:35  warnes
+
+	* NEWS: Add display of observed vs expected table to
+	  print.HWE.test()
+
+2007-05-29 19:34  warnes
+
+	* DESCRIPTION, man/HWE.test.Rd: Add display of observed vs expected
+	  table to print.HWE.test()
+
+2007-05-29 19:29  warnes
+
+	* R/HWE.test.R: Add display of observed vs expected table to
+	  print.HWE.test()
+
+2006-12-05 18:22  warnes
+
+	* man/undocumented.Rd: Remove typo/dupliucate alias entry for
+	  ci.balance
+
+2006-12-05 17:45  warnes
+
+	* NEWS: Update NEWS file for 1.2.0 and 1.2.1
+
 2006-11-14 22:20  ggorjan
 
 	* trunk/GeneticsBase/DESCRIPTION, trunk/GeneticsBase/R/convert.R,

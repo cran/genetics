@@ -1,4 +1,4 @@
-% $Id: print.LD.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: print.LD.Rd 1273 2007-07-18 12:08:59Z ggorjan $
 
 \name{print.LD}
 \alias{print.LD}
@@ -13,15 +13,16 @@
   Textual and graphical display of linkage disequilibrium (LD) objects
 }
 \usage{
-print.LD(x, digits = getOption("digits"), ...)
-print.LD.data.frame(x, ...)
+
+\method{print}{LD}(x, digits = getOption("digits"), ...)
+\method{print}{LD.data.frame}(x, ...)
 
 summary.LD.data.frame(object, digits = getOption("digits"),
                       which = c("D", "D'", "r", "X^2", "P-value", "n", " "),
                       rowsep, show.all = FALSE, ...)
-print.summary.LD.data.frame(x, digits = getOption("digits"), ...) 
+\method{print}{summary.LD.data.frame}(x, digits = getOption("digits"), ...)
 
-plot.LD.data.frame(x,digits=3, colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
+\method{plot}{LD.data.frame}(x,digits=3, colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
                    colors=heat.colors(length(colorcut)), textcol="black",
                    marker, which="D'", distance,  ...)
 
@@ -32,14 +33,14 @@ LDtable(x, colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
         "P-value", "n"), colorize="P-value", cex, ...)
 
 LDplot(x, digits=3, marker, distance, which=c("D", "D'", "r", "X^2",
-       "P-value", "n", " "), ... ) 
+       "P-value", "n", " "), ... )
 }
 \arguments{
   \item{x,object}{LD or LD.data.frame object}
   \item{digits}{Number of significant digits to display}
   \item{which}{Name(s) of LD information items to be displayed}
   \item{rowsep}{Separator between rows of data, use \code{NULL} for no
-    separator.} 
+    separator.}
   \item{colorcut}{P-value cutoffs points for colorizing LDtable}
   \item{colors}{Colors for each P-value cutoff given in \code{colorcut} for
     LDtable}
@@ -127,4 +128,3 @@ plot(ldt, digits=2, marker=19) # do LDtable & LDplot on in a single
                                # graphics window
 }
 \keyword{misc}
-

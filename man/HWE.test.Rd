@@ -18,7 +18,7 @@ HWE.test(x, ...)
 \method{HWE.test}{genotype}(x, exact = nallele(x)==2, simulate.p.value=!exact,
          B=10000, conf=0.95, ci.B=1000, ... )
 \method{HWE.test}{data.frame}(x, ..., do.Allele.Freq=TRUE, do.HWE.test=TRUE)
-\method{print}{HWE.test}(x, show=c("D","D'","r"), ...)
+\method{print}{HWE.test}(x, show=c("D","D'","r","table"), ...)
 }
 \arguments{
   \item{x}{genotype or haplotype object.}
@@ -38,7 +38,7 @@ HWE.test(x, ...)
 %     bootstrap sample.  Defaults to \code{"basic"}.  See 
 %     \code{\link[boot]{bootci}} for details.}
   \item{show}{a character vector containing the names of HWE test
-    statistics to display from the set of "D", "D'", and "r".}
+    statistics to display from the set of "D", "D'", "r", and "table".}
   \item{...}{ optional parameters passed to \code{HWE.test} (data.frame
     method) or \code{chisq.test} (base method).}
   \item{do.Allele.Freq}{logicial indication whether to summarize allele

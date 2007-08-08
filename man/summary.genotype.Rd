@@ -1,4 +1,4 @@
-% $Id: summary.genotype.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: summary.genotype.Rd 1273 2007-07-18 12:08:59Z ggorjan $
 
 \name{summary.genotype}
 
@@ -16,12 +16,12 @@
 }
 
 \usage{
-  summary.genotype(object, ..., maxsum)
-  print.summary.genotype(x,...,round=2)
+  \method{summary}{genotype}(object, ..., maxsum)
+  \method{print}{summary.genotype}(x,...,round=2)
 }
 
 \arguments{
-  
+
   \item{object, x}{ an object of class \code{genotype} or \code{haplotype} (for
     \code{summary.genotype}) or an object of class
     \code{summary.genotype} (for \code{print.summary.genotype}) }
@@ -46,11 +46,11 @@
   The returned value of \code{summary.genotype} is an object of class
   \code{summary.genotype} which
   is a list with the following components:
-  
+
   \item{locus }{locus information field (if present) from \code{x}}.
 
   \item{allele.names}{ vector of allele names }
-  
+
   \item{allele.freq }{
     A two column matrix with one row for each allele, plus one row for
     \code{NA} values (if present).  The first column, \code{Count},
@@ -60,7 +60,7 @@
     two alleles, thus the \code{Count} field sums to twice the number of
     observations.
   }
-  
+
   \item{genotype.freq}{
     A two column matrix with one row for each genotype, plus one row for
     \code{NA} values (if present). The first column, \code{Count}, contains the
@@ -79,7 +79,7 @@
   \code{\link{HWE.test}},
   \code{\link{allele}},
   \code{\link{homozygote}},
-  \code{\link{heterozygote}}, 
+  \code{\link{heterozygote}},
   \code{\link{carrier}},
 %  \code{\link{summary.genotype}},
   \code{\link{allele.count}}

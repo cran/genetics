@@ -1,4 +1,4 @@
-% $Id: locus.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: locus.Rd 1273 2007-07-18 12:08:59Z ggorjan $
 
 \name{locus}
 \alias{locus}
@@ -33,7 +33,7 @@
   \code{as.character.locus}, \code{as.character.gene},
   \code{as.character.marker} return a character string containing a
   compact encoding the object.
-  
+
   \code{getlocus}, \code{getgene}, \code{getmarker} extract locus data
   (if present) from another object.
 
@@ -57,11 +57,11 @@
 
   is.marker(x)
 
-  as.character.locus(x, ...)
+  \method{as.character}{locus}(x, ...)
 
-  as.character.gene(x, ...)
+  \method{as.character}{gene}(x, ...)
 
-  as.character.marker(x, ...)
+  \method{as.character}{marker}(x, ...)
 
   getlocus(x, ...)
 
@@ -120,7 +120,7 @@
   \item{bp.end}{end location of marker, in base pairs (optional)}
   \item{relative.to}{location (optional) from which \code{bp.start} and
     \code{bp.end} are calculated. }
-    
+
 }
 %\references{ ~put references to the literature/web site here ~ }
 \author{Gregory R. Warnes \email{warnes@bst.rochester.edu} }
@@ -133,8 +133,8 @@
 ar2  <- gene("AR2",chromosome=7,arm="q",index.start=35)
 ar2
 
-par  <- locus(name="AR2 Psedogene", 
-              chromosome=1, 
+par  <- locus(name="AR2 Psedogene",
+              chromosome=1,
               arm="q",
               index.start=32,
               index.end=42)
@@ -143,8 +143,8 @@ par
 c109t  <- marker(name="C-109T",
                  type="SNP",
                  locus.name="AR2",
-                 chromosome=7, 
-                 arm="q", 
+                 chromosome=7,
+                 arm="q",
                  index.start=35,
                  bp.start=-109,
                  relative.to="start of coding region")

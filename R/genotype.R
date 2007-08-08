@@ -1,16 +1,16 @@
-# $Id: genotype.R 299 2005-08-18 19:39:32Z nj7w $
+# $Id: genotype.R 1280 2007-07-25 07:32:38Z ggorjan $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,
                       reorder=c("yes", "no", "default", "ascii", "freq"),
                       allow.partial.missing=FALSE,
-                      locus=NULL)                    
+                      locus=NULL, genotypeOrder=NULL)
 {
     if(missing(reorder))
       reorder  <- "freq"
     else
       reorder <- match.arg(reorder)
-    
+
     if(is.genotype(a1)){
         a1  <-  as.character(a1)
         ## ignore a2
@@ -24,7 +24,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
         a1[is.na(a1)] <- ""   # necessary because of bug in grep & friends,
                               # will be fixed in 1.7.1
       }
-    
+
     if(!is.null(a2))
       {
         a2.d <- dim(a2)
@@ -33,7 +33,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
         a1[is.na(a1)] <- ""  # necessary because of bugs in grep & friends
                              # will be fixed in 1.7.1
       }
-    
+
     if(remove.spaces)
     {
         a1dim <- dim(a1)
@@ -42,7 +42,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
         if(!is.null(a2))
             a2  <-  gsub("[ \t]", "", a2)
     }
-    
+
     if(!is.null(dim(a1)) && ncol(a1) > 1)
         parts <- a1[,1:2]
     else if(!is.null(a2))
@@ -68,7 +68,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
             # only first field was given
             half.empties  <- lapply(part.list, length)==1
             part.list[half.empties]  <-  lapply(part.list[half.empties],c,NA)
-            
+
             # neither field was given
             empties  <- is.na(a1) | lapply(part.list, length)==0
             part.list[empties]  <- list(c(NA,NA))
@@ -83,21 +83,20 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
       }
 
     mode(parts) <- "character"  # needed for bare NA's o
-    
+
     # convert entirely whitespace alleles to NAs
     temp  <- grep("^[ \t]*$", parts)
     parts[temp]  <-  NA
 
     #parts[parts=="NA"]  <-  NA
 
-    if(!allow.partial.missing)
-      parts[is.na(parts[,1]) | is.na(parts[,2]),]  <- c(NA,NA)
-    
     if(missing(alleles) || is.null(alleles))
       alleles <- unique(c(na.omit(parts)))
     else
       {
         which.alleles  <- !(parts %in% alleles)
+        ## Skipping NA's
+        which.alleles <- which.alleles & !is.na(parts)
         if(any(which.alleles))
           {
             warning("Found data values not matching specified alleles. ",
@@ -105,6 +104,9 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
             parts[which.alleles] <- NA
           }
       }
+
+    if(!allow.partial.missing)
+      parts[is.na(parts[,1]) | is.na(parts[,2]),]  <- c(NA,NA)
 
     if(reorder!="no")
     {
@@ -124,7 +126,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
             tmp <- match( x, alleles )
             x[order(tmp)]
         }
-        
+
         parts  <- t(apply(parts,1, reorder, alleles))
 
       }
@@ -132,15 +134,64 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
     tmp  <-  ifelse( is.na(parts[,1]) & is.na(parts[,2]),
                     NA,
                     apply(parts,1,paste,collapse="/") )
-        
+
     object  <- factor( tmp )
 
     # force "NA" not to be a factor level
     ll  <- levels(object)  <-  na.omit(levels(object))
-    
+
     class(object)  <-  c("genotype","factor")
     attr(object,"allele.names")  <- alleles
     attr(object,"allele.map")  <- do.call("rbind", strsplit(ll, "/"))
+
+    goAll <- expectedGenotypes(alleles=alleles, haplotype=TRUE)
+    goDef <- unique(sort(as.character(object)))
+    if(is.null(genotypeOrder)) {
+      attr(object, "genotypeOrder") <- goAll
+    } else {
+      genotypeOrder <- unique(genotypeOrder)
+
+      ## Stop msg says all
+      parts <- strsplit(x=genotypeOrder, split="/")
+      parts <- sapply(parts, c)
+      test <- !(parts %in% alleles)
+      if(any(test))
+        stop("adding genotype names with alleles that are not in the data")
+
+      ## Some values in the data are not in genotypeOrder?
+      test <- !(goDef %in% genotypeOrder)
+      if(any(test)) {
+
+        ## These values are in all possible genotypes/haplotypes
+        testDefinAll <- goDef[test] %in% goAll
+        ## but not in genotypeOrder
+        testDefinAllnotGO <- !(goDef[testDefinAll] %in% genotypeOrder)
+        goPos <- goDef[testDefinAllnotGO]
+
+        ## We could simply add goPos to genotypeOrder. However, A/B in
+        ## goPos should match B/A, since genotype() allows reordering of
+        ## original data and additionally we want this to work also for
+        ## haplotype.
+
+        ## Extend genotypeOrder first. We do not do this before, since one
+        ## might not necessarily like to have B/A together with A/B in
+        ## first place
+        genotypeOrder <- genetics:::.genotype2Haplotype(x=genotypeOrder)
+        ## Remove heterozygos matches
+        test <- !(goPos %in% genotypeOrder)
+        goPos <- goPos[test]
+
+        ## Add the rest in goPos to the end of genotypeOrder
+        if(any(test)) genotypeOrder <- c(genotypeOrder, goPos)
+
+        ## If there are still some values in all, but not in genotypeOrder
+        ## now, we just add them at the end
+        testGOnotAll <- !(goAll %in% genotypeOrder)
+        if(any(testGOnotAll)) genotypeOrder <- c(genotypeOrder, goAll[testGOnotAll])
+      }
+      attr(object, "genotypeOrder") <- genotypeOrder
+    }
+
     if(is.null(locus) || is.locus(locus)  )
       attr(object,"locus")  <- locus
     else
@@ -154,18 +205,18 @@ is.genotype  <- function(x)
 is.haplotype  <- function(x)
     inherits(x, "haplotype")
 
-
 ###
 ### Haplotype -- differs only in that order of a1,a2 is considered siginificant
 ###
 haplotype <- function (a1, a2 = NULL, alleles = NULL, sep = "/",
                        remove.spaces = TRUE, reorder = "no",
-                       allow.partial.missing = FALSE, locus = NULL) 
+                       allow.partial.missing = FALSE, locus = NULL,
+                       genotypeOrder=NULL) 
 {
     retval <- genotype(a1 = a1, a2 = a2, alleles = alleles, sep = sep, 
                        remove.spaces = remove.spaces, reorder = reorder,
                        allow.partial.missing = allow.partial.missing, 
-                       locus = locus)
+                       locus = locus, genotypeOrder=genotypeOrder)
     class(retval) <- c("haplotype", "genotype", "factor")
     retval
 }
@@ -177,7 +228,7 @@ as.haplotype  <- function(x,...)
     class(retval)  <- c("haplotype","genotype","factor")
     retval
 }
- 
+
 ###
 ### Display by giving values plus list of alleles
 ###
@@ -232,7 +283,7 @@ as.genotype.allele.count  <- function(x, alleles=c("A","B"), ...)
 
     if(any(x > 2, na.rm=TRUE) || any( x < 0, na.rm=TRUE ) )
       stop("Allele counts must be in {0,1,2}")
-    
+
     allele.names  <-  colnames(x)
     tmp  <-  apply(x, 1, function(y)
                     rep( colnames(x), ifelse(is.na(y), 0, y) ))
@@ -265,13 +316,13 @@ as.genotype.table <- function(x, alleles, ...)
   {
     if(!is.genotype(y))
       y <- as.genotype(y)
-    
+
     x.a1  <- allele(x,1)
     x.a2  <- allele(x,2)
-    
+
     y.a1  <- allele(y,1)
     y.a2  <- allele(y,2)
-    
+
     return( (x.a1==y.a1 & x.a2==y.a2) | (x.a1==y.a2 & x.a2==y.a1) )
   }
 
@@ -282,15 +333,41 @@ as.genotype.table <- function(x, alleles, ...)
   {
     if(!is.genotype(y))
       y <- as.haplotype(y)
-    
+
     x.a1  <- allele(x,1)
     x.a2  <- allele(x,2)
 
     y.a1  <- allele(y,1)
     y.a2  <- allele(y,2)
-    
+
     return( x.a1==y.a1 & x.a2==y.a2 )
   }
+
+###
+### is.element i.e. %in%
+###
+
+"%in%" <- function(x, table)
+  UseMethod("%in%")
+
+## Get default method for %in% from base package
+"%in%.default" <- get("%in%", pos="package:base")
+
+"%in%.genotype" <- function(x, table)
+{
+  xA1  <- allele(x, 1)
+  xA2  <- allele(x, 2)
+
+  x1 <- paste(xA1, xA2, sep="/")
+  x2 <- paste(xA2, xA1, sep="/")
+
+  ## Return
+  ((x1 %in% table) | (x2 %in% table))
+}
+
+"%in%.haplotype" <- function(x, table)
+  as.character(x) %in% as.character(table)
+
 ###
 ### Extract the first and/or second allele.
 ###
@@ -325,12 +402,13 @@ as.factor.genotype <- function(x, ...)
     attr(x,"allele.names") <- NULL
     attr(x,"allele.map") <- NULL
     attr(x,"locus") <- NULL
+    attr(x,"genotypeOrder") <- NULL
     x
   }
 
 as.factor.allele.genotype  <-  function(x,...)
   factor(x,levels=allele.names(x))
-                    
+
 print.allele.genotype  <- function(x,...)
   {
     if(!is.null(attr(x,"locus")))
@@ -427,7 +505,7 @@ allele.count  <- function(x, allele.name=allele.names(x),
 #      class(retval)  <-  "allele.ind"
 #      return(retval)
 #  }
-    
+
 #print.allele.ind  <- function(x,...)
 #  {
 #    if(!is.null(attr(x,"locus")))
@@ -468,7 +546,7 @@ homozygote.genotype  <-  function(x,allele.name,...)
 #    attr(x,"locus")  <-  attr(x,"class")  <- attr(x,"allele")  <-  NULL
 #    NextMethod("print",x)
 #  }
-    
+
 
 heterozygote  <- function (x,allele.name,...) 
   UseMethod("heterozygote")
@@ -506,7 +584,7 @@ carrier.genotype  <-  function(x, allele.name=allele.names(x),
                                    any=!missing(allele.name), na.rm=FALSE, ...)
 {
   retval  <- allele.count(x,allele.name=allele.name,any=any,na.rm=na.rm) > 0
-  
+
   attr(retval,"allele")  <- retval$allele
   attr(retval,"locus")  <-  attr(x,"locus")
 #  class(retval)  <- "carrier"
@@ -543,22 +621,34 @@ allele.names<- function(x)
 
 "[.genotype"  <-  function(x, i, drop=FALSE)
   {
+    allelesOld <- attr(x, "allele.names")
     retval  <- NextMethod("[")
 
     # force "NA" not to be a factor level
     ll  <- levels(retval)  <-  na.omit(levels(retval))
-    
+
     class(retval)  <-  c("genotype","factor")
 
-    if(drop)
+    if(drop) {
       alleles <- unique( unlist(strsplit(ll, "/") ) )
-    else
+    } else {
       alleles <- attr(x, "allele.names")
-    
+    }
     attr(retval,"allele.names")  <- alleles
     attr(retval,"allele.map")  <- do.call("rbind", strsplit(ll, "/"))
     attr(retval,"locus")  <- attr(x,"locus")
     attr(retval,"label")  <-  attr(x,"label")
+    goCur <- attr(x, "genotypeOrder")
+    if(drop) {
+      ## Removing genotype names having dropped alleles
+      allelesOld <- allelesOld[!(allelesOld %in% alleles)]
+      tmp <- allele(as.haplotype(goCur))
+      test <- tmp %in% allelesOld
+      test <- rowSums(matrix(test, ncol=2)) > 0
+      attr(retval, "genotypeOrder") <- goCur[!test]
+    } else {
+      attr(retval, "genotypeOrder") <- goCur
+    }
     return(retval)
   }
 
@@ -579,7 +669,7 @@ allele.names<- function(x)
       {
         value <- genotype(value)
       }
-    
+
     lx <- levels(x)
     lv <- levels(value)
     ax <- allele.names(x)
@@ -587,8 +677,8 @@ allele.names<- function(x)
 
     m  <- is.na(match(av,ax) )
     if( any( m  )  )
-       warning(paste("Adding new allele name(s):", av[m] ))
-       
+       warning(paste("Adding new allele name:", av[m], "\n"))
+
     la <- unique(c(lx,lv))
     aa <- unique(c(ax,av))
 
@@ -596,12 +686,15 @@ allele.names<- function(x)
     nas <- is.na(x)
 
     data  <-  match(levels(value)[value],la)
-    
+
     class(x) <- NULL
     x[i] <- data
     attr(x, "levels") <- la
     map  <- attr(x, "allele.map")  <- do.call("rbind", strsplit(la, "/"))
     attr(x, "allele.names")  <- aa
+    goCur <- attr(x, "genotypeOrder")
+    goAll <- expectedGenotypes(alleles=aa, haplotype=TRUE)
+    attr(x, "genotypeOrder") <- c(goCur, goAll[!(goAll %in% goCur)])
     class(x) <- cx
     x
   }
@@ -615,3 +708,68 @@ allele.names<- function(x)
 
 nallele <- function(x)
   length(allele.names(x))
+
+genotypeOrder <- function(x)
+  attr(x, "genotypeOrder")
+
+"genotypeOrder<-" <- function(x, value)
+{
+  parts <- strsplit(x=value, split="/")
+  parts <- sapply(parts, c)
+  test <- !(parts %in% allele.names(x))
+  if(any(test))
+    stop("adding genotype names with alleles that are not in the data")
+  attr(x, "genotypeOrder") <- value
+}
+
+.genotype2Haplotype <- function(x)
+{
+  ## Internal function
+  ##
+  ## Returns a character vector of possible haplotypes for given genotypes
+  ## in such a way that for say c("A/A", "A/B", "B/B") you get c("A/A",
+  ## "A/B", "B/A", "B/B") i.e. "B/A" comes directly after "A/B"!
+  ##
+  ## x - character, vector of genotype values in form allele1/allele2
+  ##
+  ## Details
+  ## Unique values of x are taken i.e. first occurrence prevails
+  ##
+  ## Example
+  ## genetics:::.genotype2Haplotype(c("A/A", "A/B", "B/B"))
+  ## "A/A" "A/B" "B/A" "B/B"
+  ## genetics:::.genotype2Haplotype(c("B/B", "A/B", "A/A"))
+  ## "B/B" "A/B" "B/A" "A/A"
+
+  x <- unique(x)
+  N <- length(x)
+  parts <- genetics:::.genotype2Allele(x=x)
+  parts <- rbind(parts, parts[, 2:1])
+  ind <- rep(1:N, each=2) + c(0, N)
+  parts <- parts[ind, ]
+  parts <- unique(paste(parts[, 1], parts[, 2], sep="/"))
+  parts
+}
+
+.genotype2Allele <- function(x)
+{
+  ## Internal function
+  ##
+  ## Returns a matrix of alleles from a character vector of genotype names
+  ##
+  ## x - character, vector of genotype values in form allele1/allele2
+  ##
+  ## Details:
+  ## Coercing to character is done for x.
+  ##
+  ## Example
+  ## genetics:::.genotype2Allele(c("A/A", "A/B", "B/B"))
+  ##      [,1] [,2]
+  ## [1,] "A"  "A"
+  ## [2,] "A"  "B"
+  ## [3,] "B"  "B"
+
+  parts <- strsplit(x=as.character(x), split="/")
+  parts <- t(sapply(parts, c))
+  parts
+}

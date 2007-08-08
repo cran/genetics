@@ -1,9 +1,10 @@
 Package: genetics
 Title: Population Genetics
-Version: 1.2.1
-Author: Gregory Warnes and Friedrich Leisch
+Version: 1.3.0
+Date: 2007-08-08
+Author: Gregory Warnes, with contributions from Gregor Gorjanc, Friedrich Leisch, and Michael Man.
 Maintainer: Gregory Warnes <warnes@bst.rochester.edu>
-Depends:  combinat, gdata, MASS, mvtnorm, gtools
+Depends: combinat, gdata, gtools, MASS, mvtnorm
 Description: Classes and methods for handling genetic data. Includes
   classes to represent genotypes and haplotypes at single markers up
   to multiple markers on multiple chromosomes. Function include
@@ -14,4 +15,4 @@ Description: Classes and methods for handling genetic data. Includes
 biocViews: Genetics
 License: GPL
 BioCViews: Genetics
-Packaged: Tue Dec 12 13:21:33 2006; warnes
+Packaged: Wed Aug  8 08:00:11 2007; warnes

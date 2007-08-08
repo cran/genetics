@@ -11,7 +11,7 @@ diseq.genotype <- function(x, ...)
         warning("Only 1 Marker allele. Returning NA")
         return(NA)
       }
-    
+
     observed.no <- table( factor(allele(x,1), levels=allele.names(x)),
                           factor(allele(x,2), levels=allele.names(x)) )
     observed <- prop.table(observed.no)
@@ -22,7 +22,7 @@ diseq.genotype <- function(x, ...)
     retval$call <- match.call()
     retval
   }
-  
+
 diseq.table <- function(x, ...)
 {
   observed <- x
@@ -31,15 +31,21 @@ diseq.table <- function(x, ...)
 
   expected <- outer(allele.freq, allele.freq, "*")
 
+  oeTab <- cbind(Obs=c(observed),
+                 Exp=c(expected),
+                 "Obs-Exp"=c(observed - expected))
+  rownames(oeTab) <- outer(rownames(observed),
+                           rownames(observed), paste, sep="/")
+
   diseq <- observed - expected
   diag(diseq) <- NA
 
   dmax.positive <- expected
   # equals: max( p(i)p(j), p(j)p(i) )
-  
+
   dmax.negative <- outer(allele.freq, allele.freq, pmin ) - expected
   # equals: min( p(i) * (1 - p(j)), p(j)( 1 - (1-p(i) ) ) )
-  
+
   dprime <- diseq / ifelse( diseq > 0, dmax.positive, dmax.negative )
 
   # r gives the pairwise correlation coefficient for pairs containing at lease
@@ -53,7 +59,7 @@ diseq.table <- function(x, ...)
   r <- -diseq  / r.denom
 
   # above formula works unchanged for 2 alleles, but requires adjustment
-  # for multiple alleles.  
+  # for multiple alleles.
   # r <- r * (length(allele.freq) - 1)
 
   offdiag.expected <- expected
@@ -81,6 +87,7 @@ diseq.table <- function(x, ...)
                  call = match.call(),
                  observed=observed,
                  expected=expected,
+                 table=oeTab,
                  allele.freq=allele.freq,
                  D=diseq,
                  Dprime=dprime,
@@ -95,7 +102,6 @@ diseq.table <- function(x, ...)
   class(retval) <- "diseq"
   retval
 }
-
 
 print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
   {
@@ -113,28 +119,28 @@ print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
     if("D" %in% show)
       {
         cat("Disequlibrium for each allele pair (D)\n")
-        cat("\n") 
+        cat("\n")
         print(x$D)
         cat("\n")
       }
     if("D'" %in% show)
       {
         cat("Disequlibrium for each allele pair (D')\n")
-        cat("\n") 
+        cat("\n")
         print(x$Dprime)
         cat("\n")
       }
     if("r" %in% show)
       {
         cat("Correlation coefficient for each allele pair (r)\n")
-        cat("\n") 
+        cat("\n")
         print(x$r)
         cat("\n")
       }
     if("R^2" %in% show)
       {
         cat("R^2 for each allele pair\n")
-        cat("\n") 
+        cat("\n")
         print(x$R2)
         cat("\n")
       }
@@ -142,18 +148,10 @@ print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
       {
         cat("Observed vs Expected frequency table\n")
         cat("\n")
-        table <- cbind(
-                       Obs=c(x$observed),
-                       Exp=c(x$expected),
-                       "Obs-Exp"= c(x$observed - x$expected)
-                       )
-        rownames(table) <- outer(rownames(x$observed),
-                                 rownames(x$observed), paste, sep="/")
-        
-        print (table)
+        print(x$table)
         cat("\n")
       }
-    
+
     if( any(c("D","D'","r") %in% show))
       {
         if( ncol(x$r) <= 2 )
@@ -161,7 +159,7 @@ print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
         else
           cat("Overall Values (mean absolute-value weighted by expected allele frequency)\n")
         cat("\n")
-        
+
         if("D" %in% show)
           cat("  D  :  ", x$D.overall, "\n", sep="")
         if("D'" %in% show)
@@ -172,7 +170,7 @@ print.diseq  <-  function(x, show=c("D","D'","r","R^2","table"), ...)
           cat("  R^2:  ", x$R2.overall, "\n", sep="")
         cat("\n")
       }
-    
+
     cat("\n")
   }
 
@@ -203,7 +201,7 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
   # (include observed data to avoid bias)
   resample.data <- cbind(c(observed.no),
                          rmultz2( n, prob.vector, R ) )
-  
+
   bootfun <- function(x) {
     observed[,] <- x/n
     observed <- 1/2 * (observed + t(observed) )
@@ -230,7 +228,7 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
                             "between [0,1].  The confidence ",
                             "intervals for R^2 values near 0 and 1 are",
                             "ill-behaved.", sep=" ")
-      
+
       if(correct)
         {
           warning.text <- paste(warning.text, "A rough correction has",
@@ -251,7 +249,7 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
                             "between [0,1].  Because of this, confidence",
                             "intervals for values near 0 and 1 are",
                             "ill-behaved.", sep=" ")
-      
+
       if(correct)
         {
           warning.text <- paste(warning.text, "A rough correction has been applied, but",
@@ -265,7 +263,7 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
         }
       else
         ci <- t(apply(results, 1, function(x) quantile(x, c(0.025, 0.975) ) ) )
-      
+
       warning(paste(strwrap(c(warning.text,"\n"),prefix="  "),collapse="\n") )
     }
 
@@ -273,12 +271,12 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
   nas <- apply( results, 1, na.count)
 
   zero.in.range <- (ci[,1] <= 0) & (ci[,2] >= 0)
-  
+
   ci <- cbind( "Observed"=results[,1], ci, "NAs"=nas,
                "Zero in Range"=zero.in.range )
 
   outside.ci <- (ci[,1] < ci[,2]) | (ci[,1] > ci[,3])
-  
+
   if( any(outside.ci) )
     warning("One or more observed value outide of confidence interval. Check results.")
 
@@ -296,4 +294,3 @@ diseq.ci <- function(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 
   retval
 }
-

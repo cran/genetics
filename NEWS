@@ -1,7 +1,44 @@
+genetics 1.2.2
+--------------
+
+- A note is now displayed on startup:
+
+  The R-Genetics project has developed an set of enhanced genetics
+  packages that will shortly replace 'genetics'. Please visit the 
+  project homepage at http://rgenetics.org for more information.
+
+- binsearch() has been moved to the gtools package
+
+- New function groupGenotype to create groups/levels based on genotype
+  names
+
+- Added some internal utility functions
+  (.genotype2Haplotype, .genotype2Allele, and .matchGenotype)
+
+- Genotype class gets additional slot genotypeOrder (and genotype()
+  function gets additional argument with the same name) in order to enable
+  predefined order of genotypes in other functions e.g. summary
+
+- Added order, sort and %in% methods for genotype and haplotype classes.
+
+- Fixed genotype() with allow.partial.missing=FALSE when 'alleles' argument
+  is passed
+
+- There is no more warning in genotype() if 'a1' or 'a2' have NA value(s)
+  and 'alleles'' argument is specified, since NA is NA anyway
+
+- Fixed documentation of power.casectrl()
+
+- added gtools to Depends as needed by expectedGenotypes(); the latter now
+  gives sorted genotypes according to order of given alleles
+
+- print.HWE.test() wasn't displaying the observed vs expected genotype
+  frequency table.  Fixed.
+
 genetics 1.2.1
 --------------
 
-- Update Greg's email address 
+- Update Greg's email address
 
 - Fixed a bug in function allele.number, as pointed out by Chris
   Wallace
@@ -132,6 +169,3 @@ genetics 0.6.7
 
 - Added 'gregorius()', which computes the probability of observing all
   alleles with a given frequency in a sample of a specified size.
-
-
-

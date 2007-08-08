@@ -1,8 +1,8 @@
 ## plot.genotype.R
 ###------------------------------------------------------------------------
 ## What: Plot genotype object
-## $Id: plot.genotype.R 1101 2006-11-14 22:20:39Z ggorjan $
-## Time-stamp: <2005-09-13 22:11:19 ggorjan>
+## $Id: plot.genotype.R 1274 2007-07-18 12:09:37Z ggorjan $
+## Time-stamp: <2007-07-18 16:06:07 ggorjan>
 ###------------------------------------------------------------------------
 
 plot.genotype <- function(x,
@@ -15,18 +15,16 @@ plot.genotype <- function(x,
 
   ## get details
   tmp <- summary(x)
-  
+
   ## Percentages or numbers
-  if (what == "percentage")
-    whati <- 2
-  else
-    whati <- 1
-  
+  whati <- ifelse(what == "percentage", 2, 1)
+
   ## Plot
-  if (type == "allele")
+  if (type == "allele") {
     barplot(tmp$allele.freq[, whati], ...)
-  else # genotype
+  } else { # genotype
     barplot(tmp$genotype.freq[, whati], ...)
+  }
 }
 
 ###------------------------------------------------------------------------

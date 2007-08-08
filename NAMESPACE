@@ -3,7 +3,7 @@ export(
        HWE.exact,
        HWE.test,
        LD,
-       binsearch,
+       #binsearch,  # moved to gtools
        ci.balance,
        diseq,
        diseq.ci,
@@ -53,7 +53,12 @@ export(
        shortsummary.genotype,
        summary.LD.data.frame,
        as.genotype.allele.count,
-       expectedGenotypes
+       expectedGenotypes,
+       expectedHaplotypes,
+       order,
+       genotypeOrder,
+       groupGenotype,
+       "%in%"
        )
 
 S3method(summary,genotype)
@@ -90,6 +95,9 @@ S3method(print,diseq)
 S3method(print,genotype)
 S3method('==',genotype)
 S3method('==',haplotype)
+S3method('%in%',default)
+S3method('%in%',genotype)
+S3method('%in%',haplotype)
 S3method('[',genotype)
 S3method('[',haplotype)
 S3method('[<-',genotype)
@@ -106,9 +114,12 @@ S3method(print,summary.LD.data.frame)
 S3method(plot,LD.data.frame)
 S3method(print,summary.genotype)
 S3method(plot,genotype)
-
+S3method(order, default)
+S3method(order, genotype)
+S3method(sort, genotype)
 
 importFrom(stats, na.omit)
 importFrom(gdata, interleave, trim)
 importFrom(mvtnorm, rmvnorm)
 ##importFrom(combinat, rmultz2) # combinat doesn't have a namesspace.
+importFrom(gtools, binsearch, combinations, permutations)
