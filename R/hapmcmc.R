@@ -1,4 +1,4 @@
-# $Id: hapmcmc.R 154 2003-07-30 20:39:57Z warnesgr $
+# $Id: hapmcmc.R 1332 2007-11-20 20:24:52Z warnes $
 #
 # Code contributed by David Duffy <davidD@qumr.edu.au>:
 #
@@ -49,7 +49,7 @@ hap <- function(genotypes) {
   colnames(hap2)<-colnames(hap1)<-loci
   list(hap1=hap1, hap2=hap2, class="haplotype")
 }
-hapshuffle <- function(haplotypes, hfreq=NULL, ambiguous=NULL, verbose=FALSE) {
+hapshuffle <- function(haplotypes, hfreq=NULL, ambiguous=NULL, verbose=FALSE, set) {
   if (is.null(hfreq)) hfreq<-hapfreq(haplotypes, set=set)  
   if (is.null(ambiguous)) ambiguous<-hapambig(haplotypes)
   nloci<-ncol(haplotypes$hap1)
@@ -119,7 +119,7 @@ hapmcmc <- function(gtp, B=1000) {
   colnames(res)<-as.character(hap.set)
   rownames(res)<-1:B
   for(i in 1:B) {
-    hap.new<-hapshuffle(hap.new$haplotypes,hfreq=hap.new$hfreq,ambiguous=hap.amb)
+    hap.new<-hapshuffle(hap.new$haplotypes,hfreq=hap.new$hfreq,ambiguous=hap.amb, set=hap.new$set)
     res[i,]<-hap.new$hfreq
   }
   apply(res,2,mean)/tot

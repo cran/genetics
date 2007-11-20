@@ -1,4 +1,4 @@
-% $Id: genotype.Rd 1280 2007-07-25 07:32:38Z ggorjan $
+% $Id: genotype.Rd 1314 2007-09-12 10:41:11Z ggorjan $
 
 \name{genotype}
 \alias{genotype}
@@ -326,9 +326,14 @@ g
 example.data   <- c("D/D","D/I","I/D","I/I","D/D",
                     "D/D","D/I","I/D","I/I","")
 summary(genotype(example.data))
+genotypeOrder(genotype(example.data))
+
 summary(genotype(example.data, genotypeOrder=c("D/D", "I/I", "D/I")))
 summary(genotype(example.data, genotypeOrder=c(              "D/I")))
 summary(haplotype(example.data, genotypeOrder=c(             "I/D", "D/I")))
+example.data <- genotype(example.data)
+genotypeOrder(example.data) <- c("D/D", "I/I", "D/I")
+genotypeOrder(example.data)
 
 }
 \keyword{ misc }

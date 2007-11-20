@@ -57,6 +57,7 @@ export(
        expectedHaplotypes,
        order,
        genotypeOrder,
+       "genotypeOrder<-",
        groupGenotype,
        "%in%"
        )

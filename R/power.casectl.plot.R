@@ -73,7 +73,7 @@ pw <- function(n1, n2=n1*(1-fc)/fc, fc=.5, pi=0, me1=50, me2=45, sd1=10, sd2=10,
 # requirement: need library 'mvtnorm'
 
 simu.genotype.conti <- function (N, p=0.15, pi=0, me1=50, me2=me1, delta=-5, sd1=10, sd2=10, TEST=F,
-                                 minh=c('additive', 'dominant','recessive'), genotype.delta=T, Factor=F) 
+                                minh=c('additive', 'dominant','recessive'), genotype.delta=T, Factor=F) 
 {
   minh <- match.arg(minh)
   if ( min(N, sd1, sd2)<0 ) stop('N, sd1, and sd2 must be greater than 0')
@@ -89,6 +89,11 @@ simu.genotype.conti <- function (N, p=0.15, pi=0, me1=50, me2=me1, delta=-5, sd1
   covm <- matrix(c(1,    pi,    pi,    1   ), nr=2)*
           matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nr=2)
   if (!genotype.delta) delta <- delta/sum(fhw*f.mod)  # convert to overall delta due to all genotypes
+
+  ## Give explicit variable definitions for variables created by the
+  ## next loop to avoid unassigned variable message. 
+  x1 <- x2 <- x3 <- t1 <- t2 <- t3 <- NULL 
+
   for (i in 1:3) {
     if (nhw[i]!=0) {
       assign(paste('x',i,sep=''), rmvnorm(n=nhw[i], mean=c(me1,me2+f.mod[i]*delta), sigma=covm))

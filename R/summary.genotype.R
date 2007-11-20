@@ -1,4 +1,4 @@
-# $Id: summary.genotype.R 1280 2007-07-25 07:32:38Z ggorjan $
+# $Id: summary.genotype.R 1314 2007-09-12 10:41:11Z ggorjan $
 
 ###
 ### Provide the frequency and proportions of alleles and genotypes
@@ -51,7 +51,7 @@ summary.genotype  <-  function(object,...,maxsum)
     if(is.haplotype(object)) asFun <- as.haplotype
     tmp <- asFun(rownames(retval$genotype.freq),
                  alleles=allele.names(object))
-    tmp <- sort(tmp, genotypeOrder=genotypeOrder(object))
+    tmp <- order(tmp, genotypeOrder=genotypeOrder(object))
     retval$genotype.freq <- retval$genotype.freq[tmp, ]
 
     ### from code submitted by David Duffy <davidD@qimr.edu.au>

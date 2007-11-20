@@ -1,4 +1,4 @@
-# $Id: genotype.R 1280 2007-07-25 07:32:38Z ggorjan $
+# $Id: genotype.R 1329 2007-11-20 20:20:51Z warnes $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,
@@ -144,53 +144,7 @@ genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
     attr(object,"allele.names")  <- alleles
     attr(object,"allele.map")  <- do.call("rbind", strsplit(ll, "/"))
 
-    goAll <- expectedGenotypes(alleles=alleles, haplotype=TRUE)
-    goDef <- unique(sort(as.character(object)))
-    if(is.null(genotypeOrder)) {
-      attr(object, "genotypeOrder") <- goAll
-    } else {
-      genotypeOrder <- unique(genotypeOrder)
-
-      ## Stop msg says all
-      parts <- strsplit(x=genotypeOrder, split="/")
-      parts <- sapply(parts, c)
-      test <- !(parts %in% alleles)
-      if(any(test))
-        stop("adding genotype names with alleles that are not in the data")
-
-      ## Some values in the data are not in genotypeOrder?
-      test <- !(goDef %in% genotypeOrder)
-      if(any(test)) {
-
-        ## These values are in all possible genotypes/haplotypes
-        testDefinAll <- goDef[test] %in% goAll
-        ## but not in genotypeOrder
-        testDefinAllnotGO <- !(goDef[testDefinAll] %in% genotypeOrder)
-        goPos <- goDef[testDefinAllnotGO]
-
-        ## We could simply add goPos to genotypeOrder. However, A/B in
-        ## goPos should match B/A, since genotype() allows reordering of
-        ## original data and additionally we want this to work also for
-        ## haplotype.
-
-        ## Extend genotypeOrder first. We do not do this before, since one
-        ## might not necessarily like to have B/A together with A/B in
-        ## first place
-        genotypeOrder <- genetics:::.genotype2Haplotype(x=genotypeOrder)
-        ## Remove heterozygos matches
-        test <- !(goPos %in% genotypeOrder)
-        goPos <- goPos[test]
-
-        ## Add the rest in goPos to the end of genotypeOrder
-        if(any(test)) genotypeOrder <- c(genotypeOrder, goPos)
-
-        ## If there are still some values in all, but not in genotypeOrder
-        ## now, we just add them at the end
-        testGOnotAll <- !(goAll %in% genotypeOrder)
-        if(any(testGOnotAll)) genotypeOrder <- c(genotypeOrder, goAll[testGOnotAll])
-      }
-      attr(object, "genotypeOrder") <- genotypeOrder
-    }
+    genotypeOrder(object) <- genotypeOrder
 
     if(is.null(locus) || is.locus(locus)  )
       attr(object,"locus")  <- locus
@@ -665,6 +619,16 @@ allele.names<- function(x)
 
 "[<-.genotype"  <-  function(x, i, value)
   {
+    ## Special case for insertion of NA and "" values
+    if(all( is.na(value) | as.character(value)<="" ) )
+      {
+        x.class <- class(x)
+        x <- unclass(x)
+        x[i] <- NA
+        class(x) <- x.class
+        return(x)
+      }
+      
     if(!is.genotype(value))
       {
         value <- genotype(value)
@@ -714,12 +678,60 @@ genotypeOrder <- function(x)
 
 "genotypeOrder<-" <- function(x, value)
 {
-  parts <- strsplit(x=value, split="/")
-  parts <- sapply(parts, c)
-  test <- !(parts %in% allele.names(x))
-  if(any(test))
-    stop("adding genotype names with alleles that are not in the data")
-  attr(x, "genotypeOrder") <- value
+  if(!is.genotype(x)) stop("'x' must be of a genotype class")
+  alleles <- allele.names(x)
+
+  goAll <- expectedGenotypes(alleles=alleles, haplotype=TRUE)
+  goDef <- unique(sort(as.character(x)))
+
+  if(is.null(value)) {
+    attr(x, "genotypeOrder") <- goAll
+  } else {
+    value <- unique(value)
+
+    ## Stop msg says all
+    parts <- strsplit(x=value, split="/")
+    parts <- sapply(parts, c)
+    test <- !(parts %in% alleles)
+    if(any(test))
+      stop("adding genotype names with alleles that are not in the data")
+
+    ## Any genotypes in the data that are not in value?
+    test <- !(goDef %in% value)
+    if(any(test)) {
+
+      ## These values are in all possible genotypes/haplotypes
+      testDefinAll <- goDef[test] %in% goAll
+      ## but not in value
+      testDefinAllnotVa <- !(goDef[testDefinAll] %in% value)
+      goPos <- goDef[testDefinAllnotVa]
+
+      ## We could simply add goPos to value now. However, A/B in goPos
+      ## should also match B/A, since genotype() allows reordering of
+      ## original data and additionally we want this to work also for
+      ## haplotype.
+
+      ## Extend value first. We do not do this before, since one
+      ## might not necessarily like to have B/A together with A/B in
+      ## first place.
+      value <- genetics:::.genotype2Haplotype(x=value)
+      ## Remove heterozygos matches in goPos
+      test <- !(goPos %in% value)
+      goPos <- goPos[test]
+
+      ## Add goPos to the end of value
+      if(any(test)) value <- c(value, goPos)
+
+      ## If there are still some values in all, but not in value
+      ## now, we just add them at the end
+      testGOnotAll <- !(goAll %in% value)
+      if(any(testGOnotAll)) value <- c(value, goAll[testGOnotAll])
+    } else {
+      value <- genetics:::.genotype2Haplotype(x=value)
+    }
+    attr(x, "genotypeOrder") <- value
+  }
+  x
 }
 
 .genotype2Haplotype <- function(x)

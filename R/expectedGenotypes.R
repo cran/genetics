@@ -15,6 +15,8 @@ expectedGenotypes <- function(x, alleles=allele.names(x), ploidy=2,
     }
 
     nA <- length(alleles)
+    if(nA==0)
+      stop("Zero length alleles vector.")
 
     ## Add numbers to allele names, so we get result sorted by
     ## given allele names
