@@ -1,4 +1,4 @@
-# $Id: genotype.R 1329 2007-11-20 20:20:51Z warnes $
+# $Id: genotype.R 1337 2008-04-30 00:54:56Z warnes $
 
 genotype  <- function(a1, a2=NULL, alleles=NULL, sep="/",
                       remove.spaces=TRUE,
@@ -539,7 +539,7 @@ carrier.genotype  <-  function(x, allele.name=allele.names(x),
 {
   retval  <- allele.count(x,allele.name=allele.name,any=any,na.rm=na.rm) > 0
 
-  attr(retval,"allele")  <- retval$allele
+  attr(retval,"allele")  <- retval["allele"]
   attr(retval,"locus")  <-  attr(x,"locus")
 #  class(retval)  <- "carrier"
   return(retval)

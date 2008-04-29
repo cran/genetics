@@ -1,3 +1,13 @@
+genetics 1.3.3 - 2007-04-29
+---------------------------
+
+- Correct 'obsolete' use of '$'.  R no longer permits '$' to be used
+  to extract named elements from vectors (just lists).
+
+- Remove the power.casectl() function, which was based on invalid
+  assumpations.  It has been marked depreciated.  Please use the
+  functions in the Bioconductor package 'GeneticsDesign' instead.
+
 genetics 1.3.2 - 2007-11-20
 ---------------------------
 

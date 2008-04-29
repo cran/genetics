@@ -1,11 +1,11 @@
-# $Id: locus.R 134 2003-05-29 00:36:10Z warnesgr $
+# $Id: locus.R 1337 2008-04-30 00:54:56Z warnes $
 
 getlocus  <- function(x,...)
 {
   if(is.locus(x))
     return(x)
-  else if(!is.null(x$locus))
-        return(x$locus)
+  else if(!is.null(x["locus"]))
+        return(x["locus"])
   else if(!is.null(attr(x,"locus")))
        return(attr(x,"locus"))
   else
