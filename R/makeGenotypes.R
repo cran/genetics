@@ -1,4 +1,4 @@
-# $Id: makeGenotypes.R 114 2003-05-22 17:25:23Z warnesgr $
+# $Id: makeGenotypes.R 1340 2008-08-20 19:04:32Z warnes $
 
 #
 # convert all genotype-compatible variables in a dataframe to genotypes
@@ -11,7 +11,7 @@ makeGenotypes <- function( data, convert, sep="/", tol=0.5, ...,
     
     if(missing(convert))
       {
-        fun <- function(x) length(unlist(grep("/", as.character(x) )))
+        fun <- function(x) length(unlist(grep(sep, as.character(x) )))
         convert <- sapply( data,  fun )/nrow(data) > tol
       }
 

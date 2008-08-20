@@ -1,3 +1,11 @@
+genetics 1.3.4 - 2008-08-20
+---------------------------
+
+- Fix bug in makeGenotypes that caused it to ignore the 'sep' argument
+  when determining which columns contain genotypes & add a corresponing
+  regression test
+
+
 genetics 1.3.3 - 2007-04-29
 ---------------------------
 

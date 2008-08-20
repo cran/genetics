@@ -1,7 +1,7 @@
 Package: genetics
 Title: Population Genetics
-Version: 1.3.3
-Date: 2008-04-29
+Version: 1.3.4
+Date: 2008-08-20
 Author: Gregory Warnes, with contributions from Gregor Gorjanc,
         Friedrich Leisch, and Michael Man. 
 Maintainer: Gregory Warnes <warnes@bst.rochester.edu>
@@ -15,4 +15,4 @@ Description: Classes and methods for handling genetic data. Includes
   ...
 biocViews: Genetics
 License: GPL
-Packaged: Tue Apr 29 21:26:45 2008; warnes
+Packaged: Wed Aug 20 15:23:42 2008; warnes

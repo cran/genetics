@@ -1,3 +1,22 @@
+2008-08-20 19:06  warnes
+
+	* DESCRIPTION, inst/NEWS: Bump version numer up and update NEWS
+	  file
+
+2008-08-20 19:04  warnes
+
+	* R/makeGenotypes.R: Fix bug in makeGenoypes that caused it to
+	  ignore 'sep' when identifying potential genotype columns
+
+2008-04-30 01:23  warnes
+
+	* man/depreciated.Rd: Add complete reference to GeneticsDesign
+	  functions
+
+2008-04-30 01:05  warnes
+
+	* DESCRIPTION, inst/NEWS: Update for version 1.3.3
+
 2008-04-30 00:54  warnes
 
 	* R/genotype.R, R/locus.R: Replace obsolete (grr!) use of "$\" for
