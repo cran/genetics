@@ -36,7 +36,7 @@ HWE.test(x, ...)
     confidence interval. Defaults to 1000.}
 %   \item{ci.type}{Method of calculating the confidence interval using the
 %     bootstrap sample.  Defaults to \code{"basic"}.  See 
-%     \code{\link[boot]{bootci}} for details.}
+%     \code{\link[boot]{boot.ci}} for details.}
   \item{show}{a character vector containing the names of HWE test
     statistics to display from the set of "D", "D'", "r", and "table".}
   \item{...}{ optional parameters passed to \code{HWE.test} (data.frame
@@ -67,7 +67,7 @@ HWE.test(x, ...)
     disequilibrium estimates.}
   \item{ci}{A \code{\link{diseq.ci}} object providing details on the
     bootstrap confidence intervals for the disequilibrium estimates.}
-  \item{test}{A \code{\link[ctest]{htest}} object providing details on the
+  \item{test}{A \code{htest} object providing details on the
     permutation based Chi-square test.}
   \item{call}{function call used to creat this object.}
   \item{conf, B, ci.B, simulate.p.value}{values used for these arguments.}
@@ -81,6 +81,7 @@ HWE.test(x, ...)
   \code{\link{diseq.ci}},
   \code{\link{HWE.chisq}},
   \code{\link{HWE.exact}},
+  \code{\link[stats]{chisq.test}}
 }
 
 

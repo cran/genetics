@@ -1,133 +1,146 @@
+2008-08-20 19:23  warnes
+
+	* [r1343] inst/NEWS: Update news file to note new regression test
+
+2008-08-20 19:22  warnes
+
+	* [r1342] tests/makeGenotype_with_sep.R: Add regresson test for
+	  problem with makeGenotypes ignoring 'sep' when checking which
+	  columns should be converted.
+
 2008-08-20 19:06  warnes
 
-	* DESCRIPTION, inst/NEWS: Bump version numer up and update NEWS
-	  file
+	* [r1341] DESCRIPTION, inst/NEWS: Bump version numer up and update
+	  NEWS file
 
 2008-08-20 19:04  warnes
 
-	* R/makeGenotypes.R: Fix bug in makeGenoypes that caused it to
-	  ignore 'sep' when identifying potential genotype columns
+	* [r1340] R/makeGenotypes.R: Fix bug in makeGenoypes that caused it
+	  to ignore 'sep' when identifying potential genotype columns
 
 2008-04-30 01:23  warnes
 
-	* man/depreciated.Rd: Add complete reference to GeneticsDesign
-	  functions
+	* [r1339] man/depreciated.Rd: Add complete reference to
+	  GeneticsDesign functions
 
 2008-04-30 01:05  warnes
 
-	* DESCRIPTION, inst/NEWS: Update for version 1.3.3
+	* [r1338] DESCRIPTION, inst/NEWS: Update for version 1.3.3
 
 2008-04-30 00:54  warnes
 
-	* R/genotype.R, R/locus.R: Replace obsolete (grr!) use of "$\" for
-	  atomic vectors
+	* [r1337] R/genotype.R, R/locus.R: Replace obsolete (grr!) use of
+	  "$\" for atomic vectors
 
 2008-04-30 00:53  warnes
 
-	* R/power.casectl.R, man/depreciated.Rd, man/power.casectl.Rd: Mark
-	  power.casectl() as depreciated in favor of GeneticsDesign
-	  functions
+	* [r1336] R/power.casectl.R, man/depreciated.Rd,
+	  man/power.casectl.Rd: Mark power.casectl() as depreciated in
+	  favor of GeneticsDesign functions
 
 2007-11-20 20:30  warnes
 
-	* R/expectedGenotypes.R: Add extra error checking to
+	* [r1335] R/expectedGenotypes.R: Add extra error checking to
 	  expectedGenotypes()
 
 2007-11-20 20:27  warnes
 
-	* DESCRIPTION, inst/NEWS: Update NEWS and DESCRIPTION for genetics
-	  1.3.2
+	* [r1334] DESCRIPTION, inst/NEWS: Update NEWS and DESCRIPTION for
+	  genetics 1.3.2
 
 2007-11-20 20:25  warnes
 
-	* man/power.casectl.Rd: Fix documentation of kp and alpha arguments
-	  to power.casectl()
+	* [r1333] man/power.casectl.Rd: Fix documentation of kp and alpha
+	  arguments to power.casectl()
 
 2007-11-20 20:24  warnes
 
-	* R/hapmcmc.R: Add set argument to hapshuffle
+	* [r1332] R/hapmcmc.R: Add set argument to hapshuffle
 
 2007-11-20 20:23  warnes
 
-	* R/power.casectl.plot.R: Add explicit variable definition to avoid
-	  R CMD CHECK warning
+	* [r1331] R/power.casectl.plot.R: Add explicit variable definition
+	  to avoid R CMD CHECK warning
 
 2007-11-20 20:23  warnes
 
-	* R/zzz.R: Package startup message states package is OBSOLETE
+	* [r1330] R/zzz.R: Package startup message states package is
+	  OBSOLETE
 
 2007-11-20 20:20  warnes
 
-	* R/genotype.R, tests/test.NA.R: Bug fix and regression test for
-	  assignment of NA to element of existing genotype object
+	* [r1329] R/genotype.R, tests/test.NA.R: Bug fix and regression
+	  test for assignment of NA to element of existing genotype object
 
 2007-09-12 10:41  ggorjan
 
-	* DESCRIPTION, NAMESPACE, R/genotype.R, R/summary.genotype.R,
-	  inst/NEWS, man/genotype.Rd: - fixes in genotypeOrder to ensure
-	  all genotype/haplotype combinations
+	* [r1314] DESCRIPTION, NAMESPACE, R/genotype.R,
+	  R/summary.genotype.R, inst/NEWS, man/genotype.Rd: - fixes in
+	  genotypeOrder to ensure all genotype/haplotype combinations
 	  are used.
 	  
 	  - genotypeOrder<- is now exported
 
 2007-08-21 14:37  warnes
 
-	* ChangeLog, NEWS: Add softlinks into inst/ for ChangeLog and NEWS
+	* [r1305] ChangeLog, NEWS: Add softlinks into inst/ for ChangeLog
+	  and NEWS
 
 2007-08-21 14:36  warnes
 
-	* NEWS, inst/NEWS: Move Changelog (not in SVN) and NEWS to inst/
+	* [r1304] NEWS, inst/NEWS: Move Changelog (not in SVN) and NEWS to
+	  inst/
 
 2007-08-21 14:35  warnes
 
-	* inst/ChangeLog, inst/NEWS: Remove softlinks in inst, doesn't work
-	  on windows
+	* [r1303] inst/ChangeLog, inst/NEWS: Remove softlinks in inst,
+	  doesn't work on windows
 
 2007-08-20 18:30  warnes
 
-	* inst/ChangeLog, inst/NEWS: Add softlinks in inst to NEWS and
-	  ChangeLog so these will get installed.
+	* [r1301] inst/ChangeLog, inst/NEWS: Add softlinks in inst to NEWS
+	  and ChangeLog so these will get installed.
 
 2007-08-08 14:59  warnes
 
-	* DESCRIPTION: Bump minor version number since Gregor added new
-	  functions
+	* [r1300] DESCRIPTION: Bump minor version number since Gregor added
+	  new functions
 
 2007-08-08 14:58  warnes
 
-	* NEWS: Update NEWS file for new release
+	* [r1299] NEWS: Update NEWS file for new release
 
 2007-08-08 14:56  warnes
 
-	* DESCRIPTION: Update description for release, add credit to other
-	  contributors
+	* [r1298] DESCRIPTION: Update description for release, add credit
+	  to other contributors
 
 2007-08-08 14:51  warnes
 
-	* R/zzz.R: Add note referring users to the R-Genetics project
-	  homepage
+	* [r1297] R/zzz.R: Add note referring users to the R-Genetics
+	  project homepage
 
 2007-08-08 13:45  warnes
 
-	* NAMESPACE, R/binsearch.R, man/binsearch.Rd: Move binsearch() to
-	  the gtools package
+	* [r1296] NAMESPACE, R/binsearch.R, man/binsearch.Rd: Move
+	  binsearch() to the gtools package
 
 2007-08-08 13:38  warnes
 
-	* R/binsearch.R: Correct bug in binsearch. Elipses were omitted
-	  from one cal to fun(). Bug reported by Matthew Walker
+	* [r1295] R/binsearch.R: Correct bug in binsearch. Elipses were
+	  omitted from one cal to fun(). Bug reported by Matthew Walker
 	  <m.g.walker@massey.ac.nz>
 
 2007-07-25 07:32  ggorjan
 
-	* NAMESPACE, NEWS, R/expectedGenotypes.R, R/genotype.R,
+	* [r1280] NAMESPACE, NEWS, R/expectedGenotypes.R, R/genotype.R,
 	  R/groupGenotype.R, R/order.genotype.R, R/summary.genotype.R,
 	  man/expectedGenotypes.Rd, man/genotype.Rd, man/groupGenotype.Rd,
 	  man/order.genotype.Rd: groupGenotype(), some utility funcs, ...
 
 2007-07-18 16:57  ggorjan
 
-	* NEWS, R/genotype.R: Fixed genotype() with
+	* [r1279] NEWS, R/genotype.R: Fixed genotype() with
 	  allow.partial.missing=FALSE when 'alleles'
 	  argument is passed
 	  
@@ -162,8 +175,8 @@
 
 2007-07-18 16:32  ggorjan
 
-	* NEWS, R/genotype.R: There is no more warning in genotype() if
-	  'a1' or 'a2' have NA value(s)
+	* [r1278] NEWS, R/genotype.R: There is no more warning in
+	  genotype() if 'a1' or 'a2' have NA value(s)
 	  and 'alleles'' argument is specified, since NA is NA anyway
 	  
 	  Here is the example:
@@ -191,79 +204,81 @@
 
 2007-07-18 14:22  ggorjan
 
-	* NEWS, R/diseq.R, man/diseq.Rd: really fixed printing of Obs vs
-	  Exp freqs
+	* [r1277] NEWS, R/diseq.R, man/diseq.Rd: really fixed printing of
+	  Obs vs Exp freqs
 
 2007-07-18 12:51  ggorjan
 
-	* R/expectedGenotypes.R, man/expectedGenotypes.Rd: sort produced
-	  genotypes
+	* [r1276] R/expectedGenotypes.R, man/expectedGenotypes.Rd: sort
+	  produced genotypes
 
 2007-07-18 12:19  ggorjan
 
-	* R/expectedGenotypes.R: rollback one part
+	* [r1275] R/expectedGenotypes.R: rollback one part
 
 2007-07-18 12:09  ggorjan
 
-	* R/plot.genotype.R, man/plot.genotype.Rd: fixing S3 type of
-	  documentation + minor fix
+	* [r1274] R/plot.genotype.R, man/plot.genotype.Rd: fixing S3 type
+	  of documentation + minor fix
 
 2007-07-18 12:08  ggorjan
 
-	* man/genotype.Rd, man/locus.Rd, man/print.LD.Rd,
+	* [r1273] man/genotype.Rd, man/locus.Rd, man/print.LD.Rd,
 	  man/summary.genotype.Rd: fixing S3 type of documentation
 
 2007-07-18 11:57  ggorjan
 
-	* NEWS, man/power.casectl.Rd: Fixed documentation of
+	* [r1272] NEWS, man/power.casectl.Rd: Fixed documentation of
 	  power.casectrl() to match its code
 
 2007-07-18 11:49  ggorjan
 
-	* DESCRIPTION, NEWS, R/expectedGenotypes.R: added gtools to Depends
-	  as needed by expectedGenotypes() + some minor fixes
+	* [r1271] DESCRIPTION, NEWS, R/expectedGenotypes.R: added gtools to
+	  Depends as needed by expectedGenotypes() + some minor fixes
 
 2007-06-17 01:27  warnes
 
-	* man/power.casectl.Rd: Update with Michael's latest changes
+	* [r1270] man/power.casectl.Rd: Update with Michael's latest
+	  changes
 
 2007-06-17 01:25  warnes
 
-	* R/power.casectl.plot.R: Move old code from power.casectl.R to
-	  power.casectl.plot.R
+	* [r1269] R/power.casectl.plot.R: Move old code from
+	  power.casectl.R to power.casectl.plot.R
 
 2007-06-17 01:24  warnes
 
-	* R/power.casectl.R: Update with Michael's latest changes
+	* [r1268] R/power.casectl.R: Update with Michael's latest changes
 
 2007-05-29 19:35  warnes
 
-	* NEWS: Add display of observed vs expected table to
+	* [r1227] NEWS: Add display of observed vs expected table to
 	  print.HWE.test()
 
 2007-05-29 19:34  warnes
 
-	* DESCRIPTION, man/HWE.test.Rd: Add display of observed vs expected
-	  table to print.HWE.test()
+	* [r1226] DESCRIPTION, man/HWE.test.Rd: Add display of observed vs
+	  expected table to print.HWE.test()
 
 2007-05-29 19:29  warnes
 
-	* R/HWE.test.R: Add display of observed vs expected table to
-	  print.HWE.test()
+	* [r1225] R/HWE.test.R: Add display of observed vs expected table
+	  to print.HWE.test()
 
 2006-12-05 18:22  warnes
 
-	* man/undocumented.Rd: Remove typo/dupliucate alias entry for
-	  ci.balance
+	* [r1115] man/undocumented.Rd: Remove typo/dupliucate alias entry
+	  for ci.balance
 
 2006-12-05 17:45  warnes
 
-	* NEWS: Update NEWS file for 1.2.0 and 1.2.1
+	* [r1114] NEWS: Update NEWS file for 1.2.0 and 1.2.1
 
 2006-11-14 22:20  ggorjan
 
-	* trunk/GeneticsBase/DESCRIPTION, trunk/GeneticsBase/R/convert.R,
-	  trunk/GeneticsBase/TODO.txt, trunk/GeneticsBase/data/ALZH.ped,
+	* [r1101] trunk/GeneticsBase/DESCRIPTION,
+	  trunk/GeneticsBase/R/convert.R, trunk/GeneticsBase/TODO.txt,
+	  trunk/GeneticsBase/data/ALZH.ped,
 	  trunk/GeneticsBase/data/CAMP.ped,
 	  trunk/GeneticsBase/data/CAMPZ.phe,
 	  trunk/GeneticsBase/data/qtl.ped, trunk/GeneticsBase/data/qtl.phe,
@@ -287,48 +302,49 @@
 
 2006-11-11 04:10  warnes
 
-	* DESCRIPTION: Update version number
+	* [r1088] DESCRIPTION: Update version number
 
 2006-11-11 04:09  warnes
 
-	* DESCRIPTION, inst/doc/genetics_article.tex, man/HWE.exact.Rd,
-	  man/HWE.test.Rd, man/LD.Rd, man/binsearch.Rd, man/ci.balance.Rd,
-	  man/diseq.Rd, man/genotype.Rd, man/gregorius.Rd,
-	  man/homozygote.Rd, man/locus.Rd, man/makeGenotypes.Rd,
-	  man/print.LD.Rd, man/summary.genotype.Rd, man/write.pop.file.Rd:
-	  Update my email address
-
-2006-10-02 13:21  weiliang_qiu
-
-	* DESCRIPTION: add the 'BioCViews' tag with 'Genetics' as the
-	  keyword to the
-	  DESCRIPTION file
-
-2006-03-10 18:19  nj7w
-
-	* R/write.pedigree.file.R: Fixed a bug in function allele.number,
-	  as pointed out by Chris Wallace
-
-2005-11-10 15:28  warnes
-
-	* man/HWE.exact.Rd, man/HWE.test.Rd, man/LD.Rd, man/binsearch.Rd,
+	* [r1087] DESCRIPTION, inst/doc/genetics_article.tex,
+	  man/HWE.exact.Rd, man/HWE.test.Rd, man/LD.Rd, man/binsearch.Rd,
 	  man/ci.balance.Rd, man/diseq.Rd, man/genotype.Rd,
 	  man/gregorius.Rd, man/homozygote.Rd, man/locus.Rd,
 	  man/makeGenotypes.Rd, man/print.LD.Rd, man/summary.genotype.Rd,
 	  man/write.pop.file.Rd: Update my email address
 
+2006-10-02 13:21  weiliang_qiu
+
+	* [r966] DESCRIPTION: add the 'BioCViews' tag with 'Genetics' as
+	  the keyword to the
+	  DESCRIPTION file
+
+2006-03-10 18:19  nj7w
+
+	* [r666] R/write.pedigree.file.R: Fixed a bug in function
+	  allele.number, as pointed out by Chris Wallace
+
+2005-11-10 15:28  warnes
+
+	* [r456] man/HWE.exact.Rd, man/HWE.test.Rd, man/LD.Rd,
+	  man/binsearch.Rd, man/ci.balance.Rd, man/diseq.Rd,
+	  man/genotype.Rd, man/gregorius.Rd, man/homozygote.Rd,
+	  man/locus.Rd, man/makeGenotypes.Rd, man/print.LD.Rd,
+	  man/summary.genotype.Rd, man/write.pop.file.Rd: Update my email
+	  address
+
 2005-11-09 17:05  warnes
 
-	* DESCRIPTION: Update version number and release date
+	* [r454] DESCRIPTION: Update version number and release date
 
 2005-11-09 17:04  warnes
 
-	* R/HWE.test.R, R/LD.R, R/ci.balance.R, R/diseq.R, man/diseq.Rd:
-	  Add R^2 to HWE and LD estimates
+	* [r453] R/HWE.test.R, R/LD.R, R/ci.balance.R, R/diseq.R,
+	  man/diseq.Rd: Add R^2 to HWE and LD estimates
 
 2005-11-08 20:54  warnes
 
-	* R/summary.genotype.R: Fix Heterozygosity correction, per
+	* [r448] R/summary.genotype.R: Fix Heterozygosity correction, per
 	  Christopher Carlson
 	  <csc47@u.washington.edu>:
 	  > My second question is with regard to the summary.genotype
@@ -346,132 +362,134 @@
 
 2005-10-04 23:43  warnes
 
-	* DESCRIPTION, NAMESPACE, R/diseq.R, R/expectedGenotypes.R,
+	* [r395] DESCRIPTION, NAMESPACE, R/diseq.R, R/expectedGenotypes.R,
 	  R/power.casectl.R, R/print.LD.R, R/zzz.R: Move all dependency
 	  checking into DESCRIPTION and NAMESPACES.
 
 2005-10-04 16:30  warnes
 
-	* R/plot.genotype.R: Fix handling of the 'type' argument.
+	* [r393] R/plot.genotype.R: Fix handling of the 'type' argument.
 
 2005-10-04 16:28  warnes
 
-	* R/plot.genotype.R: Correct the handling of the 'what' argument.
+	* [r392] R/plot.genotype.R: Correct the handling of the 'what'
+	  argument.
 
 2005-10-04 15:17  warnes
 
-	* DESCRIPTION: Forgot to increment version
+	* [r390] DESCRIPTION: Forgot to increment version
 
 2005-10-04 15:15  warnes
 
-	* DESCRIPTION: Update email address, version number, and date.
+	* [r389] DESCRIPTION: Update email address, version number, and
+	  date.
 
 2005-10-04 15:13  warnes
 
-	* R/diseq.R: Return NA and issue a warning if diseq() called on a
-	  marker with
+	* [r388] R/diseq.R: Return NA and issue a warning if diseq() called
+	  on a marker with
 	  only one observed allele.
 
 2005-09-14 18:45  ggorjan
 
-	* R/plot.genotype.R: Now plot percentage by default i.e. no need
-	  for argument in function call.
+	* [r359] R/plot.genotype.R: Now plot percentage by default i.e. no
+	  need for argument in function call.
 
 2005-08-18 19:39  nj7w
 
-	* R/genotype.R: Fix bug in heterozygote when more than one
+	* [r299] R/genotype.R: Fix bug in heterozygote when more than one
 	  allele.name is provided
 
 2005-03-13 01:23  warnes
 
-	* R/library.R, man/library.Rd: Remove old backport of library()
-	  commanad that is no longer needed.
+	* [r217] R/library.R, man/library.Rd: Remove old backport of
+	  library() commanad that is no longer needed.
 
 2005-03-12 21:57  warnes
 
-	* R/summary.genotype.R: Change 'persons' to 'samples' so that we
-	  aren't human-specific.
+	* [r215] R/summary.genotype.R: Change 'persons' to 'samples' so
+	  that we aren't human-specific.
 
 2005-03-12 21:54  warnes
 
-	* DESCRIPTION, NAMESPACE, man/expectedGenotypes.Rd,
+	* [r214] DESCRIPTION, NAMESPACE, man/expectedGenotypes.Rd,
 	  man/plot.genotype.Rd: Fixes to pass R CMD check after addition of
 	  expectedGenotypes() and
 	  plot.genotype().
 
 2005-03-12 20:23  warnes
 
-	* R/plot.genotype.R, man/plot.genotype.Rd: Add plot.genotype()
-	  contributed by Gregor GORJANC
+	* [r213] R/plot.genotype.R, man/plot.genotype.Rd: Add
+	  plot.genotype() contributed by Gregor GORJANC
 
 2005-03-12 20:22  warnes
 
-	* R/expectedGenotypes.R, man/expectedGenotypes.Rd: Add
+	* [r212] R/expectedGenotypes.R, man/expectedGenotypes.Rd: Add
 	  expectedGenotypes() contributed by Gregor GORJANC
 
 2005-03-09 19:49  warnes
 
-	* man/makeGenotypes.Rd: Add description of the use of the 'method'
-	  argument, and an example
+	* [r206] man/makeGenotypes.Rd: Add description of the use of the
+	  'method' argument, and an example
 	  showing the use of 'method=as.genotype.allele.count'.
 
 2005-03-02 18:14  nj7w
 
-	* NAMESPACE: Fixed NAMESPACE file to import na.omit function
+	* [r205] NAMESPACE: Fixed NAMESPACE file to import na.omit function
 	  explicitly from stats package.
 
 2004-12-23 01:34  warnes
 
-	* R/HWE.test.data.frame.R, inst/doc/LD.pdf,
+	* [r191] R/HWE.test.data.frame.R, inst/doc/LD.pdf,
 	  inst/doc/example_data.csv, inst/doc/genetics_article.pdf: Check
 	  in some files that seem to have been overlooked in the past.
 
 2004-12-23 01:21  warnes
 
-	* NEWS: Update for 1.1.2 (and 1.1.1).
+	* [r190] NEWS: Update for 1.1.2 (and 1.1.1).
 
 2004-12-23 01:14  warnes
 
-	* DESCRIPTION: Update version number.
+	* [r189] DESCRIPTION: Update version number.
 
 2004-12-23 01:08  warnes
 
-	* R/diseq.R: Remove debugging code that printed intermediate values
-	  (sometimes a
+	* [r188] R/diseq.R: Remove debugging code that printed intermediate
+	  values (sometimes a
 	  lot of them).
 
 2004-11-22 14:35  warnes
 
-	* man/LD.Rd: Fix typos.
+	* [r185] man/LD.Rd: Fix typos.
 
 2004-11-15 16:36  warnes
 
-	* DESCRIPTION: Update version.
+	* [r184] DESCRIPTION: Update version.
 
 2004-11-15 16:22  warnes
 
-	* R/summary.genotype.R: Ensure that allele.freq table has the same
-	  ordering as allele.names.
+	* [r183] R/summary.genotype.R: Ensure that allele.freq table has
+	  the same ordering as allele.names.
 
 2004-11-15 16:20  warnes
 
-	* R/HWE.test.R: remove triplicate comment
+	* [r182] R/HWE.test.R: remove triplicate comment
 
 2004-11-15 15:34  warnes
 
-	* man/HWE.chisq.Rd: Make it clear that the Yates continuty
+	* [r181] man/HWE.chisq.Rd: Make it clear that the Yates continuty
 	  correction is applied *only*
 	  when simulate.p.value=FALSE, so that the reported test statistics
 	  for simulate.p.value=FALSE and simulate.p.value=TRUE will differ.
 
 2004-10-13 16:21  warnes
 
-	* R/diseq.R, man/diseq.Rd: Attempt to fix/clarify HWE diseq.
+	* [r178] R/diseq.R, man/diseq.Rd: Attempt to fix/clarify HWE diseq.
 	  computations & synchronize documentation.
 
 2004-09-21 21:45  warnes
 
-	* DESCRIPTION, NAMESPACE, NEWS, R/power.casectl.R,
+	* [r173] DESCRIPTION, NAMESPACE, NEWS, R/power.casectl.R,
 	  man/HWE.chisq.Rd, man/HWE.exact.Rd, man/HWE.test.Rd,
 	  man/ci.balance.Rd, man/diseq.Rd, man/genotype.Rd,
 	  man/homozygote.Rd, man/locus.Rd, man/power.casectl.Rd,
@@ -481,8 +499,8 @@
 
 2004-09-17 18:46  warnes
 
-	* man/HWE.chisq.Rd, man/HWE.exact.Rd, man/HWE.test.Rd, man/LD.Rd,
-	  man/binsearch.Rd, man/ci.balance.Rd, man/diseq.Rd,
+	* [r172] man/HWE.chisq.Rd, man/HWE.exact.Rd, man/HWE.test.Rd,
+	  man/LD.Rd, man/binsearch.Rd, man/ci.balance.Rd, man/diseq.Rd,
 	  man/genotype.Rd, man/gregorius.Rd, man/homozygote.Rd,
 	  man/library.Rd, man/locus.Rd, man/makeGenotypes.Rd,
 	  man/power.casectl.Rd, man/print.LD.Rd, man/summary.genotype.Rd,
@@ -491,131 +509,132 @@
 
 2004-09-16 22:15  warnes
 
-	* R/power.casectl.R: Changes from Michael Man.
+	* [r171] R/power.casectl.R: Changes from Michael Man.
 
 2004-09-16 21:33  warnes
 
-	* man/diseq.Rd: Match changes to print.diseq revision 1.16, which
-	  restored ability
+	* [r170] man/diseq.Rd: Match changes to print.diseq revision 1.16,
+	  which restored ability
 	  to show Observed vs. Expected table by addition an additional
 	  potential value for the 'show' parameter: "table".
 
 2004-09-16 21:22  warnes
 
-	* NAMESPACE: Add namespace.
+	* [r169] NAMESPACE: Add namespace.
 
 2004-09-15 18:32  warnesgr
 
-	* R/diseq.R: Restore ability to show Observed vs. Expected table by
-	  addition an
+	* [r168] R/diseq.R: Restore ability to show Observed vs. Expected
+	  table by addition an
 	  additional potential value for the 'show' parameter: "table".
 
 2004-07-02 15:57  warnesgr
 
-	* R/power.casectl.R, man/power.casectl.Rd: Add power.casectl
+	* [r167] R/power.casectl.R, man/power.casectl.Rd: Add power.casectl
 	  provided by Micheal Man.
 
 2004-05-25 19:40  warnesgr
 
-	* DESCRIPTION, R/genotype.R, R/print.LD.R, man/HWE.test.Rd,
+	* [r164] DESCRIPTION, R/genotype.R, R/print.LD.R, man/HWE.test.Rd,
 	  man/binsearch.Rd, man/genotype.Rd, man/locus.Rd,
 	  man/makeGenotypes.Rd, man/undocumented.Rd: Many fixex.
 
 2004-03-25 17:15  warnesgr
 
-	* R/ci.balance.R, man/ci.balance.Rd: Remove unused '...' argument
-	  from ci.balance.
+	* [r163] R/ci.balance.R, man/ci.balance.Rd: Remove unused '...'
+	  argument from ci.balance.
 
 2004-02-02 15:55  warnesgr
 
-	* R/ci.balance.R, R/diseq.R, man/ci.balance.Rd: - Rename ci.balance
-	  'conf' parameter to 'confidence', and add 'alpha'
+	* [r162] R/ci.balance.R, R/diseq.R, man/ci.balance.Rd: - Rename
+	  ci.balance 'conf' parameter to 'confidence', and add 'alpha'
 	  parameter to remove R CMD check warning.
 	  
 	  - modify diseq.ci to pass confidence level to ci.balance.
 
 2004-02-02 15:46  warnesgr
 
-	* man/homozygote.Rd: remove extraneous period from argument to
-	  carrier.genotype.
+	* [r161] man/homozygote.Rd: remove extraneous period from argument
+	  to carrier.genotype.
 
 2003-12-02 18:41  warnesgr
 
-	* R/genotype.R: - remove depreciated (and error prone) use of
-	  codes().
+	* [r160] R/genotype.R: - remove depreciated (and error prone) use
+	  of codes().
 
 2003-12-02 18:37  warnesgr
 
-	* R/print.LD.R: - Fixed bug: "D" was being reported when only "D'"
-	  was requested.
+	* [r159] R/print.LD.R: - Fixed bug: "D" was being reported when
+	  only "D'" was requested.
 
 2003-11-24 17:32  warnesgr
 
-	* man/write.pop.file.Rd: - Fix the last broken fix.
+	* [r158] man/write.pop.file.Rd: - Fix the last broken fix.
 
 2003-11-24 17:22  warnesgr
 
-	* man/write.pop.file.Rd: Changes to fix latex'ing problem.
+	* [r157] man/write.pop.file.Rd: Changes to fix latex'ing problem.
 
 2003-08-04 14:18  warnesgr
 
-	* DESCRIPTION, NEWS: - Updated NEWS and DESCRIPTION for version
-	  1.0.2
+	* [r156] DESCRIPTION, NEWS: - Updated NEWS and DESCRIPTION for
+	  version 1.0.2
 
 2003-08-04 13:48  warnesgr
 
-	* R/summary.genotype.R: - Fixed a bug in Heterozygosity (H) and PIC
-	  calcuations caused by
+	* [r155] R/summary.genotype.R: - Fixed a bug in Heterozygosity (H)
+	  and PIC calcuations caused by
 	  using allele count rather than allele proportions. Bug reported
 	  by
 	  Gerard Tromp <tromp@sanger.med.wayne.edu>.
 
 2003-07-30 20:39  warnesgr
 
-	* R/hapmcmc.R: - Added hapmcmc code submitted by David Duffy.
+	* [r154] R/hapmcmc.R: - Added hapmcmc code submitted by David
+	  Duffy.
 
 2003-06-06 09:27  warnesgr
 
-	* man/binsearch.Rd, man/library.Rd, man/print.LD.Rd: - Fix
+	* [r152] man/binsearch.Rd, man/library.Rd, man/print.LD.Rd: - Fix
 	  fuction/documententation argument mismatch.
 	  - Fix lack of LF at the end of a couple of files.
 
 2003-06-05 22:06  warnesgr
 
-	* R/summary.genotype.R: - Added code to show number of alleles,
-	  number of individuals
+	* [r151] R/summary.genotype.R: - Added code to show number of
+	  alleles, number of individuals
 	  genotyped, heterogyosity, and poly. information content based on
 	  code contribued by David Duffy.
 
 2003-06-04 21:22  warnesgr
 
-	* R/plot.LD.R: - Modified string size to only leave vertical space
-	  for the number of
+	* [r150] R/plot.LD.R: - Modified string size to only leave vertical
+	  space for the number of
 	  elements that will be printed.
 
 2003-06-04 21:22  warnesgr
 
-	* R/genotype.R: - Somehow the assigment of the haplotype function
-	  got messed up. Fixed.
+	* [r149] R/genotype.R: - Somehow the assigment of the haplotype
+	  function got messed up. Fixed.
 
 2003-06-04 21:21  warnesgr
 
-	* man/print.LD.Rd: - Updated manual to match code
+	* [r148] man/print.LD.Rd: - Updated manual to match code
 	  - Replaced 'T' with 'TRUE'
 
 2003-06-04 21:20  warnesgr
 
-	* R/print.LD.R: - summary functions should have 'object' as the
-	  first parameter.
+	* [r147] R/print.LD.R: - summary functions should have 'object' as
+	  the first parameter.
 
 2003-06-04 20:26  warnesgr
 
-	* DESCRIPTION, NEWS, TODO: Updates for release 1.0.1.
+	* [r146] DESCRIPTION, NEWS, TODO: Updates for release 1.0.1.
 
 2003-06-04 20:20  warnesgr
 
-	* R/plot.LD.R, R/print.LD.R, man/print.LD.Rd: - Fixed mislabeling
-	  of rows/columns in LDtable
+	* [r145] R/plot.LD.R, R/print.LD.R, man/print.LD.Rd: - Fixed
+	  mislabeling of rows/columns in LDtable
 	  - Extended LDtable to handle resizing text to fit area
 	  - Extended LDtable to allow slection of what statistics are
 	  displayed,
@@ -629,14 +648,14 @@
 
 2003-06-03 12:59  warnesgr
 
-	* R/LD.R: - LD.genotype needs to reject haplotype objects since
-	  these are not
+	* [r144] R/LD.R: - LD.genotype needs to reject haplotype objects
+	  since these are not
 	  yet supported by the code.
 
 2003-06-03 11:41  warnesgr
 
-	* R/genotype.R: - Fix handling of allele names when reorder="no".
-	  Apparently,
+	* [r143] R/genotype.R: - Fix handling of allele names when
+	  reorder="no". Apparently,
 	  unique() on a matrix now returns a matrix with unique *rows*
 	  removed,
 	  instead of a vector of unique *elements*. The consequence in this
@@ -645,12 +664,12 @@
 
 2003-05-30 16:08  warnesgr
 
-	* man/locus.Rd: - added documentation for "value" option.
+	* [r142] man/locus.Rd: - added documentation for "value" option.
 
 2003-05-30 15:52  warnesgr
 
-	* R/library.R, R/zzz.R: - library.pos will now always be defined.
-	  Instead of conditionally
+	* [r140] R/library.R, R/zzz.R: - library.pos will now always be
+	  defined. Instead of conditionally
 	  defining library.pos, a check is made in .First.lib to see
 	  whether
 	  the system library function has a pos argument. If not, it uses
@@ -658,94 +677,97 @@
 
 2003-05-29 02:27  warnesgr
 
-	* inst/doc/genetics_article.tex: - added ld to conclusion text
+	* [r139] inst/doc/genetics_article.tex: - added ld to conclusion
+	  text
 
 2003-05-29 02:23  warnesgr
 
-	* inst/doc/genetics_article.tex: Updated for version 1.0.0
+	* [r138] inst/doc/genetics_article.tex: Updated for version 1.0.0
 
 2003-05-29 02:22  warnesgr
 
-	* DESCRIPTION, NEWS: - Updated for 0.7.0
+	* [r137] DESCRIPTION, NEWS: - Updated for 0.7.0
 
 2003-05-29 02:20  warnesgr
 
-	* inst/doc/genetics_article.tex: - Final version to send to Fritz.
+	* [r136] inst/doc/genetics_article.tex: - Final version to send to
+	  Fritz.
 
 2003-05-29 01:55  warnesgr
 
-	* inst/doc/example.R, inst/doc/genetics_article.tex,
+	* [r135] inst/doc/example.R, inst/doc/genetics_article.tex,
 	  inst/doc/make_example_data.R: - Add R code to generate and demo
 	  genetics package
 
 2003-05-29 00:36  warnesgr
 
-	* R/locus.R: - All arguments are now optional.
+	* [r134] R/locus.R: - All arguments are now optional.
 
 2003-05-29 00:35  warnesgr
 
-	* R/genotype.R: - Fix problem with NA's caused by grep bug in R <=
-	  1.7.0.
+	* [r133] R/genotype.R: - Fix problem with NA's caused by grep bug
+	  in R <= 1.7.0.
 
 2003-05-28 20:28  warnesgr
 
-	* man/locus.Rd: - Add getmarker, getgene, locus<- , marker<-, and
-	  gene<- functions.
+	* [r132] man/locus.Rd: - Add getmarker, getgene, locus<- ,
+	  marker<-, and gene<- functions.
 
 2003-05-28 20:26  warnesgr
 
-	* man/write.pop.file.Rd: - Add URL for LinkDos
+	* [r131] man/write.pop.file.Rd: - Add URL for LinkDos
 
 2003-05-28 20:26  warnesgr
 
-	* man/undocumented.Rd: - Add alias for to shortsummary function.
+	* [r130] man/undocumented.Rd: - Add alias for to shortsummary
+	  function.
 
 2003-05-28 15:09  warnesgr
 
-	* man/LD.Rd: - Added "locus<-", "marker<-", "gene<-", as well as
-	  "getgene", "getmarker"
+	* [r129] man/LD.Rd: - Added "locus<-", "marker<-", "gene<-", as
+	  well as "getgene", "getmarker"
 
 2003-05-28 15:04  warnesgr
 
-	* man/library.Rd: - renamed library() to library.pos(). Updated
-	  text to correcty note
+	* [r128] man/library.Rd: - renamed library() to library.pos().
+	  Updated text to correcty note
 	  that the backport is from 1.8.0.
 
 2003-05-28 15:01  warnesgr
 
-	* R/write.pedigree.file.R: - Renamed write.pedigree to
+	* [r127] R/write.pedigree.file.R: - Renamed write.pedigree to
 	  write.pedigree.file.
 	  - Added URL of LinkDos software.
 
 2003-05-28 14:57  warnesgr
 
-	* R/library.R, R/zzz.R: - Rename library to library.pos
+	* [r126] R/library.R, R/zzz.R: - Rename library to library.pos
 
 2003-05-28 14:56  warnesgr
 
-	* R/locus.R: - Added "locus<-", "marker<-", "gene<-", as well as
-	  "getgene", "getmarker"
+	* [r125] R/locus.R: - Added "locus<-", "marker<-", "gene<-", as
+	  well as "getgene", "getmarker"
 
 2003-05-27 21:18  warnesgr
 
-	* R/print.LD.R, man/print.LD.Rd: - Added show.all argument
+	* [r124] R/print.LD.R, man/print.LD.Rd: - Added show.all argument
 	  - Fixed code that omits blank row/column
 
 2003-05-27 19:37  warnesgr
 
-	* man/write.pop.file.Rd: - Add documentation for write.pop.file,
-	  write.pedigree.file, write.marker.file.
+	* [r123] man/write.pop.file.Rd: - Add documentation for
+	  write.pop.file, write.pedigree.file, write.marker.file.
 
 2003-05-27 18:45  warnesgr
 
-	* man/diseq.Rd, man/genotype.Rd, man/makeGenotypes.Rd,
+	* [r122] man/diseq.Rd, man/genotype.Rd, man/makeGenotypes.Rd,
 	  man/summary.genotype.Rd: - Fix typos, update arguments to match
 	  changes to code
 
 2003-05-27 18:43  warnesgr
 
-	* R/library.R, man/library.Rd: - Added temporary copy of library()
-	  function. This copy will only be
+	* [r121] R/library.R, man/library.Rd: - Added temporary copy of
+	  library() function. This copy will only be
 	  installed if the global library() function does not define a
 	  'pos'
 	  argument. This code was backported from R-devel, and R 1.7.1 and
@@ -753,46 +775,46 @@
 
 2003-05-27 18:41  warnesgr
 
-	* R/write.pedigree.file.R, R/write.pop.file.R: - Add utility
+	* [r120] R/write.pedigree.file.R, R/write.pop.file.R: - Add utility
 	  functions to write pedigree, 'pop', and marker files
 	  which are used to transfer data to genetics applications.
 
 2003-05-27 18:36  warnesgr
 
-	* R/zzz.R: - Use new library function to load MASS in search
+	* [r119] R/zzz.R: - Use new library function to load MASS in search
 	  position *3* before
 	  loading gregmisc. This prevents the genotype dataset in MASS from
 	  hiding the genotype function here.
 
 2003-05-27 18:35  warnesgr
 
-	* R/genotype.R: - fixed handling of genotype("") and similar
+	* [r118] R/genotype.R: - fixed handling of genotype("") and similar
 	  - improvements to "[<-.genotype", it now automatically converts
 	  the
 	  second argument to a genotype object.
 
 2003-05-27 18:33  warnesgr
 
-	* R/diseq.R: - Add call item to diseq.object giving original
+	* [r117] R/diseq.R: - Add call item to diseq.object giving original
 	  function call
 	  - Fixed bug in testing for 2 x 2 allele case
 
 2003-05-27 18:32  warnesgr
 
-	* R/plot.LD.R, R/print.LD.R, man/print.LD.Rd: - Add plot and print
-	  methods for LD objects.
+	* [r116] R/plot.LD.R, R/print.LD.R, man/print.LD.Rd: - Add plot and
+	  print methods for LD objects.
 
 2003-05-27 18:30  warnesgr
 
-	* R/LD.R: - Found and fixed bug in likelihood computation. The
-	  count table
+	* [r115] R/LD.R: - Found and fixed bug in likelihood computation.
+	  The count table
 	  needed to be organized with high-frequency alleles in the upper
 	  left
 	  corner instead of the lower right corner.
 
 2003-05-22 17:25  warnesgr
 
-	* R/HWE.chisq.R, R/HWE.exact.R, R/HWE.test.R, R/LD.R,
+	* [r114] R/HWE.chisq.R, R/HWE.exact.R, R/HWE.test.R, R/LD.R,
 	  R/binsearch.R, R/ci.balance.R, R/genotype.R, R/gregorius.R,
 	  R/locus.R, R/makeGenotypes.R, R/plot.LD.R, R/print.LD.R,
 	  R/summary.genotype.R, R/zzz.R: - Remove CVS Log tag, which was
@@ -801,8 +823,8 @@
 
 2003-05-22 16:22  warnesgr
 
-	* R/LD.R, R/plot.LD.R, R/print.LD.R: - moved LD printing functions
-	  to print.LD.R
+	* [r113] R/LD.R, R/plot.LD.R, R/print.LD.R: - moved LD printing
+	  functions to print.LD.R
 	  - moved LD plotting functions to plot.LD.R
 	  - fixed problems in print.LD.data.frame
 	  - enhanced plot.LD.data.frame
@@ -810,85 +832,87 @@
 
 2003-05-21 20:03  warnesgr
 
-	* R/makeGenotypes.R: - Remove stray character that caused a syntax
-	  error.
+	* [r112] R/makeGenotypes.R: - Remove stray character that caused a
+	  syntax error.
 
 2003-05-21 20:03  warnesgr
 
-	* R/summary.genotype.R: - Fix handling of genotype summary when
-	  called from
+	* [r111] R/summary.genotype.R: - Fix handling of genotype summary
+	  when called from
 	  summary.data.frame. Was broken by too-broad search and
 	  replace... but the changes motivated enhancements. ;^)
 
 2003-05-21 19:57  warnesgr
 
-	* DESCRIPTION, R/zzz.R: - Added dependency on gregmisc package.
+	* [r110] DESCRIPTION, R/zzz.R: - Added dependency on gregmisc
+	  package.
 
 2003-05-21 19:46  warnesgr
 
-	* R/LD.R, man/LD.Rd, man/print.LD.Rd: - Improvements to LD code and
-	  documentation.
+	* [r109] R/LD.R, man/LD.Rd, man/print.LD.Rd: - Improvements to LD
+	  code and documentation.
 
 2003-05-20 16:46  warnesgr
 
-	* R/makeGenotypes.R, man/makeGenotypes.Rd: - Reduce stringency for
-	  considering a variable a genotype.
+	* [r108] R/makeGenotypes.R, man/makeGenotypes.Rd: - Reduce
+	  stringency for considering a variable a genotype.
 
 2003-05-20 16:43  warnesgr
 
-	* R/LD.R, man/LD.Rd: - Add code & (incomplete) docs for linkage
-	  disequilibrium
+	* [r107] R/LD.R, man/LD.Rd: - Add code & (incomplete) docs for
+	  linkage disequilibrium
 
 2003-05-16 18:39  warnesgr
 
-	* DESCRIPTION, R/makeGenotypes.R, inst/doc/Rnews.sty,
+	* [r106] DESCRIPTION, R/makeGenotypes.R, inst/doc/Rnews.sty,
 	  inst/doc/genetics_article.tex, man/makeGenotypes.Rd: - Updated to
 	  version 0.7.0
 	  - Made changes to pass R CMD check
 
 2003-05-16 15:50  warnesgr
 
-	* R/makeGenotypes.R, man/makeGenotypes.Rd: - Added
+	* [r105] R/makeGenotypes.R, man/makeGenotypes.Rd: - Added
 	  makeGenotypes/makeHaplotypes to help convert variables in
 	  dataframes to genotype/haplotype variables.
 
 2003-04-07 20:30  warnesgr
 
-	* R/diseq.R, man/diseq.Rd: - Flipped sign of D, D', r. Now D
+	* [r104] R/diseq.R, man/diseq.Rd: - Flipped sign of D, D', r. Now D
 	  matches sign given in Weir's book,
 	  and r has the proper sign.
 
 2003-03-07 14:52  warnesgr
 
-	* R/HWE.exact.R, man/HWE.exact.Rd: - Modified HWE.exact to return
-	  an object of class 'htest'
+	* [r103] R/HWE.exact.R, man/HWE.exact.Rd: - Modified HWE.exact to
+	  return an object of class 'htest'
 	  - Noted this change in the man file and added HWE.chisq to list
 	  of
 	  links and to example code.
 
 2003-03-07 14:49  warnesgr
 
-	* DESCRIPTION: - Updated version number to 0.6.7.
+	* [r102] DESCRIPTION: - Updated version number to 0.6.7.
 
 2003-03-07 14:47  warnesgr
 
-	* man/HWE.test.Rd: - Added links to HWE.chisq, HWE.exact, genotype
-	  to see also seciton.
+	* [r101] man/HWE.test.Rd: - Added links to HWE.chisq, HWE.exact,
+	  genotype to see also seciton.
 	  - Slighlty modified example code.
 
 2003-03-07 14:44  warnesgr
 
-	* NEWS: - New file
+	* [r100] NEWS: - New file
 
 2003-03-07 14:33  warnesgr
 
-	* R/genotype.R, man/genotype.Rd: - Added nallele function to
+	* [r99] R/genotype.R, man/genotype.Rd: - Added nallele function to
 	  compute the number of alleles.
 
 2003-03-07 14:32  warnesgr
 
-	* R/HWE.chisq.R, R/HWE.test.R, man/HWE.chisq.Rd, man/HWE.test.Rd: -
-	  Created HWE.chisq, HWE.chisq.genotype and corresponding man page.
+	* [r98] R/HWE.chisq.R, R/HWE.test.R, man/HWE.chisq.Rd,
+	  man/HWE.test.Rd: - Created HWE.chisq, HWE.chisq.genotype and
+	  corresponding man page.
 	  - Moved computation of Chisquare test for HWE from
 	  HWE.test.genotype
 	  to HWE.chisq.genotype.
@@ -898,20 +922,21 @@
 
 2003-02-03 16:13  warnesgr
 
-	* DESCRIPTION, inst/doc/genetics_article.tex, man/HWE.exact.Rd,
-	  man/binsearch.Rd, man/gregorius.Rd: - Fixed typos and R CMD check
-	  warnings.
+	* [r97] DESCRIPTION, inst/doc/genetics_article.tex,
+	  man/HWE.exact.Rd, man/binsearch.Rd, man/gregorius.Rd: - Fixed
+	  typos and R CMD check warnings.
 	  - Updated version number
 	  - Removed 'data' directory to fix new R CMD check warning.
 
 2002-12-11 21:29  warnesgr
 
-	* R/binsearch.R: - fixed typo
+	* [r96] R/binsearch.R: - fixed typo
 
 2002-12-11 21:07  warnesgr
 
-	* R/binsearch.R, R/gregorius.R, man/binsearch.Rd, man/gregorius.Rd:
-	  - Moved binsearch() into a separate file and added documentation.
+	* [r95] R/binsearch.R, R/gregorius.R, man/binsearch.Rd,
+	  man/gregorius.Rd: - Moved binsearch() into a separate file and
+	  added documentation.
 	  - Simplified and documented binsearch() code.
 	  - binsearch() now detects whether the function is increasing or
 	  decreasing and acts accordingly.
@@ -919,41 +944,42 @@
 
 2002-12-10 20:36  warnesgr
 
-	* man/gregorius.Rd: - Updated title/description
+	* [r94] man/gregorius.Rd: - Updated title/description
 
 2002-12-10 20:33  warnesgr
 
-	* R/gregorius.R, man/gregorius.Rd: - Implemented gregorius()
+	* [r93] R/gregorius.R, man/gregorius.Rd: - Implemented gregorius()
 	  function, replacing data frame gregorius.
 	  - Re-created corresponding help page.
 
 2002-12-02 17:23  warnesgr
 
-	* man/gregorius.Rd: - Added cvs tags to header of gregorius.Rd
+	* [r92] man/gregorius.Rd: - Added cvs tags to header of
+	  gregorius.Rd
 
 2002-12-02 17:13  warnesgr
 
-	* data, data/00Index, data/gregorius.R, man/gregorius.Rd: - Added
-	  data set (and documentation) 'gregorius' which contains
+	* [r91] data, data/00Index, data/gregorius.R, man/gregorius.Rd: -
+	  Added data set (and documentation) 'gregorius' which contains
 	  necessary samples sizes to detect alleles.
 
 2002-12-02 16:16  warnesgr
 
-	* man/HWE.exact.Rd: - Added HWE.exact.Rd.
+	* [r90] man/HWE.exact.Rd: - Added HWE.exact.Rd.
 
 2002-12-02 16:12  warnesgr
 
-	* R/HWE.exact.R: - Now returnes only the computed P-value.
+	* [r89] R/HWE.exact.R: - Now returnes only the computed P-value.
 
 2002-12-02 15:40  warnesgr
 
-	* R/HWE.exact.R: - Added code for HWE.exact, based on contributed
-	  function by David
+	* [r88] R/HWE.exact.R: - Added code for HWE.exact, based on
+	  contributed function by David
 	  Duffy <davidD@qimr.edu.au>
 
 2002-11-27 15:32  warnesgr
 
-	* DESCRIPTION, R/HWE.test.R, R/diseq.R, R/genotype.R, TODO,
+	* [r87] DESCRIPTION, R/HWE.test.R, R/diseq.R, R/genotype.R, TODO,
 	  inst/doc/genetics_article.tex, man/HWE.test.Rd,
 	  man/ci.balance.Rd, man/diseq.Rd, man/genotype.Rd, man/locus.Rd,
 	  man/summary.genotype.Rd, man/undocumented.Rd: Correct spelling
@@ -961,49 +987,49 @@
 
 2002-11-13 20:18  warnesgr
 
-	* DESCRIPTION: - Fix typo.
+	* [r86] DESCRIPTION: - Fix typo.
 
 2002-11-12 19:59  warnesgr
 
-	* DESCRIPTION, R/diseq.R, R/genotype.R: - Changes to remove
+	* [r85] DESCRIPTION, R/diseq.R, R/genotype.R: - Changes to remove
 	  warnings generated by 'R CMD check'.
 
 2002-11-12 19:58  warnesgr
 
-	* man/HWE.test.Rd, man/ci.balance.Rd, man/diseq.Rd,
+	* [r84] man/HWE.test.Rd, man/ci.balance.Rd, man/diseq.Rd,
 	  man/genotype.Rd, man/homozygote.Rd, man/locus.Rd,
 	  man/summary.genotype.Rd, man/undocumented.Rd: - Changes to remove
 	  warnings generated by 'R CMD check'.
 
 2002-11-12 17:57  warnesgr
 
-	* R/zzz.R: - diseq.ci now requires the combinat library instead of
-	  boot.
+	* [r83] R/zzz.R: - diseq.ci now requires the combinat library
+	  instead of boot.
 
 2002-11-12 05:53  warnesgr
 
-	* examples/test.ci.R: - Checkin of test.ci.R
+	* [r81] examples/test.ci.R: - Checkin of test.ci.R
 
 2002-11-12 05:31  warnesgr
 
-	* DESCRIPTION: - Bump version number
+	* [r80] DESCRIPTION: - Bump version number
 
 2002-11-12 05:31  warnesgr
 
-	* R/genotype.R, R/locus.R, man/diseq.Rd, man/genotype.Rd,
+	* [r79] R/genotype.R, R/locus.R, man/diseq.Rd, man/genotype.Rd,
 	  man/homozygote.Rd: - Fix mismatches between documentation and
 	  code that we generating
 	  warning messages.
 
 2002-11-11 22:56  warnesgr
 
-	* R/diseq.R: - Added minval and maxval to ci.balnance call() in
-	  diseq.ci()
+	* [r78] R/diseq.R: - Added minval and maxval to ci.balnance call()
+	  in diseq.ci()
 	  - Fixed typo in output text.
 
 2002-11-08 21:07  warnesgr
 
-	* DESCRIPTION, R/genotype.R, R/summary.genotype.R, TODO,
+	* [r77] DESCRIPTION, R/genotype.R, R/summary.genotype.R, TODO,
 	  man/HWE.test.Rd, man/genotype.Rd, man/homozygote.Rd,
 	  man/locus.Rd, man/summary.genotype.Rd, man/undocumented.Rd: -
 	  DESCRIPTION: Updated version number and date
@@ -1011,13 +1037,14 @@
 
 2002-11-08 19:54  warnesgr
 
-	* tests, tests/ci.balance.R: Added tests for ci.balance() functon.
+	* [r76] tests, tests/ci.balance.R: Added tests for ci.balance()
+	  functon.
 
 2002-11-08 19:53  warnesgr
 
-	* R/ci.balance.R, R/diseq.R, man/ci.balance.Rd, man/diseq.Rd: -
-	  Moved ci.balance() to a separate file and created a documenation
-	  file for it.
+	* [r75] R/ci.balance.R, R/diseq.R, man/ci.balance.Rd, man/diseq.Rd:
+	  - Moved ci.balance() to a separate file and created a
+	  documenation file for it.
 	  - Modified ci.balance to better annotate when it uses boundary
 	  values.
 	  - Modified diseq.ci to better provide warning message when the
@@ -1026,8 +1053,8 @@
 
 2002-11-08 17:20  warnesgr
 
-	* R/HWE.test.R, R/diseq.R: - Added test for more than two alleles
-	  to diseq.ci. If there are more
+	* [r74] R/HWE.test.R, R/diseq.R: - Added test for more than two
+	  alleles to diseq.ci. If there are more
 	  than two, generate a warning message indicating that confidence
 	  intervals for values near 0 and 1 are ill-behaved. When
 	  'correct=TRUE' use ci.balance to attempt to correct for this.
@@ -1035,8 +1062,8 @@
 
 2002-11-07 19:13  warnesgr
 
-	* R/diseq.R: - Fixed code so that gentypes with some listed allele
-	  not observed are
+	* [r73] R/diseq.R: - Fixed code so that gentypes with some listed
+	  allele not observed are
 	  handled properly. For example, if we have "A/A", and "A/B", but
 	  no
 	  "B/B", or worse yet when we know that "A" and "B" allels are both
@@ -1044,18 +1071,18 @@
 
 2002-10-28 18:20  warnesgr
 
-	* R/genotype.R: - Allow allele names to be specified for
+	* [r72] R/genotype.R: - Allow allele names to be specified for
 	  as.genotype.allele.count().
 
 2002-10-28 18:19  warnesgr
 
-	* R/summary.genotype.R: - Fixed for syntax error in
+	* [r71] R/summary.genotype.R: - Fixed for syntax error in
 	  summary.genotype()
 
 2002-10-28 18:19  warnesgr
 
-	* R/HWE.test.R, R/diseq.R: - Lots of changes to the disequlibrim
-	  computation and confidence interval code.
+	* [r70] R/HWE.test.R, R/diseq.R: - Lots of changes to the
+	  disequlibrim computation and confidence interval code.
 	  - D, D', and R are now computed
 	  - Overall values are reported *with sign* of the number of
 	  alleles is 2
@@ -1066,9 +1093,9 @@
 
 2002-10-24 21:43  warnesgr
 
-	* DESCRIPTION, R/diseq.R, R/genotype.R, man/genotype.Rd: - Fixed
-	  bug as.genotype.alllele.count() introduced when 'harmonizing'
-	  methods
+	* [r69] DESCRIPTION, R/diseq.R, R/genotype.R, man/genotype.Rd: -
+	  Fixed bug as.genotype.alllele.count() introduced when
+	  'harmonizing' methods
 	  with generics.
 	  - Added 'alleles' arguments to the as.genotype.alllele.count()
 	  function.
@@ -1078,24 +1105,24 @@
 
 2002-10-11 18:01  warnesgr
 
-	* R/HWE.test.R, R/diseq.R, R/zzz.R: Updated version number.
+	* [r68] R/HWE.test.R, R/diseq.R, R/zzz.R: Updated version number.
 
 2002-09-30 14:35  warnesgr
 
-	* R/diseq.R: - Modified diseq() to retain sign on the overall
+	* [r67] R/diseq.R: - Modified diseq() to retain sign on the overall
 	  disequlibrium estimate
 	  - Modified diseq.ci() to use percentile confidence intervals
 
 2002-09-24 01:53  warnesgr
 
-	* DESCRIPTION: - Updated version number
+	* [r66] DESCRIPTION: - Updated version number
 	  - Added 'computing disequilibrium' to description text.
 
 2002-09-24 01:32  warnesgr
 
-	* R/HWE.test.R, R/diseq.R, R/genotype.R, R/zzz.R, man/HWE.test.Rd,
-	  man/diseq.Rd, man/genotype.Rd, man/summary.genotype.Rd: -
-	  'Un-genericized' diseq()
+	* [r65] R/HWE.test.R, R/diseq.R, R/genotype.R, R/zzz.R,
+	  man/HWE.test.Rd, man/diseq.Rd, man/genotype.Rd,
+	  man/summary.genotype.Rd: - 'Un-genericized' diseq()
 	  - Moved documentation of diseq() and diseq from HWE.test.Rd to
 	  diseq.Rd
 	  - Cleaned up HWE.test.Rd and diseq.Rd
@@ -1106,7 +1133,7 @@
 
 2002-09-24 00:02  WarnesGR
 
-	* R/HWE.test.R, R/diseq.R, man/HWE.test.Rd: - Moved code that
+	* [r64] R/HWE.test.R, R/diseq.R, man/HWE.test.Rd: - Moved code that
 	  computed D-hat to diseq() and diseq.genotype() in diseq.R.
 	  - Added diseq.ci() to compute confidence interval for D-hat.
 	  - Added code to call diseq() and diseq.ci() from HWE.test()
@@ -1117,100 +1144,101 @@
 
 2002-09-23 20:08  warnesgr
 
-	* R/genotype.R: - Added as.genotype.table()
+	* [r63] R/genotype.R: - Added as.genotype.table()
 
 2002-06-27 18:46  warnesgr
 
-	* inst/doc/genetics_article.tex: - More revisions. Hopefully last
-	  set before submission to publication
+	* [r62] inst/doc/genetics_article.tex: - More revisions. Hopefully
+	  last set before submission to publication
 	  review.
 
 2002-06-27 18:46  warnesgr
 
-	* R/HWE.test.R, examples/HWE_Test.R: - Allow user to specify
+	* [r61] R/HWE.test.R, examples/HWE_Test.R: - Allow user to specify
 	  parameters for the chisquare test.
 
 2002-06-25 21:38  warnesgr
 
-	* inst/doc/genetics_article.tex: - Fixed syntax errors
+	* [r60] inst/doc/genetics_article.tex: - Fixed syntax errors
 	  - Some reorganization
 
 2002-06-19 11:17  warnesgr
 
-	* man/locus.Rd: - Fixed typo in \seealso.
+	* [r59] man/locus.Rd: - Fixed typo in \seealso.
 
 2002-06-19 10:34  warnesgr
 
-	* inst/doc/genetics_article.tex: Much enhancement, including
+	* [r58] inst/doc/genetics_article.tex: Much enhancement, including
 	  addition of example section.
 
 2002-06-19 00:13  warnesgr
 
-	* R/HWE.test.R: - Fixed bug that caused 'Error: subscript out of
-	  bounds' when a 2
+	* [r57] R/HWE.test.R: - Fixed bug that caused 'Error: subscript out
+	  of bounds' when a 2
 	  allele genotype had 1/1 and 1/2 but not 2/2.
 
 2002-06-18 20:42  warnesgr
 
-	* DESCRIPTION: Updated version.
+	* [r55] DESCRIPTION: Updated version.
 
 2002-06-18 20:41  warnesgr
 
-	* R/genotype.R, man/summary.genotype.Rd: - Fixed a bug in
+	* [r54] R/genotype.R, man/summary.genotype.Rd: - Fixed a bug in
 	  allele.count that resulted in infinite recuresion.
 	  - Modified documentation to match changed code.
 
 2002-06-18 19:38  warnesgr
 
-	* DESCRIPTION, R/genotype.R, R/summary.genotype.R, man/HWE.test.Rd,
-	  man/genotype.Rd, man/locus.Rd, man/summary.genotype.Rd: Changes
-	  to fix problems reported by R CMD check.
+	* [r53] DESCRIPTION, R/genotype.R, R/summary.genotype.R,
+	  man/HWE.test.Rd, man/genotype.Rd, man/locus.Rd,
+	  man/summary.genotype.Rd: Changes to fix problems reported by R
+	  CMD check.
 
 2002-05-06 18:35  swietm
 
-	* 7, TODO: Testing CVS functionality. Removed addewd characters to
-	  TODO
+	* [r52] 7, TODO: Testing CVS functionality. Removed addewd
+	  characters to TODO
 
 2002-05-06 18:31  swietm
 
-	* 7, TODO: This was a test to learn how to add and modify files
-	  using CVS
+	* [r51] 7, TODO: This was a test to learn how to add and modify
+	  files using CVS
 
 2002-04-09 00:49  warneg
 
-	* inst, inst/doc, inst/doc/Rnews.sty,
+	* [r49] inst, inst/doc, inst/doc/Rnews.sty,
 	  inst/doc/genetics_article.tex: - Initial checkin of article
 	  sources
 
 2002-04-08 23:24  warneg
 
-	* DESCRIPTION, man/homozygote.Rd: First checkin after moving
+	* [r48] DESCRIPTION, man/homozygote.Rd: First checkin after moving
 	  repository from tuwein.
 
 2002-04-08 23:23  warneg
 
-	* man/genotype.Rd: - Noted that when the user specifies the alleles
-	  non-matching elements
+	* [r47] man/genotype.Rd: - Noted that when the user specifies the
+	  alleles non-matching elements
 	  are converted to NAs.
 
 2002-04-08 23:19  warneg
 
-	* R/genotype.R: - Modified 'genotype' function so that when the
-	  user specifies the
+	* [r46] R/genotype.R: - Modified 'genotype' function so that when
+	  the user specifies the
 	  alleles non-matching elements are converted to NAs.
 
 2002-02-21 03:09  warnes
 
-	* R/genotype.R, man/genotype.Rd, man/undocumented.Rd: - Add
+	* [r45] R/genotype.R, man/genotype.Rd, man/undocumented.Rd: - Add
 	  as.factor.genotype.
 
 2002-02-14 12:55  warnes
 
-	* DESCRIPTION: Rephrased description.
+	* [r44] DESCRIPTION: Rephrased description.
 
 2002-02-14 12:55  warnes
 
-	* R/HWE.test.R, R/genotype.R: Fixed bugs in [.genotype and
+	* [r43] R/HWE.test.R, R/genotype.R: Fixed bugs in [.genotype and
 	  [.haplotype.
 	  
 	  - There was a serious typo that would have been cought had I just
@@ -1224,8 +1252,8 @@
 
 2002-02-14 12:48  warnes
 
-	* man/HWE.test.Rd, man/genotype.Rd, man/undocumented.Rd: - Added
-	  'keywords' to HWE.test
+	* [r42] man/HWE.test.Rd, man/genotype.Rd, man/undocumented.Rd: -
+	  Added 'keywords' to HWE.test
 	  - Create undocumented.Rd to satisfy documentation requiremets for
 	  objects not otherwise included in documentation
 	  - Add 'alais' commands noting that 'genotype' and '[.haplotype'
@@ -1234,24 +1262,24 @@
 
 2002-02-14 12:37  warnes
 
-	* man/genotype.Rd: - Small change to the example code.
+	* [r41] man/genotype.Rd: - Small change to the example code.
 
 2002-02-09 00:47  warnes
 
-	* R/genotype.R: - Fixed the changes to "[.genotype" and
+	* [r40] R/genotype.R: - Fixed the changes to "[.genotype" and
 	  "[.haplotype". I was
 	  incorrectly coping *all* of the attributes in the case of drop=T.
 	  This caused mis-labeling of the underlying factor levels.
 
 2002-02-07 17:08  warnes
 
-	* man/genotype.Rd: Added examples related to two bugs,
+	* [r39] man/genotype.Rd: Added examples related to two bugs,
 	  - == with non-genotype/non-haplotype rhs, and
 	  - [...,drop=T] .
 
 2002-02-07 16:57  warnes
 
-	* R/genotype.R: Fixed two bugs
+	* [r38] R/genotype.R: Fixed two bugs
 	  
 	  1) "[.genotype" and "[.haplotype" didn't have the 'drop'
 	  argument, so
@@ -1279,8 +1307,8 @@
 
 2001-08-13 15:36  warnes
 
-	* R/HWE.test.R: BUGFIX: Corrected problem where the allele order
-	  was not consistent between
+	* [r37] R/HWE.test.R: BUGFIX: Corrected problem where the allele
+	  order was not consistent between
 	  the first (Observed #) and second columns (Expected #) of the
 	  HWE.test table. This caused incorrect values for Obs-Exp to
 	  be calcuated, as well as incorrect D-hat estimates.
@@ -1290,28 +1318,28 @@
 
 2001-08-03 11:33  warnes
 
-	* DESCRIPTION, man/genotype.Rd: Minor changes.
+	* [r36] DESCRIPTION, man/genotype.Rd: Minor changes.
 
 2001-06-28 19:26  warnes
 
-	* R/chisq.test.R: Will let Fritz and Kurt negotiate any
+	* [r35] R/chisq.test.R: Will let Fritz and Kurt negotiate any
 	  changes/modifications to chisq.test.
 
 2001-06-28 19:23  warnes
 
-	* R/genotype.R: Minor change, mask off extra attributes when
+	* [r34] R/genotype.R: Minor change, mask off extra attributes when
 	  calling print() to
 	  dislplay genotype data.
 
 2001-06-28 19:15  warnes
 
-	* man/HWE.test.Rd: - Updated to match v1.4 of HWE.test.R.
+	* [r33] man/HWE.test.Rd: - Updated to match v1.4 of HWE.test.R.
 	  
 	  - Added CVS id and log fields to file.
 
 2001-06-28 19:14  warnes
 
-	* R/HWE.test.R: - Modified to use
+	* [r32] R/HWE.test.R: - Modified to use
 	  chisq.test(...,simulate.p.value=T,B=10000) to use
 	  simulated p-value so that assumptions underlying Chi-square
 	  approximation need not hold. This particularly useful for small
@@ -1325,10 +1353,11 @@
 
 2001-06-15 17:02  warnes
 
-	* DESCRIPTION, R/HWE.test.R, R/chisq.test.R, R/genotype.R, TODO,
-	  examples/Genomics.examples, man/HWE.test.Rd, man/genotype.Rd,
-	  man/homozygote.Rd, man/locus.Rd, man/summary.genotype.Rd: -
-	  Modified HWE.test to use chisq.test. Added a modified version of
+	* [r31] DESCRIPTION, R/HWE.test.R, R/chisq.test.R, R/genotype.R,
+	  TODO, examples/Genomics.examples, man/HWE.test.Rd,
+	  man/genotype.Rd, man/homozygote.Rd, man/locus.Rd,
+	  man/summary.genotype.Rd: - Modified HWE.test to use chisq.test.
+	  Added a modified version of
 	  chisq.test until the (minor) changes show up in ctest.
 	  
 	  - Fixed documentation links and alias omissions
@@ -1340,62 +1369,63 @@
 
 2001-06-13 20:00  warnes
 
-	* R/summary.genotype.R: - Added "allele.names" attribute.
+	* [r30] R/summary.genotype.R: - Added "allele.names" attribute.
 
 2001-06-13 17:03  warnes
 
-	* R/HWE.test.R, man/genotype.Rd: - Updated HWE.test.R to not assume
-	  that a summary.genotype object
+	* [r29] R/HWE.test.R, man/genotype.Rd: - Updated HWE.test.R to not
+	  assume that a summary.genotype object
 	  contains the original genotype object.
 	  
 	  - Removed a duplicate link to "allele.names" from genotype.Rd.
 
 2001-05-30 22:15  warnes
 
-	* man/HWE.test.Rd: Added HWE.test.Rd to document HWE.test.
+	* [r28] man/HWE.test.Rd: Added HWE.test.Rd to document HWE.test.
 
 2001-05-30 22:12  warnes
 
-	* R/HWE.test.R, R/genotype.R, R/locus.R, TODO,
+	* [r27] R/HWE.test.R, R/genotype.R, R/locus.R, TODO,
 	  examples/Genomics.examples, man/genotype.Rd, man/homozygote.Rd,
 	  man/summary.genotype.Rd: Updated documentation mostly. Added
 	  as.character.genotype().
 
 2001-05-30 22:03  warnes
 
-	* man/locus.Rd: Initial version of locus.Rd.
+	* [r26] man/locus.Rd: Initial version of locus.Rd.
 
 2001-05-29 17:42  warnes
 
-	* man/summary.genotype.Rd: Updated to note that row for NA is only
-	  present if the data contains
+	* [r25] man/summary.genotype.Rd: Updated to note that row for NA is
+	  only present if the data contains
 	  NA. Corresponds to revision 1.2 of summary.genotype.R.
 
 2001-05-29 17:38  warnes
 
-	* man/genotype.Rd, man/summary.genotype.Rd: Modified seealso().
+	* [r24] man/genotype.Rd, man/summary.genotype.Rd: Modified
+	  seealso().
 
 2001-05-29 17:16  warnes
 
-	* man/homozygote.Rd: Completed homozygote.Rd which documents
+	* [r23] man/homozygote.Rd: Completed homozygote.Rd which documents
 	  homozygote(), heterozugote(),
 	  carrier(), allele(), and allele.cound().
 
 2001-05-29 10:27  leisch
 
-	* R/summary.genotype.R: add NA line only if NA's are present
+	* [r22] R/summary.genotype.R: add NA line only if NA's are present
 
 2001-05-26 00:28  warnes
 
-	* man/homozygote.Rd: Partially completed man/homozygote.Rd
+	* [r21] man/homozygote.Rd: Partially completed man/homozygote.Rd
 	  containing documentation for
 	  homozygote(), heterozygote(), carrier(), allele.count(), and
 	  allele().
 
 2001-05-26 00:26  warnes
 
-	* R/genotype.R: Removed allele.ind() and added "any" parameter to
-	  carrier(). When
+	* [r20] R/genotype.R: Removed allele.ind() and added "any"
+	  parameter to carrier(). When
 	  more than one allele is selected, or when no alleles are slected
 	  and
 	  any=F, carrier() now acts as allele.ind() did.
@@ -1404,38 +1434,38 @@
 
 2001-05-25 23:39  warnes
 
-	* man/genotype.Rd: Added man/genotype.Rd to document genotype and
-	  haplotype classes in
+	* [r19] man/genotype.Rd: Added man/genotype.Rd to document genotype
+	  and haplotype classes in
 	  R/genotype.R.
 
 2001-05-25 23:37  warnes
 
-	* R/genotype.R, R/summary.genotype.R, man, man/summary.genotype.Rd:
-	  Moved summary.genotype and print.summary.genotype into a separate
-	  file
+	* [r18] R/genotype.R, R/summary.genotype.R, man,
+	  man/summary.genotype.Rd: Moved summary.genotype and
+	  print.summary.genotype into a separate file
 	  (R/summary.genotype.R). Added man/summary.genotype.Rd containing
 	  documentation for summary.genotype.
 
 2001-05-22 20:26  warnes
 
-	* R/Gene.R, R/Genomics.R: classes defined in Gene.R substantially
-	  rewritten and moved to locus.R.
+	* [r17] R/Gene.R, R/Genomics.R: classes defined in Gene.R
+	  substantially rewritten and moved to locus.R.
 	  
 	  Contents of Genomics.R moved to genotype.R.
 
 2001-05-22 20:23  warnes
 
-	* examples/locus.example.R: Added more examples
+	* [r16] examples/locus.example.R: Added more examples
 
 2001-05-22 19:00  warnes
 
-	* examples/locus.example.R: Initial checkin of test script for code
-	  in locus.R.
+	* [r15] examples/locus.example.R: Initial checkin of test script
+	  for code in locus.R.
 
 2001-05-22 18:58  warnes
 
-	* R/locus.R: - Renamed "location.X" to "as.character.X" to better
-	  represent thier
+	* [r14] R/locus.R: - Renamed "location.X" to "as.character.X" to
+	  better represent thier
 	  function. (Note as.character isn't generic at the moment, so
 	  these
 	  functions must be called directly.)
@@ -1446,7 +1476,7 @@
 
 2001-05-22 18:53  warnes
 
-	* R/genotype.R: - Renamed "genotype.R" from "Genomics.R".
+	* [r13] R/genotype.R: - Renamed "genotype.R" from "Genomics.R".
 	  
 	  - Added slot for "locus" into genotype class.
 	  
@@ -1465,34 +1495,34 @@
 
 2001-05-22 18:21  warnes
 
-	* R/locus.R: Created classes for "locus", "gene", and "marker"
-	  along with basic
+	* [r12] R/locus.R: Created classes for "locus", "gene", and
+	  "marker" along with basic
 	  methods is.X, print.X, and generic utility function "location",
 	  which
 	  formats the locus infromation for printing.
 
 2001-05-16 12:58  leisch
 
-	* R/Genomics.R: cosmetics
+	* [r11] R/Genomics.R: cosmetics
 
 2001-05-16 12:55  leisch
 
-	* R/Genomics.R: genotype: bugfix for non-character allele vectors
-	  (e.g., integers)
+	* [r10] R/Genomics.R: genotype: bugfix for non-character allele
+	  vectors (e.g., integers)
 	  a2 is now ignored if a1 is a genotype
 	  a1 can now also be a 2 column matrix of alleles
 
 2001-05-10 16:15  leisch
 
-	* DESCRIPTION: update
+	* [r9] DESCRIPTION: update
 
 2001-05-10 16:07  leisch
 
-	* R/Genomics.R: cosmetics
+	* [r8] R/Genomics.R: cosmetics
 
 2001-05-07 13:22  warnes
 
-	* examples, examples/Allele_Freq.R, examples/Allele_Freq.out,
+	* [r7] examples, examples/Allele_Freq.R, examples/Allele_Freq.out,
 	  examples/Examples.new, examples/Examples.out,
 	  examples/Gene.examples, examples/Genomics.examples,
 	  examples/HWE_Test.R, examples/HWE_Test.out,
@@ -1501,7 +1531,7 @@
 
 2001-05-07 13:21  warnes
 
-	* R, R/Gene.R, R/Genomics.R: Imported R code for
+	* [r6] R, R/Gene.R, R/Genomics.R: Imported R code for
 	  
 	  - Genotype and Haplotype classes,
 	  - corresponding summary function (gives allele and genotype
@@ -1512,5 +1542,5 @@
 
 2001-05-03 13:07  leisch
 
-	* ., DESCRIPTION: Initial revision
+	* [r2] ., DESCRIPTION: Initial revision
 

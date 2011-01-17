@@ -1,4 +1,4 @@
-% $Id: diseq.Rd 1277 2007-07-18 14:22:26Z ggorjan $
+% $Id: diseq.Rd 1344 2011-01-17 19:13:09Z warnes $
 
 \name{diseq}
 \alias{diseq}
@@ -129,7 +129,7 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
     \item{TODO}{more slots to be documented}
   }
 
-  \code{diseq.ci} returns an object of class \code{\link[boot]{bootci}}
+  \code{diseq.ci} returns an object of class \code{\link[boot]{boot.ci}}
 }
 \author{ Gregory R. Warnes \email{warnes@bst.rochester.edu }
   }
@@ -138,7 +138,7 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
   \code{\link{genotype}},
   \code{\link{HWE.test}},
   \code{\link[boot]{boot}},
-  \code{\link[boot]{bootci}}
+  \code{\link[boot]{boot.ci}}
 }
 
 \examples{

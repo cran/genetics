@@ -1,4 +1,4 @@
-% $Id: HWE.chisq.Rd 181 2004-11-15 15:34:59Z warnes $
+% $Id: HWE.chisq.Rd 1344 2011-01-17 19:13:09Z warnes $
 
 \name{HWE.chisq}
 \alias{HWE.chisq}
@@ -52,7 +52,7 @@ HWE.chisq(x, ...)
   \code{\link{allele}},
   \code{\link{chisq.test}},
   \code{\link[boot]{boot}},
-  \code{\link[boot]{bootci}}
+  \code{\link[boot]{boot.ci}}
 }
 
 
