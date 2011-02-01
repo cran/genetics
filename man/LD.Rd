@@ -1,4 +1,4 @@
-% $Id: LD.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: LD.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{LD}
 \alias{LD}
@@ -109,7 +109,7 @@ LD(g1, ...)
   elements are \code{NA}.
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu} }
+\author{ Gregory R. Warnes \email{greg@warnes.net} }
 \seealso{ \code{\link{genotype}}, \code{\link{HWE.test}}  }
 \examples{
 

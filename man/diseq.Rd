@@ -1,4 +1,4 @@
-% $Id: diseq.Rd 1344 2011-01-17 19:13:09Z warnes $
+% $Id: diseq.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{diseq}
 \alias{diseq}
@@ -131,7 +131,7 @@ diseq.ci(x, R=1000, conf=0.95, correct=TRUE, na.rm=TRUE, ...)
 
   \code{diseq.ci} returns an object of class \code{\link[boot]{boot.ci}}
 }
-\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu }
+\author{ Gregory R. Warnes \email{greg@warnes.net }
   }
 
 \seealso{

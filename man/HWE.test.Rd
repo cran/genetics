@@ -72,7 +72,7 @@ HWE.test(x, ...)
   \item{call}{function call used to creat this object.}
   \item{conf, B, ci.B, simulate.p.value}{values used for these arguments.}
 }
-\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu }
+\author{ Gregory R. Warnes \email{greg@warnes.net }
   }
 
 \seealso{

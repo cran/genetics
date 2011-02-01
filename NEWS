@@ -1,3 +1,12 @@
+genetics 1.3.6 - 2011-02-01
+---------------------------
+
+- Add missing 'locus<-', 'gene<-', and 'marker<-' functions to
+  NAMESPACE file.
+
+- Update Greg's email address to greg@warnes.net
+
+
 genetics 1.3.5 - 2011-01-17
 ---------------------------
 

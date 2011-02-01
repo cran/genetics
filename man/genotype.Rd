@@ -1,4 +1,4 @@
-% $Id: genotype.Rd 1314 2007-09-12 10:41:11Z ggorjan $
+% $Id: genotype.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{genotype}
 \alias{genotype}
@@ -194,7 +194,7 @@
 }
 
 %\references{ ~put references to the literature/web site here ~ }
-\author{Gregory R. Warnes \email{warnes@bst.rochester.edu} and
+\author{Gregory R. Warnes \email{greg@warnes.net} and
   Friedrich Leisch.}
 \seealso{
   \code{\link{HWE.test}},

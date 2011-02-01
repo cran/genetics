@@ -1,4 +1,4 @@
-% $Id: homozygote.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: homozygote.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{homozygote}
 \alias{homozygote}
@@ -85,7 +85,7 @@ allele.names(x)
   
   
 }
-\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu} }
+\author{ Gregory R. Warnes \email{greg@warnes.net} }
 
 \seealso{
   \code{\link{genotype}},

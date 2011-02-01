@@ -1,4 +1,4 @@
-% $Id: gregorius.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: gregorius.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{gregorius}
 \alias{gregorius}
@@ -62,7 +62,7 @@ gregorius(freq, N, missprob, tol = 1e-10, maxN = 10000, maxiter=100, showiter = 
     
 \author{ Code submitted by David Duffy \email{davidD@qumr.edu.au},
   substantially enhanced by Gregory R. Warnes
-  \email{warnes@bst.rochester.edu}. }
+  \email{greg@warnes.net}. }
 %\seealso{ ~~objects to SEE ALSO as \code{\link{~~fun~~}}, ~~~ }
 \examples{
 

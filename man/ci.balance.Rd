@@ -1,4 +1,4 @@
-% $Id: ci.balance.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: ci.balance.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{ci.balance}
 \alias{ci.balance}
@@ -57,7 +57,7 @@ ci.balance(x, est, confidence=0.95, alpha=1-confidence, minval, maxval,
     of the confidence interval or the character string "Upper Boundary"
     ("Lower Boundary").}
 }
-\author{ Gregory R. Warnes \email{warnes@bst.rochester.edu }
+\author{ Gregory R. Warnes \email{greg@warnes.net }
 }
 
 \seealso{

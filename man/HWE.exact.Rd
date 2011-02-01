@@ -1,4 +1,4 @@
-% $Id: HWE.exact.Rd 1087 2006-11-11 04:09:59Z warnes $
+% $Id: HWE.exact.Rd 1346 2011-02-02 02:21:44Z warnes $
 
 \name{HWE.exact}
 \alias{HWE.exact}
@@ -23,7 +23,7 @@ HWE.exact(x)
   }
 \author{
   David Duffy \email{davidD@qimr.edu.au} with modifications by Gregory
-  R. Warnes \email{warnes@bst.rochester.edu}
+  R. Warnes \email{greg@warnes.net}
   }
 \note{ This function only works for genotypes with exactly 2 alleles.}
 \seealso{
