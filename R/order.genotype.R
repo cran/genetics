@@ -10,8 +10,8 @@ order <- function(..., na.last=TRUE, decreasing=FALSE)
   UseMethod("order")
 
 ## Get default method for order from base package
-order.default <- get("order", pos="package:base")
-formals(order.default) <- c(formals(order.default), alist(...= ))
+order.default <- function(..., na.last=TRUE, decreasing=FALSE)
+  base::order(..., na.last=na.last, decreasing=decreasing)
 
 ## Genotype/Haplotype methods
 order.genotype <- function(..., na.last=TRUE, decreasing=FALSE,

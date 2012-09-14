@@ -89,6 +89,7 @@ HWE.test(x, ...)
 \testonly{
 set.seed(4657613)
 }
+## Marker with two alleles:
 example.data   <- c("D/D","D/I","D/D","I/I","D/D",
                     "D/D","D/D","D/D","I/I","")
 g1  <- genotype(example.data)
@@ -96,25 +97,24 @@ g1
 
 HWE.test(g1)
 
-#compare with
+## Compare with individual calculations:
 diseq(g1)
 diseq.ci(g1)
 HWE.chisq(g1)
 HWE.exact(g1)
 
 
-three.data   <- c(rep("A/A",8),
-                  rep("C/A",20),
-                  rep("C/T",20),
-                  rep("C/C",10),
-                  rep("T/T",3))
+## Marker with three alleles: A, C, and T
+three.data   <- c(rep("A/A",16),
+                  rep("C/A",40),
+                  rep("C/T",40),
+                  rep("C/C",20),
+                  rep("T/T",6))
 
 g3  <- genotype(three.data)
 g3
 
 HWE.test(g3, ci.B=10000)
-
-
 }
 \keyword{ misc }
 %%\keyword{genetics}

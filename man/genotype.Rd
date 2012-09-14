@@ -1,4 +1,4 @@
-% $Id: genotype.Rd 1346 2011-02-02 02:21:44Z warnes $
+% $Id: genotype.Rd 1353 2012-08-14 14:23:17Z warnes $
 
 \name{genotype}
 \alias{genotype}
@@ -77,11 +77,11 @@
 
   as.genotype(x, ...)
 
-  as.genotype.allele.count(x, alleles=c("A","B"), ... )
+  \method{as.genotype}{allele.count}(x, alleles=c("A","B"), \dots )
 
   as.haplotype(x, ...)
 
-  \method{print}{genotype}(x, ...)
+  \method{print}{genotype}(x, \dots)
 
   nallele(x)
 }

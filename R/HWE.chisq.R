@@ -1,4 +1,4 @@
-# $Id: HWE.chisq.R 114 2003-05-22 17:25:23Z warnesgr $
+# $Id: HWE.chisq.R 1352 2012-08-14 14:21:35Z warnes $
 
 
 ###
@@ -25,7 +25,7 @@ HWE.chisq.genotype <- function (x, simulate.p.value = TRUE, B = 10000, ...)
       {
         test <- chisq.test(tab, ...)
         test$parameter <- k*(k-1)/2
-        test$p.value <- pchisq(test$statistic, test$parameter, lower = FALSE)
+        test$p.value <- pchisq(test$statistic, test$parameter, lower.tail = FALSE)
         names(test$statistic) <- "X-squared"
         names(test$parameter) <- "df"
       }

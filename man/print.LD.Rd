@@ -1,4 +1,4 @@
-% $Id: print.LD.Rd 1346 2011-02-02 02:21:44Z warnes $
+% $Id: print.LD.Rd 1353 2012-08-14 14:23:17Z warnes $
 
 \name{print.LD}
 \alias{print.LD}
@@ -14,26 +14,26 @@
 }
 \usage{
 
-\method{print}{LD}(x, digits = getOption("digits"), ...)
-\method{print}{LD.data.frame}(x, ...)
+\method{print}{LD}(x, digits = getOption("digits"), \dots)
+\method{print}{LD.data.frame}(x, \dots)
 
-summary.LD.data.frame(object, digits = getOption("digits"),
+\method{summary.LD}{data.frame}(object, digits = getOption("digits"),
                       which = c("D", "D'", "r", "X^2", "P-value", "n", " "),
-                      rowsep, show.all = FALSE, ...)
-\method{print}{summary.LD.data.frame}(x, digits = getOption("digits"), ...)
+                      rowsep, show.all = FALSE, \dots)
+\method{print}{summary.LD.data.frame}(x, digits = getOption("digits"), \dots)
 
 \method{plot}{LD.data.frame}(x,digits=3, colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
                    colors=heat.colors(length(colorcut)), textcol="black",
-                   marker, which="D'", distance,  ...)
+                   marker, which="D'", distance,  \dots)
 
 
 LDtable(x, colorcut=c(0,0.01, 0.025, 0.5, 0.1, 1),
         colors=heat.colors(length(colorcut)), textcol="black",
         digits=3, show.all=FALSE, which=c("D", "D'", "r", "X^2",
-        "P-value", "n"), colorize="P-value", cex, ...)
+        "P-value", "n"), colorize="P-value", cex, \dots)
 
 LDplot(x, digits=3, marker, distance, which=c("D", "D'", "r", "X^2",
-       "P-value", "n", " "), ... )
+       "P-value", "n", " "), \dots )
 }
 \arguments{
   \item{x,object}{LD or LD.data.frame object}

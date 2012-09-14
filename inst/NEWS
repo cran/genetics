@@ -1,3 +1,15 @@
+genetics 1.3.7 - 2012-09-14
+---------------------------
+
+Enhancements:
+
+- Improve descripiton of last examples in manual page for HWE.test().
+
+Other Changes:
+
+- Correct warnings issued by recent versions of R CMD CHECK.
+
+
 genetics 1.3.6 - 2011-02-01
 ---------------------------
 

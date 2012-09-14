@@ -1,4 +1,4 @@
-# $Id: hapmcmc.R 1332 2007-11-20 20:24:52Z warnes $
+# $Id: hapmcmc.R 1352 2012-08-14 14:21:35Z warnes $
 #
 # Code contributed by David Duffy <davidD@qumr.edu.au>:
 #
@@ -115,7 +115,7 @@ hapmcmc <- function(gtp, B=1000) {
   hap.set<-hapenum(hap.dat)
   hap.amb<-hapambig(hap.dat)
   hap.new<-list(hfreq=hapfreq(hap.dat, set=hap.set), haplotypes=hap.dat)
-  res<-matrix(nr=B, nc=length(hap.set))
+  res<-matrix(nrow=B, ncol=length(hap.set))
   colnames(res)<-as.character(hap.set)
   rownames(res)<-1:B
   for(i in 1:B) {
@@ -126,7 +126,7 @@ hapmcmc <- function(gtp, B=1000) {
 }
 
 mourant <- function(n) {
-  tab<-matrix(c(91,32,5,147,78,17,85,75,7), nr=3)
+  tab<-matrix(c(91,32,5,147,78,17,85,75,7), nrow=3)
   rownames(tab)<-c("M/M","M/N","N/N")
   colnames(tab)<-c("S/S","S/s","s/s")
   dat<-as.data.frame.table(tab)

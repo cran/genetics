@@ -14,7 +14,7 @@ power.casectrl.plot <- function (N, gamma=1.6, p=1:9/10, kp=0.1, alpha=0.05, fc=
     Xvary <- Nsnp 
   }
   J <- length(Xvary)
-  ret <- matrix(NA, nc=J, nr=length(p))
+  ret <- matrix(NA, ncol=J, nrow=length(p))
   colnames(ret) <- paste(vary, '=', Xvary)
   for (j in 1:J) ret[,j] <- eval(cmd)
 
@@ -32,8 +32,8 @@ power.casectrl.plot <- function (N, gamma=1.6, p=1:9/10, kp=0.1, alpha=0.05, fc=
 
 ### simple simulation for two group design
 pw <- function(n1, n2=n1*(1-fc)/fc, fc=.5, pi=0, me1=50, me2=45, sd1=10, sd2=10, TEST=F){
-  covm <- matrix(c(1,    pi,    pi,    1   ), nr=2)*
-          matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nr=2)
+  covm <- matrix(c(1,    pi,    pi,    1   ), nrow=2)*
+          matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nrow=2)
   x1 <- rmvnorm(n=n1, mean=c(me1,me1), sigma=covm)
   x2 <- rmvnorm(n=n2, mean=c(me1,me2), sigma=covm)
   x <- data.frame(rbind(x1,x2), Trt=c(rep(0,n1), rep(1,n2)))
@@ -86,8 +86,8 @@ simu.genotype.conti <- function (N, p=0.15, pi=0, me1=50, me2=me1, delta=-5, sd1
   fhw <- c(q^2, 2*p*q, p^2)  # major allele first
   nhw <- round(N*fhw)
   if (sum(nhw)!=N) nhw[3] <- N-sum(nhw[1:2])
-  covm <- matrix(c(1,    pi,    pi,    1   ), nr=2)*
-          matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nr=2)
+  covm <- matrix(c(1,    pi,    pi,    1   ), nrow=2)*
+          matrix(c(sd1^2, sd1*sd2, sd1*sd2, sd2^2), nrow=2)
   if (!genotype.delta) delta <- delta/sum(fhw*f.mod)  # convert to overall delta due to all genotypes
 
   ## Give explicit variable definitions for variables created by the

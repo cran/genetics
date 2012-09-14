@@ -1,4 +1,4 @@
-% $Id: undocumented.Rd 1115 2006-12-05 18:22:28Z warnes $
+% $Id: undocumented.Rd 1353 2012-08-14 14:23:17Z warnes $
 
 \name{undocumented}
 \alias{as.factor}
@@ -21,8 +21,6 @@
   These functions are undocumented.  Some are internal and not intended
   for direct use.  Some are not yet ready for end users.  Others simply
   haven't been documented yet.
-}
-\usage{
 }
 \author{Gregory R. Warnes}
 \keyword{ misc }
