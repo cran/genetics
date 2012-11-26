@@ -1,389 +1,137 @@
+2012-12-14 20:17  warnes
+
+	* [r1360] doc/LD.pdf, doc/example.Rout.save,
+	  doc/genetics_article.pdf: Update PDF files and create
+	  example.Rout.save
+
+2012-08-14 14:36  warnes
+
+	* [r1356] NEWS: Update for release 1.3.7.
+
+2011-02-02 02:28  warnes
+
+	* [r1349] NEWS: Update for release 1.3.6
+
 2011-02-02 02:24  warnes
 
-	* doc/genetics_article.pdf:
-	  update
-	  Greg's
-	  email
+	* [r1348] doc/genetics_article.pdf: update Greg's email
 
 2011-02-02 02:23  warnes
 
-	* doc/genetics_article.pdf,
-	  doc/genetics_article.tex:
-	  update
-	  Greg's
-	  email
+	* [r1347] doc/genetics_article.pdf, doc/genetics_article.tex:
+	  update Greg's email
 
 2011-01-17 19:13  warnes
 
-	* trunk/genetics/DESCRIPTION,
-	  NEWS,
-	  trunk/genetics/man/HWE.chisq.Rd,
-	  trunk/genetics/man/HWE.test.Rd,
-	  trunk/genetics/man/diseq.Rd:
-	  Correct
-	  R
-	  CMD
-	  check
-	  warnings.
+	* [r1344] NEWS: Correct R CMD check warnings.
 
 2008-08-20 19:23  warnes
 
-	* NEWS:
-	  Update
-	  news
-	  file
-	  to
-	  note
-	  new
-	  regression
-	  test
+	* [r1343] NEWS: Update news file to note new regression test
 
 2008-08-20 19:06  warnes
 
-	* trunk/genetics/DESCRIPTION,
-	  NEWS:
-	  Bump
-	  version
-	  numer
-	  up
-	  and
-	  update
-	  NEWS
-	  file
+	* [r1341] NEWS: Bump version numer up and update NEWS file
 
 2008-04-30 01:05  warnes
 
-	* trunk/genetics/DESCRIPTION,
-	  NEWS:
-	  Update
-	  for
-	  version
-	  1.3.3
+	* [r1338] NEWS: Update for version 1.3.3
 
 2007-11-20 20:27  warnes
 
-	* trunk/genetics/DESCRIPTION,
-	  NEWS:
-	  Update
-	  NEWS
-	  and
-	  DESCRIPTION
-	  for
-	  genetics
-	  1.3.2
+	* [r1334] NEWS: Update NEWS and DESCRIPTION for genetics 1.3.2
 
 2007-09-12 10:41  ggorjan
 
-	* trunk/genetics/DESCRIPTION,
-	  trunk/genetics/NAMESPACE,
-	  trunk/genetics/R/genotype.R,
-	  trunk/genetics/R/summary.genotype.R,
-	  NEWS,
-	  trunk/genetics/man/genotype.Rd:
-	  -
-	  fixes
-	  in
-	  genotypeOrder
-	  to
-	  ensure
-	  all
-	  genotype/haplotype
-	  combinations
+	* [r1314] NEWS: - fixes in genotypeOrder to ensure all
+	  genotype/haplotype combinations
+	  are used.
 	  
-	  are
-	  used. -
-	  genotypeOrder<-
-	  is
-	  now
-	  exported
+	  - genotypeOrder<- is now exported
 
 2007-08-21 14:36  warnes
 
-	* trunk/genetics/NEWS,
-	  NEWS:
-	  Move
-	  Changelog
-	  (not
-	  in
-	  SVN)
-	  and
-	  NEWS
-	  to
-	  inst/
+	* [r1304] NEWS: Move Changelog (not in SVN) and NEWS to inst/
 
 2007-08-21 14:35  warnes
 
-	* ChangeLog,
-	  NEWS:
-	  Remove
-	  softlinks
-	  in
-	  inst,
-	  doesn't
-	  work
-	  on
-	  windows
+	* [r1303] ChangeLog, NEWS: Remove softlinks in inst, doesn't work
+	  on windows
 
 2007-08-20 18:30  warnes
 
-	* ChangeLog,
-	  NEWS:
-	  Add
-	  softlinks
-	  in
-	  inst
-	  to
-	  NEWS
-	  and
-	  ChangeLog
-	  so
-	  these
-	  will
-	  get
-	  installed.
+	* [r1301] ChangeLog, NEWS: Add softlinks in inst to NEWS and
+	  ChangeLog so these will get installed.
 
 2006-11-14 22:20  ggorjan
 
-	* trunk/GeneticsBase/DESCRIPTION,
-	  trunk/GeneticsBase/R/convert.R,
-	  trunk/GeneticsBase/TODO.txt,
-	  trunk/GeneticsBase/data/ALZH.ped,
-	  trunk/GeneticsBase/data/CAMP.ped,
-	  trunk/GeneticsBase/data/CAMPZ.phe,
-	  trunk/GeneticsBase/data/qtl.ped,
-	  trunk/GeneticsBase/data/qtl.phe,
-	  trunk/GeneticsBase/data/xbat.ped,
-	  trunk/GeneticsBase/data/xbat.phe,
-	  trunk/GeneticsBase/man/fastGrid.Rd,
-	  trunk/GeneticsBase/man/makeMarkerInfo.Rd,
-	  trunk/GeneticsBase/man/makeTransTable.Rd,
-	  trunk/GeneticsBase/man/makeTransTableList.Rd,
-	  trunk/GeneticsBase/src/convert.c,
-	  trunk/PopGenetics/R/HWE.test.data.frame.R,
-	  trunk/PopGenetics/R/expectedGenotypes.R,
-	  trunk/PopGenetics/R/plot.genotype.R,
-	  trunk/PopGenetics/inst/doc/example_data.csv,
-	  trunk/PopGenetics/man/expectedGenotypes.Rd,
-	  trunk/PopGenetics/man/plot.genotype.Rd,
-	  trunk/fbat/DESCRIPTION,
-	  trunk/fbat/data/CAMP.ped,
-	  trunk/genetics/R/HWE.test.data.frame.R,
-	  trunk/genetics/R/expectedGenotypes.R,
-	  trunk/genetics/R/plot.genotype.R,
-	  doc/example_data.csv,
-	  trunk/genetics/man/expectedGenotypes.Rd,
-	  trunk/genetics/man/plot.genotype.Rd:
-	  Removing
-	  executable
-	  property
+	* [r1101] doc/example_data.csv: Removing executable property
 
 2006-11-11 04:09  warnes
 
-	* trunk/genetics/DESCRIPTION,
-	  doc/genetics_article.tex,
-	  trunk/genetics/man/HWE.exact.Rd,
-	  trunk/genetics/man/HWE.test.Rd,
-	  trunk/genetics/man/LD.Rd,
-	  trunk/genetics/man/binsearch.Rd,
-	  trunk/genetics/man/ci.balance.Rd,
-	  trunk/genetics/man/diseq.Rd,
-	  trunk/genetics/man/genotype.Rd,
-	  trunk/genetics/man/gregorius.Rd,
-	  trunk/genetics/man/homozygote.Rd,
-	  trunk/genetics/man/locus.Rd,
-	  trunk/genetics/man/makeGenotypes.Rd,
-	  trunk/genetics/man/print.LD.Rd,
-	  trunk/genetics/man/summary.genotype.Rd,
-	  trunk/genetics/man/write.pop.file.Rd:
-	  Update
-	  my
-	  email
-	  address
+	* [r1087] doc/genetics_article.tex: Update my email address
 
 2004-12-23 01:34  warnes
 
-	* trunk/genetics/R/HWE.test.data.frame.R,
-	  doc/LD.pdf,
-	  doc/example_data.csv,
-	  doc/genetics_article.pdf:
-	  Check
-	  in
-	  some
-	  files
-	  that
-	  seem
-	  to
-	  have
-	  been
-	  overlooked
-	  in
-	  the
-	  past.
+	* [r191] doc/LD.pdf, doc/example_data.csv,
+	  doc/genetics_article.pdf: Check in some files that seem to have
+	  been overlooked in the past.
 
 2003-05-29 02:27  warnesgr
 
-	* doc/genetics_article.tex:
-	  -
-	  added
-	  ld
-	  to
-	  conclusion
-	  text
+	* [r139] doc/genetics_article.tex: - added ld to conclusion text
 
 2003-05-29 02:23  warnesgr
 
-	* doc/genetics_article.tex:
-	  Updated
-	  for
-	  version
-	  1.0.0
+	* [r138] doc/genetics_article.tex: Updated for version 1.0.0
 
 2003-05-29 02:20  warnesgr
 
-	* doc/genetics_article.tex:
-	  -
-	  Final
-	  version
-	  to
-	  send
-	  to
+	* [r136] doc/genetics_article.tex: - Final version to send to
 	  Fritz.
 
 2003-05-29 01:55  warnesgr
 
-	* doc/example.R,
-	  doc/genetics_article.tex,
-	  doc/make_example_data.R:
-	  -
-	  
-	  Add
-	  R
-	  code
-	  to
-	  generate
-	  and
-	  demo
-	  genetics
-	  package
+	* [r135] doc/example.R, doc/genetics_article.tex,
+	  doc/make_example_data.R: - Add R code to generate and demo
+	  genetics package
 
 2003-05-16 18:39  warnesgr
 
-	* trunk/genetics/DESCRIPTION,
-	  trunk/genetics/R/makeGenotypes.R,
-	  doc/Rnews.sty,
-	  doc/genetics_article.tex,
-	  trunk/genetics/man/makeGenotypes.Rd:
-	  -
-	  Updated
-	  to
-	  version
-	  0.7.0 -
-	  Made
-	  changes
-	  to
-	  pass
-	  R
-	  CMD
-	  check
+	* [r106] doc/Rnews.sty, doc/genetics_article.tex: - Updated to
+	  version 0.7.0
+	  - Made changes to pass R CMD check
 
 2003-02-03 16:13  warnesgr
 
-	* trunk/genetics/DESCRIPTION,
-	  doc/genetics_article.tex,
-	  trunk/genetics/man/HWE.exact.Rd,
-	  trunk/genetics/man/binsearch.Rd,
-	  trunk/genetics/man/gregorius.Rd:
-	  -
-	  Fixed
-	  typos
-	  and
-	  R
-	  CMD
-	  check
-	  warnings. -
-	  Updated
-	  version
-	  number -
-	  Removed
-	  'data'
-	  directory
-	  to
-	  fix
-	  new
-	  R
-	  CMD
-	  check
-	  warning.
+	* [r97] doc/genetics_article.tex: - Fixed typos and R CMD check
+	  warnings.
+	  - Updated version number
+	  - Removed 'data' directory to fix new R CMD check warning.
 
 2002-11-27 15:32  warnesgr
 
-	* trunk/genetics/DESCRIPTION,
-	  trunk/genetics/R/HWE.test.R,
-	  trunk/genetics/R/diseq.R,
-	  trunk/genetics/R/genotype.R,
-	  trunk/genetics/TODO,
-	  doc/genetics_article.tex,
-	  trunk/genetics/man/HWE.test.Rd,
-	  trunk/genetics/man/ci.balance.Rd,
-	  trunk/genetics/man/diseq.Rd,
-	  trunk/genetics/man/genotype.Rd,
-	  trunk/genetics/man/locus.Rd,
-	  trunk/genetics/man/summary.genotype.Rd,
-	  trunk/genetics/man/undocumented.Rd:
-	  Correct
-	  spelling
-	  errors
-	  and
+	* [r87] doc/genetics_article.tex: Correct spelling errors and
 	  typos.
 
 2002-06-27 18:46  warnesgr
 
-	* doc/genetics_article.tex:
-	  -
-	  More
-	  revisions.
-	  
-	  Hopefully
-	  last
-	  set
-	  before
-	  submission
-	  to
-	  publication
-	  
+	* [r62] doc/genetics_article.tex: - More revisions. Hopefully last
+	  set before submission to publication
 	  review.
 
 2002-06-25 21:38  warnesgr
 
-	* doc/genetics_article.tex:
-	  -
-	  Fixed
-	  syntax
-	  errors -
-	  Some
-	  reorganization
+	* [r60] doc/genetics_article.tex: - Fixed syntax errors
+	  - Some reorganization
 
 2002-06-19 10:34  warnesgr
 
-	* doc/genetics_article.tex:
-	  Much
-	  enhancement,
-	  including
-	  addition
-	  of
-	  example
-	  section.
+	* [r58] doc/genetics_article.tex: Much enhancement, including
+	  addition of example section.
 
 2002-04-09 00:49  warneg
 
-	* .,
-	  doc,
-	  doc/Rnews.sty,
-	  doc/genetics_article.tex:
-	  -
-	  Initial
-	  checkin
-	  of
-	  article
-	  sources
+	* [r49] ., doc, doc/Rnews.sty, doc/genetics_article.tex: - Initial
+	  checkin of article sources
 

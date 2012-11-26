@@ -1,7 +1,7 @@
-189058782cd644efea8de049e3e40eec *ChangeLog
-eb98e29b902e96ba418c63b77e8d4c33 *DESCRIPTION
+d6a90894caea71aa592b31f61fc60e58 *ChangeLog
+91a46fd915332b12a22f50c6b34c2d55 *DESCRIPTION
 18179ce6f9301cd84deef2d68817d5dc *NAMESPACE
-9b6b91d293ce2aa297ea17b3ecc652fd *NEWS
+b8b7201db74480b0deafc4967ea11829 *NEWS
 329130f615d480aa08a6bd96e3755182 *R/HWE.chisq.R
 4d3a1c564741fe0f8adcc7b196ab5e36 *R/HWE.exact.R
 09d8934b5de48220fe0a635f0aa635e7 *R/HWE.test.R
@@ -27,7 +27,7 @@ dd6312ac2351213a4377c1a2a1e1c748 *R/write.pedigree.file.R
 d86dd6b301b36ae8906846c9e24652c3 *R/write.pop.file.R
 c4323d94c00f35463a52f53648b48b48 *R/zzz.R
 f5201d8db362fcd733faf7ed38ca84a8 *TODO
-e14c36d09bda8edc22bd985134332a9d *data/gregorius.rda
+c056ba3e65d9ad68549fa69904d9c289 *data/gregorius.rda
 b97445c94b50ebd432dba458bf490e99 *examples/Allele_Freq.R
 83d00def581d1954b83003ea514f8404 *examples/Allele_Freq.out
 2e58ef3d59ff9720d224b4dc074db65f *examples/Examples.new
@@ -40,13 +40,13 @@ b97445c94b50ebd432dba458bf490e99 *examples/Allele_Freq.R
 0eea6c41d38de6d74e5627bae8131e3b *examples/test.ci.R
 06410d63d43f1e0c7a44f8d5cf627e31 *examples/test.data.2.txt
 fe572c37864c85170a9d10aa74c6542a *examples/test.data.txt
-189058782cd644efea8de049e3e40eec *inst/ChangeLog
-9b6b91d293ce2aa297ea17b3ecc652fd *inst/NEWS
-9b262f84b814d835ed1a6d46515b772f *inst/doc/LD.pdf
+d6a90894caea71aa592b31f61fc60e58 *inst/ChangeLog
+b8b7201db74480b0deafc4967ea11829 *inst/NEWS
+28520aba1e5fa9e753a57cb7655ebd9e *inst/doc/LD.pdf
 a7982b90f82857e34a253df2be42d7c1 *inst/doc/Rnews.sty
 2988c573bde1042c043297c59a27f463 *inst/doc/example.R
 c4595de72231946f0fc1609f592b24c8 *inst/doc/example_data.csv
-5af67d0f88ba52730582512aa553c58a *inst/doc/genetics_article.pdf
+fe4daea58bf47d838420734cab6ec3d1 *inst/doc/genetics_article.pdf
 f95a9e197a25b8040ecf20f9e01e2837 *inst/doc/genetics_article.tex
 cc034c5e7309ff6d457240994424f5d2 *inst/doc/make_example_data.R
 453812fd57d3c3da0af8308630a8f6bb *man/HWE.chisq.Rd
