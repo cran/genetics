@@ -50,7 +50,7 @@ order.genotype <- function(..., na.last=TRUE, decreasing=FALSE,
 
     if(!isHap) {
       ## Match both A/B and B/A
-      genotypeOrder <- genetics:::.genotype2Haplotype(x=genotypeOrder)
+      genotypeOrder <- .genotype2Haplotype(x=genotypeOrder)
     }
     tmp <- match(x, genotypeOrder)
   }

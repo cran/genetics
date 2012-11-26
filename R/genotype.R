@@ -714,7 +714,7 @@ genotypeOrder <- function(x)
       ## Extend value first. We do not do this before, since one
       ## might not necessarily like to have B/A together with A/B in
       ## first place.
-      value <- genetics:::.genotype2Haplotype(x=value)
+      value <- .genotype2Haplotype(x=value)
       ## Remove heterozygos matches in goPos
       test <- !(goPos %in% value)
       goPos <- goPos[test]
@@ -727,7 +727,7 @@ genotypeOrder <- function(x)
       testGOnotAll <- !(goAll %in% value)
       if(any(testGOnotAll)) value <- c(value, goAll[testGOnotAll])
     } else {
-      value <- genetics:::.genotype2Haplotype(x=value)
+      value <- .genotype2Haplotype(x=value)
     }
     attr(x, "genotypeOrder") <- value
   }
@@ -748,14 +748,14 @@ genotypeOrder <- function(x)
   ## Unique values of x are taken i.e. first occurrence prevails
   ##
   ## Example
-  ## genetics:::.genotype2Haplotype(c("A/A", "A/B", "B/B"))
+  ## .genotype2Haplotype(c("A/A", "A/B", "B/B"))
   ## "A/A" "A/B" "B/A" "B/B"
-  ## genetics:::.genotype2Haplotype(c("B/B", "A/B", "A/A"))
+  ## .genotype2Haplotype(c("B/B", "A/B", "A/A"))
   ## "B/B" "A/B" "B/A" "A/A"
 
   x <- unique(x)
   N <- length(x)
-  parts <- genetics:::.genotype2Allele(x=x)
+  parts <- .genotype2Allele(x=x)
   parts <- rbind(parts, parts[, 2:1])
   ind <- rep(1:N, each=2) + c(0, N)
   parts <- parts[ind, ]
@@ -775,7 +775,7 @@ genotypeOrder <- function(x)
   ## Coercing to character is done for x.
   ##
   ## Example
-  ## genetics:::.genotype2Allele(c("A/A", "A/B", "B/B"))
+  ## .genotype2Allele(c("A/A", "A/B", "B/B"))
   ##      [,1] [,2]
   ## [1,] "A"  "A"
   ## [2,] "A"  "B"

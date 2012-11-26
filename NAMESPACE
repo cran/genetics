@@ -1,3 +1,4 @@
+import(MASS, combinat)
 export(
        HWE.chisq,
        HWE.exact,

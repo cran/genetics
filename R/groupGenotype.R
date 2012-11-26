@@ -25,7 +25,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
 
   ## Extend the map
   for(i in seq(along=map)) {
-    map[[i]] <- unlist(genetics:::.matchGenotype(alleles=alleles,
+    map[[i]] <- unlist(.matchGenotype(alleles=alleles,
                                                  pattern=map[[i]],
                                                  haplotype=haplotype),
                        use.names=FALSE)
@@ -84,7 +84,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
   ##
   ## Example:
   ## pattern <- c("A/*", "A/B", "*/*", "B/A")
-  ## genetics:::.matchGenotype(alleles=c("B", "A"), pattern=pattern)
+  ## .matchGenotype(alleles=c("B", "A"), pattern=pattern)
   ## $`A/*`
   ## [1] "A/B" "B/A" "A/A"
   ## $`A/B`
@@ -94,7 +94,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
   ## $`B/A`
   ## [1] "B/A" "A/B"
   ##
-  ## genetics:::.matchGenotype(alleles=c("B", "A"), pattern=pattern, haplotype=TRUE)
+  ## .matchGenotype(alleles=c("B", "A"), pattern=pattern, haplotype=TRUE)
   ## $`A/*`
   ## [1] "A/B" "A/A"
   ## $`A/B`
@@ -119,7 +119,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
   names(ret) <- pattern
 
   ## Change * with allele names setup
-  parts <- genetics:::.genotype2Allele(x=pattern)
+  parts <- .genotype2Allele(x=pattern)
   parts <- cbind(parts, 1:nP)
   testStar <- parts == "*"
   nA <- length(alleles)
@@ -140,7 +140,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
         }
       } else {       # */*
         tmp <- expectedHaplotypes(alleles=alleles)
-        tmp <- genetics:::.genotype2Allele(x=tmp)
+        tmp <- .genotype2Allele(x=tmp)
         parts <- rbind(parts, cbind(tmp, i))
       }
     }
@@ -161,7 +161,7 @@ groupGenotype <- function(x, map, haplotype=FALSE, factor=TRUE,
   }
 
   ## For genotype treat A/* the same as */A and A/B as B/A
-  if(!haplotype) ret <- lapply(ret, genetics:::.genotype2Haplotype)
+  if(!haplotype) ret <- lapply(ret, .genotype2Haplotype)
 
   ## Return
   ret
