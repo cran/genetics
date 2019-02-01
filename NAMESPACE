@@ -124,7 +124,17 @@ S3method(order, genotype)
 S3method(sort, genotype)
 
 importFrom(stats, na.omit)
-importFrom(gdata, interleave, trim)
+importFrom(gdata, interleave, trim, as.levelsMap, "mapLevels<-")
 importFrom(mvtnorm, rmvnorm)
 ##importFrom(combinat, rmultz2) # combinat doesn't have a namesspace.
 importFrom(gtools, binsearch, combinations, permutations)
+
+importFrom("grDevices", "heat.colors")
+importFrom("graphics", "abline", "axis", "barplot", "image", "legend",
+           "locator", "matplot", "par", "plot", "strheight",
+           "strwidth", "text", "title")
+importFrom("stats", "anova", "chisq.test", "complete.cases", "lm",
+           "optimize", "pchisq", "quantile", "runif")
+importFrom("utils", "write.table")
+
+S3method(summary, LD.data.frame)

@@ -1,6 +1,6 @@
 d6a90894caea71aa592b31f61fc60e58 *ChangeLog
-0152193665622e6323febd48e19b9529 *DESCRIPTION
-a44b4c9703dabb76eb3d4e7ac9da6902 *NAMESPACE
+dd2c539ef4de7ab20d17d1ee1b99d03a *DESCRIPTION
+d3e630888d9322a5d41abf66bf78a38f *NAMESPACE
 b8b7201db74480b0deafc4967ea11829 *NEWS
 329130f615d480aa08a6bd96e3755182 *R/HWE.chisq.R
 4d3a1c564741fe0f8adcc7b196ab5e36 *R/HWE.exact.R
@@ -27,7 +27,7 @@ dd6312ac2351213a4377c1a2a1e1c748 *R/write.pedigree.file.R
 d86dd6b301b36ae8906846c9e24652c3 *R/write.pop.file.R
 af5a86eb636340e1c509fc1e0c7a0be2 *R/zzz.R
 f5201d8db362fcd733faf7ed38ca84a8 *TODO
-c056ba3e65d9ad68549fa69904d9c289 *data/gregorius.rda
+22955eec300f6450029fada3c00e1ce2 *data/gregorius.rda
 d6a90894caea71aa592b31f61fc60e58 *inst/ChangeLog
 b8b7201db74480b0deafc4967ea11829 *inst/NEWS
 28520aba1e5fa9e753a57cb7655ebd9e *inst/doc/LD.pdf
