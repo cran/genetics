@@ -1,5 +1,5 @@
 d6a90894caea71aa592b31f61fc60e58 *ChangeLog
-dd2c539ef4de7ab20d17d1ee1b99d03a *DESCRIPTION
+973f1a3545e45a603b3691619efde8c6 *DESCRIPTION
 d3e630888d9322a5d41abf66bf78a38f *NAMESPACE
 b8b7201db74480b0deafc4967ea11829 *NEWS
 329130f615d480aa08a6bd96e3755182 *R/HWE.chisq.R
@@ -56,7 +56,7 @@ ab170ce6ef40554e7f2c9d2b84784fd2 *man/plot.genotype.Rd
 f659d748a8954374edc7510cfe65a5fc *man/print.LD.Rd
 d8e6145f469b901e2344657b54615233 *man/summary.genotype.Rd
 87f4411c595309ca34d96f338f75bb4e *man/undocumented.Rd
-70df7b4bf130657d32d8f8ddb6161bec *man/write.pop.file.Rd
+9ec3a1348db94c3331e18fc4e560d6f1 *man/write.pop.file.Rd
 ff1d54500f0a55f36e78d742a5136250 *tests/ci.balance.R
-4738e69e9433a963e58d50c675e6472e *tests/makeGenotype_with_sep.R
+d7e70e28ff81535d6f2ccb632b5eb879 *tests/makeGenotype_with_sep.R
 439931dee85bc1d10563b3a7af36756b *tests/test.NA.R

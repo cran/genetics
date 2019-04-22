@@ -1,5 +1,7 @@
 library(genetics)
 
+suppressWarnings(RNGversion("3.5.0"))
+
 set.seed(12345)
 
 # Create a test data set where there are several genotypes in columns

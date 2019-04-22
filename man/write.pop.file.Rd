@@ -8,17 +8,17 @@
 \title{Create genetics data files}
 \description{
   \code{write.pop.file} creates a 'pop' data file, as used by the
-  GenePop (\url{http://wbiomed.curtin.edu.au/genepop/}) and LinkDos
-  (\url{http://wbiomed.curtin.edu.au/genepop/linkdos.html}) software
+  GenePop (\url{http://genepop.curtin.edu.au/}) and LinkDos
+  (\url{http://genepop.curtin.edu.au/linkC.html}) software
   packages.
 
   \code{write.pedigree.file} creates a 'pedigree' data file, as used
   by the QTDT software package
-  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/}).
+  (\url{http://csg.sph.umich.edu//abecasis/QTDT/}).
   
   \code{write.marker.file} creates a 'marker' data file, as used by
-  the QTDT software package 
-  (\url{http://www.sph.umich.edu/statgen/abecasis/QTDT/}).
+  the QTDT software package
+  (\url{http://csg.sph.umich.edu//abecasis/QTDT/}).
 }
 \usage{
 write.pop.file(data, file = "", digits = 2, description = "Data from R")
@@ -41,7 +41,7 @@ write.marker.file(data, location, file="marker.txt")
 }
 \details{
   The format of 'Pop' files is documented at
-  \url{http://wbiomed.curtin.edu.au/genepop/help_input.html}, the format
+  \url{http://genepop.curtin.edu.au/help_input.html}, the format
   of 'pedigree' files is documented at \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/pedigree.html} and the format of 'marker'
   files is documented at
   \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/map.html}.
