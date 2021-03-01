@@ -8,8 +8,8 @@
 \title{Create genetics data files}
 \description{
   \code{write.pop.file} creates a 'pop' data file, as used by the
-  GenePop (\url{http://genepop.curtin.edu.au/}) and LinkDos
-  (\url{http://genepop.curtin.edu.au/linkC.html}) software
+  GenePop (\url{https://genepop.curtin.edu.au/}) and LinkDos
+  (\url{https://genepop.curtin.edu.au/linkC.html}) software
   packages.
 
   \code{write.pedigree.file} creates a 'pedigree' data file, as used
@@ -41,10 +41,10 @@ write.marker.file(data, location, file="marker.txt")
 }
 \details{
   The format of 'Pop' files is documented at
-  \url{http://genepop.curtin.edu.au/help_input.html}, the format
-  of 'pedigree' files is documented at \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/pedigree.html} and the format of 'marker'
+  \url{https://genepop.curtin.edu.au/help_input.html}, the format
+  of 'pedigree' files is documented at \url{http://csg.sph.umich.edu/abecasis/GOLD/docs/pedigree.html} and the format of 'marker'
   files is documented at
-  \url{http://www.sph.umich.edu/csg/abecasis/GOLD/docs/map.html}.
+  \url{http://csg.sph.umich.edu/abecasis/GOLD/docs/map.html}.
 }
 \value{
   No return value.

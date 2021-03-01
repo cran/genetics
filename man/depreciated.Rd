@@ -12,11 +12,8 @@ power.casectrl(...)
   \item{\dots}{All arguments are ignored}
 }
 \details{
-  The \code{power.casectl} function contained serious errors and has been
-  replaced by \code{\link[GeneticsDesign]{GPC}},
-  \code{\link[GeneticsDesign]{GeneticPower.Quantitative.Factor}}, or
-  \code{\link[GeneticsDesign]{GeneticPower.Quantitative.Numeric}} in the
-  BioConductor GeneticsDesign package.
+  The \code{power.casectl} function contained serious errors.  For some
+  time, replacements were provided by the BioConductor GeneticsDesign package.
       
   In specific, the \code{power.casectl} function used an expected
   contingency table to create the test statistic that was

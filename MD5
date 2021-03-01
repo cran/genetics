@@ -1,5 +1,5 @@
 d6a90894caea71aa592b31f61fc60e58 *ChangeLog
-973f1a3545e45a603b3691619efde8c6 *DESCRIPTION
+d8f117f93bc032e349bb545fc17f23c6 *DESCRIPTION
 d3e630888d9322a5d41abf66bf78a38f *NAMESPACE
 b8b7201db74480b0deafc4967ea11829 *NEWS
 329130f615d480aa08a6bd96e3755182 *R/HWE.chisq.R
@@ -27,7 +27,7 @@ dd6312ac2351213a4377c1a2a1e1c748 *R/write.pedigree.file.R
 d86dd6b301b36ae8906846c9e24652c3 *R/write.pop.file.R
 af5a86eb636340e1c509fc1e0c7a0be2 *R/zzz.R
 f5201d8db362fcd733faf7ed38ca84a8 *TODO
-22955eec300f6450029fada3c00e1ce2 *data/gregorius.rda
+262e8428f96850c65bde945aeccd694a *data/gregorius.rda
 d6a90894caea71aa592b31f61fc60e58 *inst/ChangeLog
 b8b7201db74480b0deafc4967ea11829 *inst/NEWS
 28520aba1e5fa9e753a57cb7655ebd9e *inst/doc/LD.pdf
@@ -42,7 +42,7 @@ cc034c5e7309ff6d457240994424f5d2 *inst/doc/make_example_data.R
 aed8c26068e9d2aeb9dadb1c950595c1 *man/HWE.test.Rd
 4455a410899d85f85b59094523077f1a *man/LD.Rd
 b038e3239babb78b02d251a3ebb2d460 *man/ci.balance.Rd
-21c2396b886ee16be7aff583de04c049 *man/depreciated.Rd
+3f09be44dbcdaa0e361b1ea8a6119926 *man/depreciated.Rd
 5446e2425a2d00f424ae86d2067c7c68 *man/diseq.Rd
 43b447ccb904b0b55131c353f52faf47 *man/expectedGenotypes.Rd
 ba43c443084381376c9aed95e3caeecc *man/genotype.Rd
@@ -56,7 +56,7 @@ ab170ce6ef40554e7f2c9d2b84784fd2 *man/plot.genotype.Rd
 f659d748a8954374edc7510cfe65a5fc *man/print.LD.Rd
 d8e6145f469b901e2344657b54615233 *man/summary.genotype.Rd
 87f4411c595309ca34d96f338f75bb4e *man/undocumented.Rd
-9ec3a1348db94c3331e18fc4e560d6f1 *man/write.pop.file.Rd
+2ebede58555e86902cbdda6c9aebf142 *man/write.pop.file.Rd
 ff1d54500f0a55f36e78d742a5136250 *tests/ci.balance.R
 d7e70e28ff81535d6f2ccb632b5eb879 *tests/makeGenotype_with_sep.R
 439931dee85bc1d10563b3a7af36756b *tests/test.NA.R
